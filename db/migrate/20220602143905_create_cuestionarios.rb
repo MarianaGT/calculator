@@ -1,0 +1,85 @@
+class CreateCuestionarios < ActiveRecord::Migration[6.1]
+  def change
+    create_table :cuestionarios do |t|
+      t.string :email
+      t.string :nombre
+      t.integer :edad
+      t.string :sexo
+      t.string :escolaridad
+      t.string :pais
+      t.string :ciudad
+      t.string :localidad
+      t.integer :peso
+      t.float :altura
+      t.string :alimentacion_sana
+      t.string :alimentacion_dana_ambiente
+      t.string :persona_actividad
+      t.float :actividad_fisica
+      t.string :sobrepeso
+      t.string :obesidad
+      t.string :hipertension
+      t.string :colesterol
+      t.string :trigliceridos
+      t.string :diabetes
+      t.string :glucosa
+      t.string :diabetes_familia
+      t.string :diabetes_sintomas
+      t.string :dieta
+      t.string :origen_vegetales
+      t.string :origen_frutas
+      t.string :origen_carne
+      t.string :origen_leche
+      t.string :origen_cereales
+      t.float :frecuencia_res
+      t.float :frecuencia_puerco
+      t.float :frecuencia_borrego
+      t.float :frecuencia_pollo
+      t.float :frecuencia_salmon
+      t.float :frecuencia_atun
+      t.float :frecuencia_leche
+      t.float :frecuencia_queso
+      t.float :frecuencia_yogurt
+      t.float :frecuencia_pescados_mariscos
+      t.string :valores_pescados_mariscos
+      t.float :frecuencia_huevo
+      t.integer :cantidad_huevo
+      t.float :frecuencia_vegetales
+      t.integer :cantidad_vegetales
+      t.float :frecuencia_fruta
+      t.float :cantidad_fruta
+      t.float :frecuencia_arroz
+      t.float :frecuencia_leguminosas
+      t.float :frecuencia_avena
+      t.float :frecuencia_amaranto
+      t.float :frecuencia_tortillas
+      t.integer :cantidad_tortillas
+      t.string :insectos
+      t.float :frecuencia_insectos
+      t.float :frecuencia_tamales
+      t.float :frecuencia_atole
+      t.float :frecuencia_sandwich
+      t.float :frecuencia_tacos
+      t.string :valores_tacos
+      t.float :frecuencia_torta
+      t.float :frecuencia_bolillo
+      t.integer :cantidad_bolillo
+      t.float :frecuencia_sopas
+      t.float :frecuencia_jugos
+      t.float :frecuencia_refrescos
+      t.float :frecuencia_bebidas_energetizantes
+      t.float :frecuencia_galletas
+      t.string :valores_galletas
+      t.float :frecuencia_embutidos
+      t.string :valores_embutidos
+      t.float :frecuencia_pan
+      t.string :valores_pan
+      t.integer :cantidad_pan
+      t.float :frecuencia_frituras
+      t.string :valores_frituras
+      t.float :frecuencia_chocolates
+      t.integer :cantidad_chocolates
+
+      t.timestamps
+    end
+  end
+end

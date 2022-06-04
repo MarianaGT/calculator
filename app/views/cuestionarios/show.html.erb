@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container my-3">
+  <h3>HS 1</h3>
+  <p>
+    Harris Benedict:
+    <%= @harris_benedict %> kcal
+  </p>
+  <p>
+    Factor de activdad fisica:
+    <%= @factor_actividad_fisica %>
+  </p>
+  <p>
+    Efecto termogenico de los alimentos:
+    <%= @eta1 %>
+  </p>
+  <p>
+    HS:
+    <%= @hs1 %>
+  </p>
+  <hr>
+  <h3>HS 2</h3>
+  <p>
+    Peso real:
+    <%= @cuestionario.peso %> kg
+  </p>
+  <p>
+    Lorentz (peso ideal):
+    <%= @lorentz %> kg
+  </p>
+  <p>
+    Peso ajustado:
+    <%= @peso_ajustado %> kg
+  </p>
+  <p>
+    Harris Benedict (peso ajustado):
+    <%= @harris_benedict_ajustado %> kcal
+  </p>
+  <p>
+    Efecto termogenico de los alimentos:
+    <%= @eta2 %>
+  </p>
+  <p>
+    HS:
+    <%= @hs2 %>
+  </p>
+
+
+  <%# The links menu was commented and it is kept in the code just in case we need it later %>
+  <%#= link_to 'Edit', edit_cuestionario_path(@cuestionario) %>
+  <%#= link_to 'Back', cuestionarios_path %>
+</div>
