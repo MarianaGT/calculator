@@ -12,6 +12,7 @@ class CuestionariosController < ApplicationController
     hs1
     hs2
     kcal_calculator
+    huella_carbono
   end
 
   # GET /cuestionarios/new
@@ -137,15 +138,18 @@ class CuestionariosController < ApplicationController
   def obtener_carbono(origen, arr_valores_kg_co2, porciones_por_kilo, frecuencia_consumo)
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     kg_co2 = arr_valores_kg_co2[origen_alimento]
-    @carbono = (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7).round(2)
+    (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7).round(2)
   end
 
   def obtener_calorias(kcal_porcion, frecuencia_consumo)
-    @calorias = (kcal_porcion * frecuencia_consumo / 7).round(2)
+    (kcal_porcion * frecuencia_consumo / 7).round(2)
   end
 
   def kcal_calculator
-    obtener_carbono(@cuestionario.origen_carne, [16.33,	16.33, 26.99], 10, @cuestionario.frecuencia_res )
-    obtener_calorias(135, @cuestionario.frecuencia_res)
+    @calorias = obtener_calorias(135, @cuestionario.frecuencia_res)
+  end
+
+  def huella_carbono
+    @carbono = obtener_carbono(@cuestionario.origen_carne, [16.33,	16.33, 26.99], 10, @cuestionario.frecuencia_res )
   end
 end
