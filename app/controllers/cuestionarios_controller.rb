@@ -57,6 +57,8 @@ class CuestionariosController < ApplicationController
     params.require(:cuestionario).permit(:email, :nombre, :edad, :sexo, :escolaridad, :pais, :ciudad, :localidad, :peso, :altura, :alimentacion_sana, :alimentacion_dana_ambiente, :persona_actividad, :actividad_fisica, :sobrepeso, :obesidad, :hipertension, :colesterol, :trigliceridos, :diabetes, :glucosa, :diabetes_familia, :dieta, :origen_vegetales, :origen_frutas, :origen_carne, :origen_leche, :origen_cereales, :frecuencia_res, :frecuencia_puerco, :frecuencia_borrego, :frecuencia_pollo, :frecuencia_salmon, :frecuencia_atun, :frecuencia_leche, :frecuencia_queso, :frecuencia_yogurt, :frecuencia_pescados_mariscos, :valores_pescados_mariscos, :frecuencia_huevo, :cantidad_huevo, :frecuencia_vegetales, :cantidad_vegetales, :frecuencia_fruta, :cantidad_fruta, :frecuencia_arroz, :frecuencia_leguminosas, :frecuencia_avena, :frecuencia_amaranto, :frecuencia_tortillas, :cantidad_tortillas, :insectos, :frecuencia_insectos, :frecuencia_tamales, :frecuencia_atole, :frecuencia_sandwich, :frecuencia_tacos, :frecuencia_torta, :frecuencia_bolillo, :cantidad_bolillo, :frecuencia_sopas, :frecuencia_jugos, :frecuencia_refrescos, :frecuencia_bebidas_energetizantes, :frecuencia_galletas, :frecuencia_embutidos, :frecuencia_pan, :cantidad_pan, :frecuencia_frituras, :frecuencia_chocolates, :cantidad_chocolates, :al_pastor, :necesidad_orinar, :perdida_peso, :sed_excesiva, :hambre_excesiva, :suadero, :guisados, :galletas_saladas, :galletas_dulces, :jamon_pavo, :jamon_puerco, :salchicha_pavo, :fritura_papa, :fritura_chicharron, :mantecadas, :pan_blanco)
   end
 
+  # THIS SECTION CONTAINS ALL THE FORMULAS AND LOGIC FOR HUELLA DE SALUD
+
   def harris_benedict(weight)
     # Mujeres: TMB = 655 + (9,6 x peso en kg) + (1.8 x altura en cm) - (4,7 x edad en años).
     # Hombres: Tasa Metabólica basal = 66 + (13,7 x peso en kg) + (5 x altura en cm) - (6,75 x edad en años).
@@ -130,7 +132,31 @@ class CuestionariosController < ApplicationController
     @hs2 = hs(@harris_benedict_ajustado, @eta2)
   end
 
-  def kcal_calculator
+  # THIS SECTION CONTAINS LOGIC AND FORMULAS FOR CALORIES CALCULATOR
+
+  def valores_res
+    origen_res = ['no consumo', 'organico', 'intensivo'].index(@cuestionario.origen_carne)
+    kg_co2 = [16.33,	16.33, 26.99][origen_res]
+    kcal_porcion = 135
+    porciones_por_kilo = 10
+    @carbono = (kg_co2 / porciones_por_kilo * @cuestionario.frecuencia_res / 7).round(2)
+    @calorias = (kcal_porcion * @cuestionario.frecuencia_res / 7).round(2)
+  end
+
+  def obtener_valores(origen, frecuencia, arr_valores_kg_co2, kcal_porcion, porciones_por_kilo)
+    origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
+    kg_co2 = arr_valores_kg_co2[origen_alimento]
+  end
+
+  def obtener_carbono
+
+  end
+
+  def obtener_calorias
     
+  end
+
+  def kcal_calculator
+    valores_res
   end
 end
