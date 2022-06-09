@@ -134,29 +134,18 @@ class CuestionariosController < ApplicationController
 
   # THIS SECTION CONTAINS LOGIC AND FORMULAS FOR CALORIES CALCULATOR
 
-  def valores_res
-    origen_res = ['no consumo', 'organico', 'intensivo'].index(@cuestionario.origen_carne)
-    kg_co2 = [16.33,	16.33, 26.99][origen_res]
-    kcal_porcion = 135
-    porciones_por_kilo = 10
-    @carbono = (kg_co2 / porciones_por_kilo * @cuestionario.frecuencia_res / 7).round(2)
-    @calorias = (kcal_porcion * @cuestionario.frecuencia_res / 7).round(2)
-  end
-
-  def obtener_valores(origen, frecuencia, arr_valores_kg_co2, kcal_porcion, porciones_por_kilo)
+  def obtener_carbono(origen, arr_valores_kg_co2, porciones_por_kilo, frecuencia_consumo)
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     kg_co2 = arr_valores_kg_co2[origen_alimento]
+    @carbono = (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_carbono
-
-  end
-
-  def obtener_calorias
-    
+  def obtener_calorias(kcal_porcion, frecuencia_consumo)
+    @calorias = (kcal_porcion * frecuencia_consumo / 7).round(2)
   end
 
   def kcal_calculator
-    valores_res
+    obtener_carbono(@cuestionario.origen_carne, [16.33,	16.33, 26.99], 10, @cuestionario.frecuencia_res )
+    obtener_calorias(135, @cuestionario.frecuencia_res)
   end
 end
