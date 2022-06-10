@@ -145,6 +145,10 @@ class CuestionariosController < ApplicationController
     (kcal_porcion * frecuencia_consumo / 7).round(2)
   end
 
+  def obtener_calorias_multiplicador(kcal_unidad, frecuencia_consumo, cantidad = 1)
+    (kcal_unidad * frecuencia_consumo / 7 * cantidad).round(2)
+  end
+
   def obtener_carbono(origen, arr_valores_kg_co2, porciones_por_kilo, frecuencia_consumo)
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     kg_co2 = arr_valores_kg_co2[origen_alimento]
@@ -163,8 +167,14 @@ class CuestionariosController < ApplicationController
     (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7).round(2)
   end
 
+  def obtener_carbono_multiplicador(origen, arr_valores_kg_co2, porciones_por_kilo, frecuencia_consumo, cantidad)
+    origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
+    kg_co2 = arr_valores_kg_co2[origen_alimento]
+    (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7 * cantidad).round(2)
+  end
+
   def kcal_calculator
-    calorias_res = obtener_calorias(135, @cuestionario.frecuencia_res)
+    calorias_res = obtener_calorias(CALORIAS_POR_PORCION[:vegetales], @cuestionario.frecuencia_res)
     calorias_cerdo = obtener_calorias(297, @cuestionario.frecuencia_puerco)
     calorias_borrego = obtener_calorias(177, @cuestionario.frecuencia_borrego)
     calorias_pollo = obtener_calorias(195, @cuestionario.frecuencia_pollo)
@@ -172,8 +182,10 @@ class CuestionariosController < ApplicationController
     calorias_queso = obtener_calorias(100, @cuestionario.frecuencia_queso)
     calorias_yogurt = obtener_calorias(91, @cuestionario.frecuencia_yogurt)
     calorias_pescados_y_mariscos = obtener_calorias_pescados_y_mariscos(@cuestionario.valores_pescados_mariscos, @cuestionario.frecuencia_pescados_mariscos)
+    calorias_huevo = obtener_calorias_multiplicador(74, @cuestionario.frecuencia_huevo, @cuestionario.cantidad_huevo)
+    calorias_vegetales = obtener_calorias_multiplicador(31, @cuestionario.frecuencia_vegetales, @cuestionario.cantidad_vegetales)
 
-    @calorias = [calorias_res, calorias_cerdo, calorias_borrego, calorias_pollo, calorias_leche, calorias_queso, calorias_yogurt, calorias_pescados_y_mariscos].sum
+    @calorias = [calorias_res, calorias_cerdo, calorias_borrego, calorias_pollo, calorias_leche, calorias_queso, calorias_yogurt, calorias_pescados_y_mariscos, calorias_huevo, calorias_vegetales].sum
   end
 
   def huella_carbono
@@ -185,12 +197,19 @@ class CuestionariosController < ApplicationController
     carbono_queso = obtener_carbono(@cuestionario.origen_leche, [9.31, 10.61, 10.61], 33.33, @cuestionario.frecuencia_queso)
     carbono_yogurt = obtener_carbono(@cuestionario.origen_leche, [0.79, 0.9, 0.9], 8, @cuestionario.frecuencia_yogurt)
     carbono_pescados_y_mariscos = obtener_carbono_pescados_y_mariscos(@cuestionario.origen_carne, @cuestionario.valores_pescados_mariscos, @cuestionario.frecuencia_pescados_mariscos)
+    carbono_huevo = obtener_carbono_multiplicador(@cuestionario.origen_carne, [1.97, 1.97, 3.49], 20, @cuestionario.frecuencia_huevo, @cuestionario.cantidad_huevo)
+    carbono_vegetales = obtener_carbono_multiplicador(@cuestionario.origen_vegetales, [0.3, 0.3, 0.31], 11.11, @cuestionario.frecuencia_vegetales, @cuestionario.cantidad_vegetales)
 
-    @carbono = [carbono_res, carbono_puerco, carbono_borrego, carbono_pollo, carbono_leche, carbono_queso, carbono_yogurt, carbono_pescados_y_mariscos].sum
+    @carbono = [carbono_res, carbono_puerco, carbono_borrego, carbono_pollo, carbono_leche, carbono_queso, carbono_yogurt, carbono_pescados_y_mariscos, carbono_huevo, carbono_vegetales].sum
   end
+
+  CALORIAS_POR_PORCION = {
+    vegetales: 135
+  }
 
   # no hay valores para salmon, atun, que estan en el cuestionario
   # en el cuestionario no hay preguntas de pavo pero si estan los valores
   # no hay pregunta del origen del queso ni del yogurt, calculado con el origen de la leche
   # no hay pregunta del origen del pescado, calculado con el origen de la carne
+  # no hay pregunta del origen del huevo, calculado con el origen de la carne
 end
