@@ -227,7 +227,13 @@ class CuestionariosController < ApplicationController
     calorias_tamales = obtener_calorias(CALORIAS_POR_PORCION[:tamales], @cuestionario.frecuencia_tamales)
     calorias_atole = obtener_calorias(CALORIAS_POR_PORCION[:atole], @cuestionario.frecuencia_atole)
     calorias_sandwich = obtener_calorias(CALORIAS_POR_PORCION[:sandwich], @cuestionario.frecuencia_sandwich)
-    [calorias_res, calorias_cerdo, calorias_borrego, calorias_pollo, calorias_leche, calorias_queso, calorias_yogurt, calorias_arroz, calorias_leguminosas, calorias_avena, calorias_amaranto, calorias_tamales, calorias_atole, calorias_sandwich].sum
+    calorias_salmon = obtener_calorias(CALORIAS_POR_PORCION[:salmon], @cuestionario.frecuencia_salmon)
+    calorias_torta = obtener_calorias(CALORIAS_POR_PORCION[:torta], @cuestionario.frecuencia_torta)
+    calorias_sopas = obtener_calorias(CALORIAS_POR_PORCION[:sopas], @cuestionario.frecuencia_sopas)
+    calorias_jugos = obtener_calorias(CALORIAS_POR_PORCION[:jugos], @cuestionario.frecuencia_jugos)
+    calorias_refrescos = obtener_calorias(CALORIAS_POR_PORCION[:refrescos], @cuestionario.frecuencia_refrescos)
+    calorias_bebidas_energy = obtener_calorias(CALORIAS_POR_PORCION[:bebidas_energetizantes], @cuestionario.frecuencia_bebidas_energetizantes)
+    [calorias_res, calorias_cerdo, calorias_borrego, calorias_pollo, calorias_leche, calorias_queso, calorias_yogurt, calorias_arroz, calorias_leguminosas, calorias_avena, calorias_amaranto, calorias_tamales, calorias_atole, calorias_sandwich, calorias_salmon, calorias_torta, calorias_sopas, calorias_jugos, calorias_refrescos, calorias_bebidas_energy].sum
   end
 
   def contador_calorias_compuesto
@@ -235,7 +241,8 @@ class CuestionariosController < ApplicationController
     calorias_vegetales = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:vegetales], @cuestionario.frecuencia_vegetales, @cuestionario.cantidad_vegetales)
     calorias_fruta = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:fruta], @cuestionario.frecuencia_fruta, @cuestionario.cantidad_fruta)
     calorias_tortillas = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:tortillas], @cuestionario.frecuencia_tortillas, @cuestionario.cantidad_tortillas)
-    [calorias_huevo, calorias_vegetales, calorias_fruta, calorias_tortillas].sum
+    calorias_bolillo = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:bolillo], @cuestionario.frecuencia_bolillo, @cuestionario.cantidad_bolillo)
+    [calorias_huevo, calorias_vegetales, calorias_fruta, calorias_tortillas, calorias_bolillo].sum
   end
 
   def contador_calorias_especial
@@ -246,7 +253,7 @@ class CuestionariosController < ApplicationController
   end
 
   def kcal_calculator
-    @calorias = [contador_calorias_simple, contador_calorias_compuesto, contador_calorias_especial].sum
+    @calorias = ([contador_calorias_simple, contador_calorias_compuesto, contador_calorias_especial].sum).round(2)
   end
 
   def contador_carbono_simple
@@ -263,8 +270,9 @@ class CuestionariosController < ApplicationController
     carbono_amaranto = obtener_carbono(@cuestionario.origen_cereales, VALORES_KG_CO2[:amaranto], PORCIONES_KG[:amaranto], @cuestionario.frecuencia_amaranto)
     carbono_tamales = obtener_carbono('intensivo', VALORES_KG_CO2[:tamales], PORCIONES_KG[:tamales], @cuestionario.frecuencia_tamales)
     carbono_atole = obtener_carbono('intensivo', VALORES_KG_CO2[:atole], PORCIONES_KG[:atole], @cuestionario.frecuencia_atole)
-    carbono_sandwich = obtener_carbono('intensivo', VALORES_KG_CO2[:sandwich], PORCIONES_KG[:sandwich],@cuestionario.frecuencia_sandwich)
-    [carbono_res, carbono_puerco, carbono_borrego, carbono_pollo, carbono_leche, carbono_queso, carbono_yogurt, carbono_arroz, carbono_leguminosas, carbono_avena, carbono_amaranto, carbono_tamales, carbono_atole, carbono_sandwich].sum
+    carbono_sandwich = obtener_carbono('intensivo', VALORES_KG_CO2[:sandwich], PORCIONES_KG[:sandwich], @cuestionario.frecuencia_sandwich)
+    carbono_salmon = obtener_carbono(@cuestionario.origen_carne, VALORES_KG_CO2[:salmon], PORCIONES_KG[:salmon], @cuestionario.frecuencia_salmon)
+    [carbono_res, carbono_puerco, carbono_borrego, carbono_pollo, carbono_leche, carbono_queso, carbono_yogurt, carbono_arroz, carbono_leguminosas, carbono_avena, carbono_amaranto, carbono_tamales, carbono_atole, carbono_sandwich, carbono_salmon].sum
   end
 
   def contador_carbono_compuesto
@@ -272,7 +280,8 @@ class CuestionariosController < ApplicationController
     carbono_vegetales = obtener_carbono_multiplicador(@cuestionario.origen_vegetales, VALORES_KG_CO2[:vegetales], PORCIONES_KG[:vegetales], @cuestionario.frecuencia_vegetales, @cuestionario.cantidad_vegetales)
     carbono_fruta = obtener_carbono_multiplicador(@cuestionario.origen_frutas, VALORES_KG_CO2[:fruta], PORCIONES_KG[:fruta], @cuestionario.frecuencia_fruta, @cuestionario.cantidad_fruta)
     carbono_tortillas = obtener_carbono_multiplicador(@cuestionario.origen_cereales, VALORES_KG_CO2[:tortillas], PORCIONES_KG[:tortillas], @cuestionario.frecuencia_tortillas, @cuestionario.cantidad_tortillas)
-    [carbono_huevo, carbono_vegetales, carbono_fruta, carbono_tortillas].sum
+    carbono_bolillo = obtener_carbono_multiplicador(@cuestionario.origen_cereales, VALORES_KG_CO2[:bolillo], PORCIONES_KG[:bolillo], @cuestionario.frecuencia_bolillo, @cuestionario.cantidad_bolillo)
+    [carbono_huevo, carbono_vegetales, carbono_fruta, carbono_tortillas, carbono_bolillo].sum
   end
 
   def contador_carbono_especial
@@ -285,6 +294,7 @@ class CuestionariosController < ApplicationController
   def huella_carbono
     @carbono = [contador_carbono_simple, contador_carbono_compuesto, contador_carbono_especial].sum
   end
+
 
   CALORIAS_POR_PORCION = {
     res: 135,
@@ -305,7 +315,14 @@ class CuestionariosController < ApplicationController
     insectos: 70,
     tamales: 330,
     atole: 115,
-    sandwich: 427
+    sandwich: 427,
+    salmon: 342,
+    torta: 457,
+    bolillo: 166,
+    sopas: 277,
+    jugos: 110,
+    refrescos: 180,
+    bebidas_energetizantes: 178
   }
 
   PORCIONES_KG = {
@@ -327,7 +344,14 @@ class CuestionariosController < ApplicationController
     insectos: 40,
     tamales: 10,
     atole: 4,
-    sandwich: 10
+    sandwich: 10,
+    salmon: 5,
+    torta: 5,
+    bolillo: 1,
+    sopas: 2.75,
+    jugos: 4,
+    refrescos: 1.67,
+    bebidas_energetizantes: 6.67
   }
 
   VALORES_KG_CO2 = {
@@ -349,7 +373,14 @@ class CuestionariosController < ApplicationController
     insectos: [1.98, 1.98, 1.98],
     tamales: [0.45, 0.45, 0.45],
     atole: [0.032, 0.032, 0.032],
-    sandwich: [10.7, 10.7, 10.7]
+    sandwich: [10.7, 10.7, 10.7],
+    salmon: [3.47, 3.47, 3.47],
+    torta: [7.1, 7.1, 7.1],
+    bolillo: [0.33, 0.33, 0.33],
+    sopas: [0.96, 0.96, 0.96],
+    jugos: [3.8, 3.8, 3.8],
+    refrescos: [2.56, 2.56, 2.56],
+    bebidas_energetizantes: [2.56, 2.56, 2.56]
   }
 
   # no hay valores para salmon, atun, que estan en el cuestionario
@@ -361,4 +392,18 @@ class CuestionariosController < ApplicationController
   # en arroz es intensivo menor que organico?
   # en leguminosas es intensivo menor que organico?
   # son correctos los valores de carbono del atole?
+  # FOODS_PARAMS = [
+  #   { name: "res", calorias_por_porcion: 135, porciones_kg: 10, valores_kg_co2: [16.33,	16.33, 26.99] }
+  # ]
+
+  # class Food
+  #   def initialize(params = {})
+  #     @calories_per_portion = params[:calorias_por_porcion]
+
+  #   end
+
+  #   def average_dskdj
+  #     @calorias_amaranto
+  #   end
+  # end
 end
