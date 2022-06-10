@@ -3,32 +3,280 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+  <div class="form-inputs p-3">
+    <div>
+      <h3 class="text-white pb-1 pt-3">Correo electrónico</h3>
+      <%= f.input :email,
+        label: false,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#nombre" aria-expanded="false" aria-controls="nombre">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+    <div class="collapse" id="nombre">
+      <h3 class="text-white pb-1 pt-3">Nombre</h3>
+      <%= f.input :nombre,
+        label: false,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#edad" aria-expanded="false" aria-controls="edad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+    <div class="collapse" id="edad">
+      <h3 class="text-white pb-1 pt-3">Edad</h3>
+      <%= f.input :edad,
+        label: false,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#sexo" aria-expanded="false" aria-controls="sexo">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+    <div class="collapse" id="sexo">
+      <h3 class="text-white pb-1 pt-3">Sexo</h3>
+      <%= f.input :sexo,
+        label: false,
+        as: :radio_buttons,
+        collection: [['femenino', 'Femenino'],['masculino', 'Masculino']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+      %>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#escolaridad" aria-expanded="false" aria-controls="escolaridad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+    <div class="collapse" id="escolaridad">
+      <div class="form_radio-group">
+        <h3 class="text-white pb-1 pt-3">Escolaridad</h3>
+        <%= f.input :escolaridad,
+          as: :radio_buttons,
+          collection: [['Primaria', 'Primaria'], ['Secundaria', 'Secundaria'], ['Preparatoria', 'Preparatoria'], ['Universidad', 'Universidad'], ['Postgrado', 'Postgrado']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-1"
+        %>
+        <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#pais" aria-expanded="false" aria-controls="pais">
+          <span class="material-symbols-outlined pt-2">
+            arrow_forward
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="collapse" id="pais">
+      <h3 class="text-white pb-1 pt-3">Dónde vives</h3>
+      <div class="d-flex justify-content-around">
+        <%= f.input :pais,
+          label: false,
+          placeholder: "País",
+          input_html: { class: "bg-input"}
+        %>
+        <%= f.input :ciudad,
+          label: false,
+          placeholder: "Ciudad",
+          input_html: { class: "bg-input"}
+        %>
+      </div>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#localidad" aria-expanded="false" aria-controls="localidad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+    <div class="collapse" id="localidad">
+      <h3 class="text-white pb-1 pt-3">Localidad</h3>
+      <%= f.input :localidad,
+        as: :radio_buttons,
+        collection: [['Rural', 'Rural'], ['Urbana', 'Urbana']],
+        label_method: :second,
+        value_method: :first,
+        label: false,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+      %>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#peso" aria-expanded="false" aria-controls="peso">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+    <div class="collapse" id="peso">
+      <h3 class="text-white pb-1 pt-3">Tu complexión</h3>
+      <div class="d-flex justify-content-around">
+        <%= f.input :peso,
+          label: false,
+          placeholder: "Peso (kg)",
+          input_html: { class: "bg-input"}
+        %>
+        <%= f.input :altura,
+          label: false,
+          placeholder: "Estatura (m)",
+          input_html: { class: "bg-input"}
+        %>
+      </div>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#alimentacion_sana" aria-expanded="false" aria-controls="alimentacion_sana">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+    <div class="collapse" id="alimentacion_sana">
+      <h3 class="text-white pb-1 pt-3">¿Crees que tu alimentación es sana?</h3>
+      <%= f.input :alimentacion_sana,
+        as: :radio_buttons,
+        collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+      %>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#alimentacion_dana_ambiente" aria-expanded="false" aria-controls="alimentacion_dana_ambiente">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+    <div class="collapse" id="alimentacion_dana_ambiente">
+      <h3 class="text-white pb-1 pt-3">¿Cuanto consideras que tu alimentacion daña el medio ambiente?</h3>
+      <%= f.input :alimentacion_dana_ambiente,
+        as: :radio_buttons,
+        collection: [['Nada', 'Nada'], ['Poco', 'Poco'], ['Mucho', 'Mucho'], ['No se', 'No se']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+      %>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#persona_actividad" aria-expanded="false" aria-controls="persona_actividad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+    <div class="collapse" id="persona_actividad">
+      <h3 class="text-white pb-1 pt-3">¿Te consideras una persona?</h3>
+      <%= f.input :persona_actividad,
+        label: "¿Te consideras una persona?",
+        as: :radio_buttons,
+        collection: [['Sedentaria', 'Sedentaria'], ['Fisicamente activa', 'Fisicamente activa'], ['Deportista', 'Deportista']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#actividad_fisica" aria-expanded="false" aria-controls="actividad_fisica">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+    <div class="collapse" id="actividad_fisica">
+      <h3 class="text-white pb-1 pt-3">¿Con qué frecuencia realizas actividad fisica a la semana?</h3>
+      <%= f.input :actividad_fisica,
+        as: :radio_buttons,
+        collection: [[0, 'Ninguna'], [1, 'Una vez'], [2, '2-3 veces'], [3, '4-5 veces'], [4, 'Diario']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#persona_actividad" aria-expanded="false" aria-controls="persona_actividad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+    <div id="padecimientos">
+      <h3 class="text-white pb-1 pt-3">Padeces...</h3>
+      <h5 class="text-white text-center pb-1 pt-3">Sobrepeso</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :sobrepeso,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Obesidad</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :obesidad,
+        as: :radio_buttons,
+        collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Hipertensión</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :hipertension,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Colesterol</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :colesterol,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Trigliceridos</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :trigliceridos,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Diabetes</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :diabetes,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#persona_actividad" aria-expanded="false" aria-controls="persona_actividad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+
   <div class="form-inputs">
-    <h3>Datos generales</h3>
-    <%= f.input :email %>
-    <%= f.input :nombre %>
-    <%= f.input :edad %>
-    <%= f.input :sexo, as: :radio_buttons, collection: [['femenino', 'Femenino'], ['masculino', 'Masculino']], label_method: :second, value_method: :first %>
-    <%= f.input :escolaridad, as: :radio_buttons, collection: [['Primaria', 'Primaria'], ['Secundaria', 'Secundaria'], ['Preparatoria', 'Preparatoria'], ['Universidad', 'Universidad'], ['Postgrado', 'Postgrado']], label_method: :second, value_method: :first %>
-    <%= f.input :pais %>
-    <%= f.input :ciudad %>
-    <%= f.input :localidad, as: :radio_buttons, collection: [['Rural', 'Rural'], ['Urbana', 'Urbana']], label_method: :second, value_method: :first %>
-    <%= f.input :peso, label: 'Peso (kg)' %>
-    <%= f.input :altura, label: "Estatura (m)" %>
-    <%= f.input :alimentacion_sana, label: "¿Crees que tu alimentacion es sana?", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :alimentacion_dana_ambiente, label: "¿Cuanto consideras que tu alimentacion daña el medio ambiente?", as: :radio_buttons, collection: [['Nada', 'Nada'], ['Poco', 'Poco'], ['Mucho', 'Mucho'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <h3>Actividad fisica</h3>
-    <%= image_tag("https://lists.office.com/Images/9188040d-6c67-4c5b-b112-36a304b66dad/00000000-0000-0000-0006-400080fb4a8f/T0AMHYKG6K9ZZGME7BJC8QZ3DL/ddc71617-33b1-4fc1-8458-23863b28665f", size: "438x350") %>
-    <%= f.input :persona_actividad, label: "¿Te consideras una persona?", as: :radio_buttons, collection: [['Sedentaria', 'Sedentaria'], ['Fisicamente activa', 'Fisicamente activa'], ['Deportista', 'Deportista']], label_method: :second, value_method: :first %>
-    <%= f.input :actividad_fisica, label: 'Con que frecuencia realizas actividad fisica a la semana:', as: :radio_buttons, collection: [[0, 'Ninguna'], [1, 'Una vez'], [2, '2-3 veces'], [3, '4-5 veces'], [4, 'Diario']], label_method: :second, value_method: :first %>
-    <h3>Padecimientos</h3>
-    <p>Marque si padece alguno de los siguientes:</p>
-    <%= f.input :sobrepeso, as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :obesidad, as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :hipertension, label: "Hipertension arterial", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :colesterol, label: "Colesterol elevado", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :trigliceridos, label: "Trigliceridos elevados", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :diabetes, label: "Marque si padece Diabetes Mellitus", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
+
     <h3>Diabetes Mellitus</h3>
     <p>Si contestó "no sé" en la pregunta sobre diabetes mellitus responda lo siguiente:</p>
     <%= f.input :glucosa, label: "¿Le han detectado alguna vez niveles altos de glucosa en sangre?", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
@@ -39,99 +287,519 @@
     <%= f.input :sed_excesiva %>
     <%= f.input :hambre_excesiva %>
     <%#= f.input :diabetes_sintomas, label: "¿Ha presentado alguno de los siguientes síntomas en el último mes?", as: :check_boxes, collection: [['Necesidad de orinar con frecuencia', 'Necesidad de orinar con frecuencia'], ['Perdida de peso inexplicable', 'Perdida de peso inexplicable'], ['Sed excesiva', 'Sed excesiva'], ['Hambre excesiva', 'Hambre excesiva']] %>
+
     <h3>Dieta</h3>
-    <%= f.input :dieta, label: "Cuales son sus preferencias alimentarias", as: :radio_buttons, collection: [['Vegetariana estricta', 'Vegetariana estricta'], ['Lactovegetarianas', 'Lactovegetarianas'], ['Lactoovovegetarianas', 'Lactoovovegetarianas'], ['Omnívoras (me alimento de plantas y animales)', 'Omnívoras (me alimento de plantas y animales)']], label_method: :second, value_method: :first %>
-    <p>Donde compras generalmente tus alimentos</p>
-    <%= f.input :origen_vegetales, label: "Vegetales", as: :radio_buttons, collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']], label_method: :second, value_method: :first %>
-    <%= f.input :origen_frutas, label: "Frutas", as: :radio_buttons, collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']], label_method: :second, value_method: :first %>
-    <%= f.input :origen_carne, label: "Carne", as: :radio_buttons, collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']], label_method: :second, value_method: :first %>
-    <%= f.input :origen_leche, label: "Derivados de la leche", as: :radio_buttons, collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']], label_method: :second, value_method: :first %>
-    <%= f.input :origen_cereales, label: "Cereales (tortilla/arroz/avena)", as: :radio_buttons, collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']], label_method: :second, value_method: :first %>
-    <h3>Productos de origen animal</h3>
-    <p>¿cuántas veces por semana consumes los siguientes alimentos?</p>
-    <%= f.input :frecuencia_res, label: "Carne de Res", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_puerco, label: "Carne de puerco", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_borrego, label: "Carne de borrego", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_pollo, label: "Pollo", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_salmon, label: "Salmon", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_atun, label: "Atun enlatado", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_leche, label: "Leche de vaca", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_queso, label: "Queso", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_yogurt, label: "Yogurt", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_pescados_mariscos, label: "Pescados y mariscos", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :valores_pescados_mariscos, label: "Si respondiste que SÍ consumes pescados y mariscos, elige la opción que prefieras", as: :radio_buttons, collection: [[0, 'Pescados I:Charales/ Huauchinango/ Cazon / Sierra /Bacalo /Trucha'], [1, 'Pescados II:Camarón/Pez sierra/Merluza '], [2, 'Pescados III:Sardinas/ Arenques/ Abadejo/ Carpa/ Lubina']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_huevo, label: "Cuantas veces consumes huevo a la semana", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :cantidad_huevo, label: "Si consumes huevo, ¿cuántos consumes en un día?" %>
-    <h3>Verduras</h3>
-    <p>¿Cuántas veces consumes este alimento a la SEMANA?</p>
-    <%= f.input :frecuencia_vegetales, label: "Vegetales", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']], label_method: :second, value_method: :first %>
-    <%= f.input :cantidad_vegetales, collection: 0..10 %>
-    <h3>Fruta</h3>
-    <p>¿Cuántas veces consumes este alimento a la SEMANA?</p>
-    <%= f.input :frecuencia_fruta, label: "Fruta", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']], label_method: :second, value_method: :first %>
-    <%= f.input :cantidad_fruta, label: "Cuántas frutas sueles consumir en un día ", collection: (0..10).to_a %>
-    <h3>Cereales</h3>
-    <p>¿Cuántas veces en una semana consumes los siguientes alimentos?</p>
-    <%= f.input :frecuencia_arroz, label: "Arroz", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_leguminosas, label: "Leguminosas (frijol, lenteja, haba, etc)", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_avena, label: "Avena", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_amaranto, label: "Amaranto", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_tortillas, label: "Tortillas", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']], label_method: :second, value_method: :first %>
-    <%= f.input :cantidad_tortillas, label: "Si consumes tortillas ¿cuántas consumes en un día?" %>
-    <h3>Insectos</h3>
-    <%= f.input :insectos, label: "Has consumido insectos alguna vez", as: :radio_buttons, collection: [['si', 'si'], ['no', 'no']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_insectos, label: "Si respondiste que si ¿Cuantas veces al mes?" %>
-    <h3>Alimentos Preparados</h3>
-    <p>¿Cuántas veces a la semana consumes los siguientes alimentos?</p>
-    <%= f.input :frecuencia_tamales, label: "Tamales", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_atole, label: "Atole", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_sandwich, label: "Sandwich", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_tacos, label: "Tacos", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
+
+
+    <div id="dieta">
+      <h3 class="text-white pb-1 pt-3">Tus preferencias alimentarias</h3>
+      <%= f.input :dieta,
+        as: :radio_buttons,
+        collection: [['Vegetariana estricta', 'Vegetariana estricta'], ['Lactovegetarianas', 'Lactovegetarianas'], ['Lactoovovegetarianas', 'Lactoovovegetarianas'], ['Omnívoras (me alimento de plantas y animales)', 'Omnívoras (me alimento de plantas y animales)']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#escolaridad" aria-expanded="false" aria-controls="escolaridad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+    <div id="alimentos">
+      <h3 class="text-white pb-1 pt-3">¿Dónde compras generalmente tus alimentos?</h3>
+      <h5 class="text-white text-center pb-1 pt-3">Vegetales</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :origen_vegetales,
+          as: :radio_buttons,
+          collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Frutas</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :origen_frutas,
+        as: :radio_buttons,
+        collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Carne</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :origen_carne,
+          as: :radio_buttons,
+          collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Leche</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :origen_leche,
+          as: :radio_buttons,
+          collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Cereales (tortilla, arroz, avena)</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :origen_cereales,
+          as: :radio_buttons,
+          collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#persona_actividad" aria-expanded="false" aria-controls="persona_actividad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+    <div id="frecuencia_alimentos">
+      <h3 class="text-white pb-1 pt-3">¿Cuántas veces por semana consumes los siguientes alimentos?</h3>
+      <h5 class="text-white text-center pb-1 pt-3">Carne de res</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_res,
+        as: :radio_buttons,
+        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Carne de puerco</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_puerco,
+        as: :radio_buttons,
+        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Carne de borrego</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_borrego,
+        as: :radio_buttons,
+        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Pollo</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_pollo,
+        as: :radio_buttons,
+        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Salmón</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_salmon,
+        as: :radio_buttons,
+        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Atún enlatado</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_atun,
+        as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Leche de vaca</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_leche,
+        as: :radio_buttons,
+        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Queso</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_queso,
+        as: :radio_buttons,
+        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Yogurt</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_yogurt,
+        as: :radio_buttons,
+        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Pescados y mariscos</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_pescados_mariscos,
+        as: :radio_buttons,
+        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Si respondiste que SÍ consumes pescados y mariscos, elige la opción que prefieras</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :valores_pescados_mariscos,
+        as: :radio_buttons,
+        collection: [[2.95, 'Pescados I:Charales/ Huauchinango/ Cazon / Sierra /Bacalo /Trucha'], [9.42, 'Pescados II:Camarón/Pez sierra/Merluza '], [0.73, 'Pescados III:Sardinas/ Arenques/ Abadejo/ Carpa/ Lubina']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Huevo</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :frecuencia_huevo,
+        as: :radio_buttons,
+        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      %>
+      </div>
+      <h5 class="text-white pb-1 pt-3">Si consumes huevo, ¿cuántos consumes en un día?</h5>
+      <%= f.input :cantidad_huevo,
+        label: false,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#sexo" aria-expanded="false" aria-controls="sexo">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+    <h5 class="text-white text-center pb-1 pt-3">Vegetales</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_vegetales,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
+    <%= f.input :cantidad_vegetales,
+      label: false,
+      collection: 0..10,
+      placeholder: "|...",
+      input_html: { class: "bg-input"}
+    %>
+    <h5 class="text-white text-center pb-1 pt-3">Fruta</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_fruta,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
+    <%= f.input :cantidad_fruta,
+      label: false,
+      collection: (0..10).to_a,
+      placeholder: "|...",
+      input_html: { class: "bg-input"}
+    %>
+    <h5 class="text-white text-center pb-1 pt-3">Arroz</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_arroz,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Leguminosas (frijol, lenteja, haba)</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_leguminosas,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Avena</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_avena,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Amaranto</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_amaranto,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Tortillas</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_tortillas,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Si consumes tortillas ¿cuántas consumes en un día?</h5>
+    <%= f.input :cantidad_tortillas,
+      label: false,
+      placeholder: "|...",
+      input_html: { class: "bg-input"}
+    %>
+    <h5 class="text-white text-center pb-1 pt-3">Has consumido insectos alguna vez</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :insectos,
+      as: :radio_buttons,
+      collection: [['si', 'si'], ['no', 'no']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Si respondiste que si ¿Cuantas veces al mes?</h5>
+    <%= f.input :frecuencia_insectos,
+      label: false,
+      placeholder: "|...",
+      input_html: { class: "bg-input"}
+    %>
+    <h5 class="text-white text-center pb-1 pt-3">Tamales</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_tamales, label: "Tamales",
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Atole</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_atole, label: "Atole",
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Sandwich</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_sandwich, label: "Sandwich",
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Tacos</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_tacos, label: "Tacos",
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+
     <p>Si consumes tacos, ¿cuáles prefieres?</p>
     <%= f.input :al_pastor %>
     <%= f.input :suadero, label: "Tacos bistec/suadero" %>
     <%= f.input :guisados, label: "De guisados" %>
     <%#= f.input :valores_tacos, label: "Si consumes tacos, ¿cuáles prefieres?", as: :check_boxes, collection: [['Al pastor', 4.85], ['Tacos bistec/suadero', 16.3], ['De guisados', 2.33]] %>
-    <p>¿Cuántas veces a la semana consumes los siguientes alimentos?</p>
-    <%= f.input :frecuencia_torta, label: "Torta", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_bolillo, label: "Bolillo (sin tomar en cuenta el consumido en la torta)", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :cantidad_bolillo, label: "Si comes bolillos ¿cuántos consumes en un día?" %>
-    <h3>Alimentos procesados</h3>
-    <p>¿Cuántas veces a la semana consumes los siguientes alimentos?</p>
-    <%= f.input :frecuencia_sopas, label: "Sopas Instantaneas", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_jugos, label: "Jugos embotellados", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_refrescos, label: "Refrescos", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :frecuencia_bebidas_energetizantes, label: "Bebidas energetizantes", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <p>¿Cuántas veces a la semana consumes el siguiente alimento?</p>
-    <%= f.input :frecuencia_galletas, label: "Galletas dulces y/o saladas", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
+    <h5 class="text-white text-center pb-1 pt-3">Torta</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_torta, label: "Torta",
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Bolillo (sin tomar en cuenta el de la torta)</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_bolillo,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Si comes bolillos ¿cuántos consumes en un día?</h5>
+    <%= f.input :nombre,
+      label: false,
+      placeholder: "|...",
+      input_html: { class: "bg-input"}
+    %>
+    <h5 class="text-white text-center pb-1 pt-3">Sopas instantáneas</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_sopas,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Jugos embotellados</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_jugos,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Refrescos</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_refrescos,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Bebidas energizantes</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_bebidas_energetizantes,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Galletas</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_galletas,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
     <p>En caso de consumir galletas, ¿cuáles consumes?</p>
     <%= f.input :galletas_saladas %>
     <%= f.input :galletas_dulces %>
     <%#= f.input :valores_galletas, label: "En caso de consumir galletas, ¿cuáles consumes?", as: :check_boxes, collection: [['Galletas saladas', 2.88], ['Dulces', 4.37]] %>
-    <p>¿Cuántas veces a la semana consumes el siguiente alimento?</p>
-    <%= f.input :frecuencia_embutidos, label: "Embutidos (jamón, salchicha)", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
+    <h5 class="text-white text-center pb-1 pt-3">Embutidos (jamón, salchicha)</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_embutidos,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
     <p>¿Qué embutidos sueles consumir?</p>
     <%= f.input :jamon_pavo, label: "Jamon de pavo" %>
     <%= f.input :jamon_puerco, label: "Jamon de puerco" %>
     <%= f.input :salchicha_pavo, label: "Salchicha de pavo" %>
     <%#= f.input :valores_embutidos, label: "¿Qué embutidos sueles consumir?", as: :check_boxes, collection: [['Jamon de pavo', 36.0], ['Jamon de puerco', 20.0], ['Salchicha de pavo', 21.2]] %>
-    <p>¿Cuántas veces a la semana consumes el siguiente alimento?</p>
-    <%= f.input :frecuencia_pan, label: "Panes industrializados (ej. pan blanco, pan integral, donas empaquetadas).", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
+    <h5 class="text-white text-center pb-1 pt-3">Pan industrial (pan blanco, integral, donas)</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_pan,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
     <p>Si consumes panes industrializados ¿consumes alguno de estos?</p>
     <%= f.input :pan_blanco %>
     <%= f.input :mantecadas, label: "Pastelitos empaquetados / donas / mantecadas" %>
     <%#= f.input :valores_pan, label: "Si consumes panes industrializados ¿consumes alguno de estos?", as: :check_boxes, collection: [['Pan blanco', 0.15], ['Pan integral', 20.0], ['Pastelitos empaquetados/ donas/mantecadas', 4.37]] %>
-    <%= f.input :cantidad_pan, label: "Si consumes pan blanco o integral, ¿cuántas rebanadas consumes en un día? (Sin tomar en cuenta el consumido en sándwich)." %>
-    <%= f.input :frecuencia_frituras, label: "¿Cuántas veces a la semana consumes frituras", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
+    <h5 class="text-white text-center pb-1 pt-3">Si consumes pan blanco o integral, ¿cuántas rebanadas consumes en un día? (Sin tomar en cuenta el consumido en sándwich).</h5>
+    <%= f.input :cantidad_pan,
+      label: false,
+      placeholder: "|...",
+      input_html: { class: "bg-input"}
+    %>
+    <h5 class="text-white text-center pb-1 pt-3">Frituras</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_frituras,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
     <p>Si consumes frituras ¿consumes alguna de estas?</p>
     <%= f.input :fritura_papa, label: 'Papas' %>
     <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
     <%#= f.input :valores_frituras, label: "Si consumes frituras ¿consumes alguna de estas?", as: :check_boxes, collection: [['Papas', 6.4], ['Chicharrones', 23.71]] %>
-    <%= f.input :frecuencia_chocolates, label: "¿Cuántas veces a la semana consumes chocolate?", as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']], label_method: :second, value_method: :first %>
-    <%= f.input :cantidad_chocolates, label: "Si consumes chocolates ¿cuántos consumes en un día?" %>
+    <h5 class="text-white text-center pb-1 pt-3">Chocolates</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :frecuencia_chocolates,
+      as: :radio_buttons,
+      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">Si consumes chocolates ¿cuántos consumes en un día?</h5>
+    <%= f.input :cantidad_chocolates,
+      label: false,
+      placeholder: "|...",
+      input_html: { class: "bg-input"}
+    %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%= f.button :submit, class: "btn btn-danger" %>
   </div>
 <% end %>
