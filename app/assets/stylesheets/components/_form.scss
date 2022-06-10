@@ -1,0 +1,28 @@
+.bg-input {
+  background-color: $success;
+  border: 2px solid black;
+  &::placeholder {
+    color: white;
+  }
+}
+
+legend {
+  display: none;
+}
+
+label {
+  margin-left: 0.5em;
+}
+
+input[type="radio"] {
+  display: none;
+  background-color: $success;
+  transform: scale(0.2);
+  &:checked {
+    display: block;
+    border-color: white;
+    background-color: black;
+    color: black;
+    transform: scale(1.7);
+  }
+}
