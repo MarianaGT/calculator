@@ -3,18 +3,147 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+  <div class="form-inputs p-3">
+    <div>
+      <h3 class="text-white pb-1 pt-3">Correo electrónico</h3>
+      <%= f.input :email,
+        label: false,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#nombre" aria-expanded="false" aria-controls="nombre">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+    <div class="collapse" id="nombre">
+      <h3 class="text-white pb-1 pt-3">Nombre</h3>
+      <%= f.input :nombre,
+        label: false,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#edad" aria-expanded="false" aria-controls="edad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+    <div class="collapse" id="edad">
+      <h3 class="text-white pb-1 pt-3">Edad</h3>
+      <%= f.input :edad,
+        label: false,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#sexo" aria-expanded="false" aria-controls="sexo">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+    <div class="collapse" id="sexo">
+      <h3 class="text-white pb-1 pt-3">Sexo</h3>
+      <%= f.input :sexo,
+        label: false,
+        as: :radio_buttons,
+        collection: [['femenino', 'Femenino'],['masculino', 'Masculino']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+      %>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#escolaridad" aria-expanded="false" aria-controls="escolaridad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+    <div class="collapse" id="escolaridad">
+      <div class="form_radio-group">
+        <h3 class="text-white pb-1 pt-3">Escolaridad</h3>
+        <%= f.input :escolaridad,
+          as: :radio_buttons,
+          collection: [['Primaria', 'Primaria'], ['Secundaria', 'Secundaria'], ['Preparatoria', 'Preparatoria'], ['Universidad', 'Universidad'], ['Postgrado', 'Postgrado']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-1"
+        %>
+        <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#pais" aria-expanded="false" aria-controls="pais">
+          <span class="material-symbols-outlined pt-2">
+            arrow_forward
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <div class="collapse" id="pais">
+      <h3 class="text-white pb-1 pt-3">Dónde vives</h3>
+      <div class="d-flex justify-content-around">
+        <%= f.input :pais,
+          label: false,
+          placeholder: "País",
+          input_html: { class: "bg-input"}
+        %>
+        <%= f.input :ciudad,
+          label: false,
+          placeholder: "Ciudad",
+          input_html: { class: "bg-input"}
+        %>
+      </div>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#localidad" aria-expanded="false" aria-controls="localidad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+    <div class="collapse" id="localidad">
+      <h3 class="text-white pb-1 pt-3">Localidad</h3>
+      <%= f.input :localidad,
+        as: :radio_buttons,
+        collection: [['Rural', 'Rural'], ['Urbana', 'Urbana']],
+        label_method: :second,
+        value_method: :first,
+        label: false,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+      %>
+      <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#peso" aria-expanded="false" aria-controls="peso">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </button>
+    </div>
+
+    <div class="collapse" id="peso">
+      <h3 class="text-white pb-1 pt-3">Tu complexión</h3>
+      <div class="d-flex justify-content-around">
+        <%= f.input :peso,
+          label: false,
+          placeholder: "Peso (kg)",
+          input_html: { class: "bg-input"}
+        %>
+        <%= f.input :altura,
+          label: false,
+          placeholder: "Estatura (m)",
+          input_html: { class: "bg-input"}
+        %>
+      </div>
+      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#localidad" aria-expanded="false" aria-controls="localidad">
+        <span class="material-symbols-outlined pt-2">
+          arrow_forward
+        </span>
+      </a>
+    </div>
+
+
+
   <div class="form-inputs">
-    <h3>Datos generales</h3>
-    <%= f.input :email %>
-    <%= f.input :nombre %>
-    <%= f.input :edad %>
-    <%= f.input :sexo, as: :radio_buttons, collection: [['femenino', 'Femenino'], ['masculino', 'Masculino']], label_method: :second, value_method: :first %>
-    <%= f.input :escolaridad, as: :radio_buttons, collection: [['Primaria', 'Primaria'], ['Secundaria', 'Secundaria'], ['Preparatoria', 'Preparatoria'], ['Universidad', 'Universidad'], ['Postgrado', 'Postgrado']], label_method: :second, value_method: :first %>
-    <%= f.input :pais %>
-    <%= f.input :ciudad %>
-    <%= f.input :localidad, as: :radio_buttons, collection: [['Rural', 'Rural'], ['Urbana', 'Urbana']], label_method: :second, value_method: :first %>
-    <%= f.input :peso, label: 'Peso (kg)' %>
-    <%= f.input :altura, label: "Estatura (m)" %>
+
     <%= f.input :alimentacion_sana, label: "¿Crees que tu alimentacion es sana?", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
     <%= f.input :alimentacion_dana_ambiente, label: "¿Cuanto consideras que tu alimentacion daña el medio ambiente?", as: :radio_buttons, collection: [['Nada', 'Nada'], ['Poco', 'Poco'], ['Mucho', 'Mucho'], ['No se', 'No se']], label_method: :second, value_method: :first %>
     <h3>Actividad fisica</h3>
