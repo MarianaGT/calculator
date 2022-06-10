@@ -205,25 +205,71 @@
       </button>
     </div>
 
-
-  <div class="form-inputs">
     <h3>Actividad fisica</h3>
-
     <%= image_tag("https://lists.office.com/Images/9188040d-6c67-4c5b-b112-36a304b66dad/00000000-0000-0000-0006-400080fb4a8f/T0AMHYKG6K9ZZGME7BJC8QZ3DL/ddc71617-33b1-4fc1-8458-23863b28665f", size: "438x350") %>
 
-    <h3>Padecimientos</h3>
-    <p>Marque si padece alguno de los siguientes:</p>
-
     <div>
-      <h3 class="text-white pb-1 pt-3">Marca si padeces alguno de los siguientes</h3>
-
-      <%= f.input :actividad_fisica,
+      <h3 class="text-white pb-1 pt-3">Padeces...</h3>
+      <h5 class="text-white text-center pb-1 pt-3">Sobrepeso</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :sobrepeso,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Obesidad</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :obesidad,
         as: :radio_buttons,
-        collection: [[0, 'Ninguna'], [1, 'Una vez'], [2, '2-3 veces'], [3, '4-5 veces'], [4, 'Diario']],
+        collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
         label_method: :second,
         value_method: :first,
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
       %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Hipertensión</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :hipertension,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Colesterol</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :colesterol,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Trigliceridos</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :trigliceridos,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
+      <h5 class="text-white text-center pb-1 pt-3">Diabetes</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :diabetes,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
       <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#persona_actividad" aria-expanded="false" aria-controls="persona_actividad">
         <span class="material-symbols-outlined pt-2">
           arrow_forward
@@ -231,12 +277,9 @@
       </button>
     </div>
 
-    <%= f.input :sobrepeso, as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :obesidad, as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :hipertension, label: "Hipertension arterial", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :colesterol, label: "Colesterol elevado", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :trigliceridos, label: "Trigliceridos elevados", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :diabetes, label: "Marque si padece Diabetes Mellitus", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
+
+  <div class="form-inputs">
+
     <h3>Diabetes Mellitus</h3>
     <p>Si contestó "no sé" en la pregunta sobre diabetes mellitus responda lo siguiente:</p>
     <%= f.input :glucosa, label: "¿Le han detectado alguna vez niveles altos de glucosa en sangre?", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
@@ -247,7 +290,10 @@
     <%= f.input :sed_excesiva %>
     <%= f.input :hambre_excesiva %>
     <%#= f.input :diabetes_sintomas, label: "¿Ha presentado alguno de los siguientes síntomas en el último mes?", as: :check_boxes, collection: [['Necesidad de orinar con frecuencia', 'Necesidad de orinar con frecuencia'], ['Perdida de peso inexplicable', 'Perdida de peso inexplicable'], ['Sed excesiva', 'Sed excesiva'], ['Hambre excesiva', 'Hambre excesiva']] %>
+
     <h3>Dieta</h3>
+
+
     <%= f.input :dieta, label: "Cuales son sus preferencias alimentarias", as: :radio_buttons, collection: [['Vegetariana estricta', 'Vegetariana estricta'], ['Lactovegetarianas', 'Lactovegetarianas'], ['Lactoovovegetarianas', 'Lactoovovegetarianas'], ['Omnívoras (me alimento de plantas y animales)', 'Omnívoras (me alimento de plantas y animales)']], label_method: :second, value_method: :first %>
     <p>Donde compras generalmente tus alimentos</p>
     <%= f.input :origen_vegetales, label: "Vegetales", as: :radio_buttons, collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']], label_method: :second, value_method: :first %>
