@@ -151,6 +151,16 @@ class CuestionariosController < ApplicationController
     (kcal_porcion * frecuencia_consumo / 4 / 7).round(2)
   end
 
+  def obtener_calorias_tacos(frecuencia_consumo)
+    # pastor bistec guisado
+    valores_tacos = [490, 414, 468]
+    kcal_total = 0
+    kcal_total += valores_tacos[0] if @cuestionario.al_pastor
+    kcal_total += valores_tacos[1] if @cuestionario.suadero
+    kcal_total += valores_tacos[2] if @cuestionario.guisados
+    kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
+  end
+
   def obtener_calorias_multiplicador(kcal_unidad, frecuencia_consumo, cantidad = 1)
     (kcal_unidad * frecuencia_consumo / 7 * cantidad).round(2)
   end
@@ -178,6 +188,22 @@ class CuestionariosController < ApplicationController
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     kg_co2 = arr_valores_kg_co2[origen_alimento]
     (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7 / 4).round(2)
+  end
+
+  def obtener_carbono_tacos(frecuencia_consumo)
+    # pastor bistec guisado
+    valores_tacos = [[0.97, 5.71],
+                     [2.45, 6.66],
+                     [0.35, 6.66]]
+    carbon_total = 0
+    carbon_total += obtener_carbon_por_taco(valores_tacos[0][0], valores_tacos[0][1], frecuencia_consumo) if @cuestionario.al_pastor
+    carbon_total += obtener_carbon_por_taco(valores_tacos[1][0], valores_tacos[1][1], frecuencia_consumo) if @cuestionario.suadero
+    carbon_total += obtener_carbon_por_taco(valores_tacos[2][0], valores_tacos[2][1], frecuencia_consumo) if @cuestionario.guisados
+    carbon_total
+  end
+
+  def obtener_carbon_por_taco(kg_co2, porciones_por_kilo, frecuencia_consumo)
+    (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7).round(2)
   end
 
   def obtener_carbono_multiplicador(origen, arr_valores_kg_co2, porciones_por_kilo, frecuencia_consumo, cantidad)
@@ -215,7 +241,8 @@ class CuestionariosController < ApplicationController
   def contador_calorias_especial
     calorias_insectos = obtener_calorias_insectos(CALORIAS_POR_PORCION[:insectos], @cuestionario.frecuencia_insectos)
     pescados_mariscos = obtener_calorias_pescados_y_mariscos(@cuestionario.valores_pescados_mariscos, @cuestionario.frecuencia_pescados_mariscos)
-    [calorias_insectos, pescados_mariscos].sum
+    tacos = obtener_calorias_tacos(@cuestionario.frecuencia_tacos)
+    [calorias_insectos, pescados_mariscos, tacos].sum
   end
 
   def kcal_calculator
@@ -251,7 +278,8 @@ class CuestionariosController < ApplicationController
   def contador_carbono_especial
     pescados = obtener_carbono_pescados_y_mariscos(@cuestionario.origen_carne, @cuestionario.valores_pescados_mariscos, @cuestionario.frecuencia_pescados_mariscos)
     insectos = obtener_carbono_insectos('intensivo', VALORES_KG_CO2[:insectos], PORCIONES_KG[:insectos], @cuestionario.frecuencia_insectos)
-    [pescados, insectos].sum
+    tacos = obtener_carbono_tacos(@cuestionario.frecuencia_tacos)
+    [pescados, insectos, tacos].sum
   end
 
   def huella_carbono
