@@ -5,9 +5,9 @@
 
   <div class="form-inputs p-3">
     <div>
-
       <h3 class="text-white pb-1 pt-3 d-flex">
         <span class="material-symbols-outlined p-1"> mail </span>
+        <span class="pr-1 text-success">.</span>
         Correo electrónico
       </h3>
       <%= f.input :email,
@@ -15,7 +15,7 @@
         placeholder: "|...",
         input_html: { class: "bg-input"}
       %>
-      <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#nombre" aria-expanded="false" aria-controls="nombre">
+      <a class="btn btn-danger rounded-circle mt-3 mr-auto mb-3" data-bs-toggle="collapse" href="#nombre" aria-expanded="false" aria-controls="nombre">
         <span class="material-symbols-outlined pt-2">
           arrow_forward
         </span>
@@ -23,7 +23,11 @@
     </div>
 
     <div class="collapse" id="nombre">
-      <h3 class="text-white pb-1 pt-3">Nombre</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> face </span>
+        <span class="pr-1 text-success">.</span>
+        Nombre
+      </h3>
       <%= f.input :nombre,
         label: false,
         placeholder: "|...",
@@ -37,7 +41,11 @@
     </div>
 
     <div class="collapse" id="edad">
-      <h3 class="text-white pb-1 pt-3">Edad</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> sentiment_satisfied </span>
+        <span class="pr-1 text-success">.</span>
+        Edad
+      </h3>
       <%= f.input :edad,
         label: false,
         placeholder: "|...",
@@ -51,7 +59,11 @@
     </div>
 
     <div class="collapse" id="sexo">
-      <h3 class="text-white pb-1 pt-3">Sexo</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> diversity_3 </span>
+        <span class="pr-1 text-success">.</span>
+        Sexo
+      </h3>
       <%= f.input :sexo,
         label: false,
         as: :radio_buttons,
@@ -69,7 +81,11 @@
 
     <div class="collapse" id="escolaridad">
       <div class="form_radio-group">
-        <h3 class="text-white pb-1 pt-3">Escolaridad</h3>
+        <h3 class="text-white pb-1 pt-3 d-flex">
+          <span class="material-symbols-outlined p-1"> school </span>
+          <span class="pr-1 text-success">.</span>
+          Escolaridad
+        </h3>
         <%= f.input :escolaridad,
           as: :radio_buttons,
           collection: [['Primaria', 'Primaria'], ['Secundaria', 'Secundaria'], ['Preparatoria', 'Preparatoria'], ['Universidad', 'Universidad'], ['Postgrado', 'Postgrado']],
@@ -86,7 +102,11 @@
     </div>
 
     <div class="collapse" id="pais">
-      <h3 class="text-white pb-1 pt-3">Dónde vives</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> flag </span>
+        <span class="pr-1 text-success">.</span>
+        Dónde vives
+      </h3>
       <div class="d-flex justify-content-around">
         <%= f.input :pais,
           label: false,
@@ -107,7 +127,11 @@
     </div>
 
     <div class="collapse" id="localidad">
-      <h3 class="text-white pb-1 pt-3">Localidad</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> home </span>
+        <span class="pr-1 text-success">.</span>
+        Localidad
+      </h3>
       <%= f.input :localidad,
         as: :radio_buttons,
         collection: [['Rural', 'Rural'], ['Urbana', 'Urbana']],
@@ -124,7 +148,11 @@
     </div>
 
     <div class="collapse" id="peso">
-      <h3 class="text-white pb-1 pt-3">Tu complexión</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> emoji_people </span>
+        <span class="pr-1 text-success">.</span>
+        Tu complexión
+      </h3>
       <div class="d-flex justify-content-around">
         <%= f.input :peso,
           label: false,
@@ -145,7 +173,11 @@
     </div>
 
     <div class="collapse" id="alimentacion_sana">
-      <h3 class="text-white pb-1 pt-3">¿Crees que tu alimentación es sana?</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> spa </span>
+        <span class="pr-1 text-success">.</span>
+        ¿Crees que tu alimentación es sana?
+      </h3>
       <%= f.input :alimentacion_sana,
         as: :radio_buttons,
         collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
@@ -161,7 +193,11 @@
     </div>
 
     <div class="collapse" id="alimentacion_dana_ambiente">
-      <h3 class="text-white pb-1 pt-3">¿Cuanto consideras que tu alimentacion daña el medio ambiente?</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> grass </span>
+        <span class="pr-1 text-success">.</span>
+        ¿Cuánto consideras que tu alimentación daña el medio ambiente?
+      </h3>
       <%= f.input :alimentacion_dana_ambiente,
         as: :radio_buttons,
         collection: [['Nada', 'Nada'], ['Poco', 'Poco'], ['Mucho', 'Mucho'], ['No se', 'No se']],
@@ -177,7 +213,11 @@
     </div>
 
     <div class="collapse" id="persona_actividad">
-      <h3 class="text-white pb-1 pt-3">¿Te consideras una persona?</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> directions_run </span>
+        <span class="pr-1 text-success">.</span>
+        ¿Te consideras una persona?
+      </h3>
       <%= f.input :persona_actividad,
         label: "¿Te consideras una persona?",
         as: :radio_buttons,
@@ -194,7 +234,11 @@
     </div>
 
     <div class="collapse" id="actividad_fisica">
-      <h3 class="text-white pb-1 pt-3">¿Con qué frecuencia realizas actividad fisica a la semana?</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> directions_bike </span>
+        <span class="pr-1 text-success">.</span>
+        ¿Con qué frecuencia realizas actividad física a la semana?
+      </h3>
       <%= f.input :actividad_fisica,
         as: :radio_buttons,
         collection: [[0, 'Ninguna'], [1, 'Una vez'], [2, '2-3 veces'], [3, '4-5 veces'], [4, 'Diario']],
@@ -210,7 +254,11 @@
     </div>
 
     <div id="padecimientos">
-      <h3 class="text-white pb-1 pt-3">Padeces...</h3>
+      <h3 class="text-white pb-1 pt-3 d-flex">
+        <span class="material-symbols-outlined p-1"> medical_information </span>
+        <span class="pr-1 text-success">.</span>
+        Padeces...
+      </h3>
       <h5 class="text-white text-center pb-1 pt-3">Sobrepeso</h5>
       <div class="d-flex justify-content-center">
         <%= f.input :sobrepeso,
@@ -283,9 +331,27 @@
 
     <h3>Diabetes Mellitus</h3>
     <p>Si contestó "no sé" en la pregunta sobre diabetes mellitus responda lo siguiente:</p>
-    <%= f.input :glucosa, label: "¿Le han detectado alguna vez niveles altos de glucosa en sangre?", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <%= f.input :diabetes_familia, label: "¿Ha habido algún diagnóstico de diabetes mellitus en su familia?", as: :radio_buttons, collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']], label_method: :second, value_method: :first %>
-    <p>¿Ha presentado alguno de los siguientes síntomas en el último mes?</p>
+    <h5 class="text-white text-center pb-1 pt-3">¿Le han detectado alguna vez niveles altos de glucosa en sangre?</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :glucosa,
+      as: :radio_buttons,
+      collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">¿Ha habido algún diagnóstico de diabetes mellitus en su familia?</h5>
+    <div class="d-flex justify-content-center">
+    <%= f.input :diabetes_familia,
+      as: :radio_buttons,
+      collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+      label_method: :second,
+      value_method: :first,
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+    %>
+    </div>
+    <h5 class="text-white text-center pb-1 pt-3">¿Ha presentado alguno de los siguientes síntomas en el último mes?</h5>
     <%= f.input :necesidad_orinar, label: "Necesidad de orinar con frecuencia" %>
     <%= f.input :perdida_peso, label: "Perdida de peso inexplicable" %>
     <%= f.input :sed_excesiva %>
