@@ -360,7 +360,6 @@
 
     <h3>Dieta</h3>
 
-
     <div id="dieta">
       <h3 class="text-white pb-1 pt-3">Tus preferencias alimentarias</h3>
       <%= f.input :dieta,
@@ -716,8 +715,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
-
-    <p>Si consumes tacos, ¿cuáles prefieres?</p>
+    <h5 class="text-white text-center pb-1 pt-3">Si consumes tacos, ¿cuáles prefieres?</h5>
     <%= f.input :al_pastor %>
     <%= f.input :suadero, label: "Tacos bistec/suadero" %>
     <%= f.input :guisados, label: "De guisados" %>
@@ -798,7 +796,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
-    <p>En caso de consumir galletas, ¿cuáles consumes?</p>
+    <h5 class="text-white text-center pb-1 pt-3">En caso de consumir galletas, ¿cuáles consumes?</h5>
     <%= f.input :galletas_saladas %>
     <%= f.input :galletas_dulces %>
     <%#= f.input :valores_galletas, label: "En caso de consumir galletas, ¿cuáles consumes?", as: :check_boxes, collection: [['Galletas saladas', 2.88], ['Dulces', 4.37]] %>
@@ -812,7 +810,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
-    <p>¿Qué embutidos sueles consumir?</p>
+    <h5 class="text-white text-center pb-1 pt-3">¿Qué embutidos sueles consumir?</h5>
     <%= f.input :jamon_pavo, label: "Jamon de pavo" %>
     <%= f.input :jamon_puerco, label: "Jamon de puerco" %>
     <%= f.input :salchicha_pavo, label: "Salchicha de pavo" %>
@@ -827,7 +825,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
-    <p>Si consumes panes industrializados ¿consumes alguno de estos?</p>
+    <h5 class="text-white text-center pb-1 pt-3">Si consumes panes industrializados ¿consumes alguno de estos?</h5>
     <%= f.input :pan_blanco %>
     <%= f.input :mantecadas, label: "Pastelitos empaquetados / donas / mantecadas" %>
     <%#= f.input :valores_pan, label: "Si consumes panes industrializados ¿consumes alguno de estos?", as: :check_boxes, collection: [['Pan blanco', 0.15], ['Pan integral', 20.0], ['Pastelitos empaquetados/ donas/mantecadas', 4.37]] %>
@@ -847,7 +845,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
-    <p>Si consumes frituras ¿consumes alguna de estas?</p>
+    <h5 class="text-white text-center pb-1 pt-3">Si consumes frituras ¿consumes alguna de estas?</h5>
     <%= f.input :fritura_papa, label: 'Papas' %>
     <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
     <%#= f.input :valores_frituras, label: "Si consumes frituras ¿consumes alguna de estas?", as: :check_boxes, collection: [['Papas', 6.4], ['Chicharrones', 23.71]] %>
