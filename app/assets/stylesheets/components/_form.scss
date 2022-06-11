@@ -22,3 +22,14 @@ input[type="radio"] {
     transform: scale(1.7);
   }
 }
+
+input[type="checkbox"] {
+  background-color: $success;
+  transform: scale(1.7);
+  &:checked {
+    border-color: white;
+    background-color: black;
+    color: black;
+    transform: scale(1.9);
+  }
+}
