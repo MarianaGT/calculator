@@ -366,7 +366,8 @@ class CuestionariosController < ApplicationController
     carbono_fruta = obtener_carbono_multiplicador(@cuestionario.origen_frutas, VALORES_KG_CO2[:fruta], PORCIONES_KG[:fruta], @cuestionario.frecuencia_fruta, @cuestionario.cantidad_fruta)
     carbono_tortillas = obtener_carbono_multiplicador(@cuestionario.origen_cereales, VALORES_KG_CO2[:tortillas], PORCIONES_KG[:tortillas], @cuestionario.frecuencia_tortillas, @cuestionario.cantidad_tortillas)
     carbono_bolillo = obtener_carbono_multiplicador(@cuestionario.origen_cereales, VALORES_KG_CO2[:bolillo], PORCIONES_KG[:bolillo], @cuestionario.frecuencia_bolillo, @cuestionario.cantidad_bolillo)
-    [carbono_huevo, carbono_vegetales, carbono_fruta, carbono_tortillas, carbono_bolillo].sum
+    carbono_chocolate = obtener_carbono_multiplicador(@cuestionario.origen_carne, VALORES_KG_CO2[:chocolate], PORCIONES_KG[:chocolate], @cuestionario.frecuencia_chocolates, @cuestionario.cantidad_chocolates)
+    [carbono_huevo, carbono_vegetales, carbono_fruta, carbono_tortillas, carbono_bolillo, carbono_chocolate].sum
   end
 
   def contador_carbono_especial
@@ -444,7 +445,8 @@ class CuestionariosController < ApplicationController
     refrescos: 1.67,
     bebidas_energetizantes: 6.67,
     galletas_saladas: 38.46,
-    galletas_dulces: 21.73
+    galletas_dulces: 21.73,
+    chocolate: 55.56
   }
 
   VALORES_KG_CO2 = {
@@ -475,7 +477,8 @@ class CuestionariosController < ApplicationController
     refrescos: [2.56, 2.56, 2.56],
     bebidas_energetizantes: [2.56, 2.56, 2.56],
     galletas_saladas: [2.88, 2.88, 2.88],
-    galletas_dulces: [4.37, 4.37, 4.37]
+    galletas_dulces: [4.37, 4.37, 4.37],
+    chocolate: [6.66, 6.66, 6.66]
   }
 
   # no hay valores para salmon, atun, que estan en el cuestionario
