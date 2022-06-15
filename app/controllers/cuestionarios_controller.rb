@@ -274,7 +274,8 @@ class CuestionariosController < ApplicationController
     calorias_fruta = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:fruta], @cuestionario.frecuencia_fruta, @cuestionario.cantidad_fruta)
     calorias_tortillas = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:tortillas], @cuestionario.frecuencia_tortillas, @cuestionario.cantidad_tortillas)
     calorias_bolillo = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:bolillo], @cuestionario.frecuencia_bolillo, @cuestionario.cantidad_bolillo)
-    [calorias_huevo, calorias_vegetales, calorias_fruta, calorias_tortillas, calorias_bolillo].sum
+    calorias_chocolate = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:chocolate], @cuestionario.frecuencia_chocolates, @cuestionario.cantidad_chocolates)
+    [calorias_huevo, calorias_vegetales, calorias_fruta, calorias_tortillas, calorias_bolillo, calorias_chocolate].sum
   end
 
   def contador_calorias_especial
@@ -359,7 +360,8 @@ class CuestionariosController < ApplicationController
     refrescos: 180,
     bebidas_energetizantes: 178,
     galletas_saladas: 98,
-    galletas_dulces: 209
+    galletas_dulces: 209,
+    chocolate: 93
   }
 
   PORCIONES_KG = {
