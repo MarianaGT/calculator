@@ -2,12 +2,10 @@ class CuestionariosController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[new create show index]
   before_action :set_cuestionario, only: %i[show edit update destroy]
 
-  # GET /cuestionarios
   def index
     @cuestionarios = Cuestionario.all
   end
 
-  # GET /cuestionarios/1
   def show
     hs1
     hs2
@@ -15,7 +13,6 @@ class CuestionariosController < ApplicationController
     huella_carbono
   end
 
-  # GET /cuestionarios/new
   def new
     @cuestionario = Cuestionario.new
   end
@@ -33,7 +30,6 @@ class CuestionariosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cuestionarios/1
   def update
     if @cuestionario.update(cuestionario_params)
       redirect_to @cuestionario, notice: 'Cuestionario was successfully updated.'
@@ -53,9 +49,8 @@ class CuestionariosController < ApplicationController
     @cuestionario = Cuestionario.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def cuestionario_params
-    params.require(:cuestionario).permit(:email, :nombre, :edad, :sexo, :escolaridad, :pais, :ciudad, :localidad, :peso, :altura, :alimentacion_sana, :alimentacion_dana_ambiente, :persona_actividad, :actividad_fisica, :sobrepeso, :obesidad, :hipertension, :colesterol, :trigliceridos, :diabetes, :glucosa, :diabetes_familia, :dieta, :origen_vegetales, :origen_frutas, :origen_carne, :origen_leche, :origen_cereales, :frecuencia_res, :frecuencia_puerco, :frecuencia_borrego, :frecuencia_pollo, :frecuencia_salmon, :frecuencia_atun, :frecuencia_leche, :frecuencia_queso, :frecuencia_yogurt, :frecuencia_pescados_mariscos, :valores_pescados_mariscos, :frecuencia_huevo, :cantidad_huevo, :frecuencia_vegetales, :cantidad_vegetales, :frecuencia_fruta, :cantidad_fruta, :frecuencia_arroz, :frecuencia_leguminosas, :frecuencia_avena, :frecuencia_amaranto, :frecuencia_tortillas, :cantidad_tortillas, :insectos, :frecuencia_insectos, :frecuencia_tamales, :frecuencia_atole, :frecuencia_sandwich, :frecuencia_tacos, :frecuencia_torta, :frecuencia_bolillo, :cantidad_bolillo, :frecuencia_sopas, :frecuencia_jugos, :frecuencia_refrescos, :frecuencia_bebidas_energetizantes, :frecuencia_galletas, :frecuencia_embutidos, :frecuencia_pan, :cantidad_pan, :frecuencia_frituras, :frecuencia_chocolates, :cantidad_chocolates, :al_pastor, :necesidad_orinar, :perdida_peso, :sed_excesiva, :hambre_excesiva, :suadero, :guisados, :galletas_saladas, :galletas_dulces, :jamon_pavo, :jamon_puerco, :salchicha_pavo, :fritura_papa, :fritura_chicharron, :mantecadas, :pan_blanco)
+    params.require(:cuestionario).permit(:email, :nombre, :edad, :sexo, :escolaridad, :pais, :ciudad, :localidad, :peso, :altura, :alimentacion_sana, :alimentacion_dana_ambiente, :persona_actividad, :actividad_fisica, :sobrepeso, :obesidad, :hipertension, :colesterol, :trigliceridos, :diabetes, :glucosa, :diabetes_familia, :dieta, :origen_vegetales, :origen_frutas, :origen_carne, :origen_leche, :origen_cereales, :frecuencia_res, :frecuencia_puerco, :frecuencia_borrego, :frecuencia_pollo, :frecuencia_salmon, :frecuencia_atun, :frecuencia_leche, :frecuencia_queso, :frecuencia_yogurt, :frecuencia_pescados_mariscos, :valores_pescados_mariscos, :frecuencia_huevo, :cantidad_huevo, :frecuencia_vegetales, :cantidad_vegetales, :frecuencia_fruta, :cantidad_fruta, :frecuencia_arroz, :frecuencia_leguminosas, :frecuencia_avena, :frecuencia_amaranto, :frecuencia_tortillas, :cantidad_tortillas, :insectos, :frecuencia_insectos, :frecuencia_tamales, :frecuencia_atole, :frecuencia_sandwich, :frecuencia_tacos, :frecuencia_torta, :frecuencia_bolillo, :cantidad_bolillo, :frecuencia_sopas, :frecuencia_jugos, :frecuencia_refrescos, :frecuencia_bebidas_energetizantes, :frecuencia_galletas, :frecuencia_embutidos, :frecuencia_pan, :cantidad_pan, :frecuencia_frituras, :frecuencia_chocolates, :cantidad_chocolates, :al_pastor, :necesidad_orinar, :perdida_peso, :sed_excesiva, :hambre_excesiva, :suadero, :guisados, :galletas_saladas, :galletas_dulces, :jamon_pavo, :jamon_puerco, :salchicha_pavo, :fritura_papa, :fritura_chicharron, :mantecadas, :pan_blanco, :galletas_dulces, :galletas_saladas)
   end
 
   # THIS SECTION CONTAINS ALL THE FORMULAS AND LOGIC FOR HUELLA DE SALUD
@@ -392,6 +387,8 @@ class CuestionariosController < ApplicationController
   # en arroz es intensivo menor que organico?
   # en leguminosas es intensivo menor que organico?
   # son correctos los valores de carbono del atole?
+
+  
   # FOODS_PARAMS = [
   #   { name: "res", calorias_por_porcion: 135, porciones_kg: 10, valores_kg_co2: [16.33,	16.33, 26.99] }
   # ]
@@ -402,8 +399,7 @@ class CuestionariosController < ApplicationController
 
   #   end
 
-  #   def average_dskdj
-  #     @calorias_amaranto
+  #   def average
   #   end
   # end
 end
