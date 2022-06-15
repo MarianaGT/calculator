@@ -184,6 +184,15 @@ class CuestionariosController < ApplicationController
     kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo * cantidad / 7).round(2)
   end
 
+  def obtener_calorias_frituras(frecuencia_consumo)
+    valores_frituras = { papas: 256, chicharron: 408 }
+
+    kcal_total = 0
+    kcal_total += valores_frituras[:papas] if @cuestionario.fritura_papa
+    kcal_total += valores_frituras[:chicharron] if @cuestionario.fritura_chicharron
+    kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
+  end
+
   def obtener_calorias_multiplicador(kcal_unidad, frecuencia_consumo, cantidad = 1)
     (kcal_unidad * frecuencia_consumo / 7 * cantidad).round(2)
   end
@@ -275,7 +284,8 @@ class CuestionariosController < ApplicationController
     galletas = obtener_calorias_galletas(@cuestionario.frecuencia_galletas)
     embutidos = obtener_calorias_embutidos(@cuestionario.frecuencia_embutidos)
     panificados = obtener_calorias_pan(@cuestionario.frecuencia_pan, @cuestionario.cantidad_pan)
-    [calorias_insectos, pescados_mariscos, tacos, galletas, embutidos, panificados].sum
+    frituras = obtener_calorias_frituras(@cuestionario.frecuencia_frituras)
+    [calorias_insectos, pescados_mariscos, tacos, galletas, embutidos, panificados, frituras].sum
   end
 
   def kcal_calculator
