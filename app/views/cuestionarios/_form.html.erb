@@ -358,7 +358,9 @@
     <%= f.input :hambre_excesiva %>
     <%#= f.input :diabetes_sintomas, label: "¿Ha presentado alguno de los siguientes síntomas en el último mes?", as: :check_boxes, collection: [['Necesidad de orinar con frecuencia', 'Necesidad de orinar con frecuencia'], ['Perdida de peso inexplicable', 'Perdida de peso inexplicable'], ['Sed excesiva', 'Sed excesiva'], ['Hambre excesiva', 'Hambre excesiva']] %>
 
-    <h3>Dieta</h3>
+    <%= image_tag "veggies.png", class: "dieta-pic" %>
+
+
 
     <div id="dieta">
       <h3 class="text-white pb-1 pt-3">Tus preferencias alimentarias</h3>
@@ -385,7 +387,7 @@
           collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
         %>
       </div>
       <h5 class="text-white text-center pb-1 pt-3">Frutas</h5>
@@ -395,7 +397,7 @@
         collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
       <h5 class="text-white text-center pb-1 pt-3">Carne</h5>
@@ -405,7 +407,7 @@
           collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
         %>
       </div>
       <h5 class="text-white text-center pb-1 pt-3">Leche</h5>
@@ -415,7 +417,7 @@
           collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
         %>
       </div>
       <h5 class="text-white text-center pb-1 pt-3">Cereales (tortilla, arroz, avena)</h5>
@@ -425,7 +427,7 @@
           collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
         %>
       </div>
       <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#persona_actividad" aria-expanded="false" aria-controls="persona_actividad">
@@ -576,7 +578,7 @@
       collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
       label_method: :second,
       value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      item_wrapper_class: "btn btn-outline-danger btn-group p-2 m-2"
     %>
     </div>
     <h5 class="text-white text-center pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
@@ -856,15 +858,22 @@
       collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
       label_method: :second,
       value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
+      radio_button_tag: (""),
+      onClick: ()
     %>
     </div>
-    <h5 class="text-white text-center pb-1 pt-3">Si consumes chocolates ¿cuántos consumes en un día?</h5>
-    <%= f.input :cantidad_chocolates,
-      label: false,
-      placeholder: "|...",
-      input_html: { class: "bg-input"}
-    %>
+
+    <div id="cantidad-chocolates">
+      <h5 class="text-white text-center pb-1 pt-3">Si consumes chocolates ¿cuántos consumes en un día?</h5>
+      <%= f.input :cantidad_chocolates,
+        label: false,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+    </div>
+
+
   </div>
 
   <div class="form-actions">
