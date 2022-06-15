@@ -2,12 +2,10 @@ class CuestionariosController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[new create show index]
   before_action :set_cuestionario, only: %i[show edit update destroy]
 
-  # GET /cuestionarios
   def index
     @cuestionarios = Cuestionario.all
   end
 
-  # GET /cuestionarios/1
   def show
     hs1
     hs2
@@ -15,7 +13,6 @@ class CuestionariosController < ApplicationController
     huella_carbono
   end
 
-  # GET /cuestionarios/new
   def new
     @cuestionario = Cuestionario.new
   end
@@ -33,7 +30,6 @@ class CuestionariosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /cuestionarios/1
   def update
     if @cuestionario.update(cuestionario_params)
       redirect_to @cuestionario, notice: 'Cuestionario was successfully updated.'
@@ -53,7 +49,6 @@ class CuestionariosController < ApplicationController
     @cuestionario = Cuestionario.find(params[:id])
   end
 
-  # Only allow a list of trusted parameters through.
   def cuestionario_params
     params.require(:cuestionario).permit(:email, :nombre, :edad, :sexo, :escolaridad, :pais, :ciudad, :localidad, :peso, :altura, :alimentacion_sana, :alimentacion_dana_ambiente, :persona_actividad, :actividad_fisica, :sobrepeso, :obesidad, :hipertension, :colesterol, :trigliceridos, :diabetes, :glucosa, :diabetes_familia, :dieta, :origen_vegetales, :origen_frutas, :origen_carne, :origen_leche, :origen_cereales, :frecuencia_res, :frecuencia_puerco, :frecuencia_borrego, :frecuencia_pollo, :frecuencia_salmon, :frecuencia_atun, :frecuencia_leche, :frecuencia_queso, :frecuencia_yogurt, :frecuencia_pescados_mariscos, :valores_pescados_mariscos, :frecuencia_huevo, :cantidad_huevo, :frecuencia_vegetales, :cantidad_vegetales, :frecuencia_fruta, :cantidad_fruta, :frecuencia_arroz, :frecuencia_leguminosas, :frecuencia_avena, :frecuencia_amaranto, :frecuencia_tortillas, :cantidad_tortillas, :insectos, :frecuencia_insectos, :frecuencia_tamales, :frecuencia_atole, :frecuencia_sandwich, :frecuencia_tacos, :frecuencia_torta, :frecuencia_bolillo, :cantidad_bolillo, :frecuencia_sopas, :frecuencia_jugos, :frecuencia_refrescos, :frecuencia_bebidas_energetizantes, :frecuencia_galletas, :frecuencia_embutidos, :frecuencia_pan, :cantidad_pan, :frecuencia_frituras, :frecuencia_chocolates, :cantidad_chocolates, :al_pastor, :necesidad_orinar, :perdida_peso, :sed_excesiva, :hambre_excesiva, :suadero, :guisados, :galletas_saladas, :galletas_dulces, :jamon_pavo, :jamon_puerco, :salchicha_pavo, :fritura_papa, :fritura_chicharron, :mantecadas, :pan_blanco)
   end
@@ -161,6 +156,43 @@ class CuestionariosController < ApplicationController
     kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
   end
 
+  def obtener_calorias_galletas(frecuencia_consumo)
+    kcal_total = 0
+
+    kcal_total += CALORIAS_POR_PORCION[:galletas_dulces] if @cuestionario.galletas_dulces
+    kcal_total += CALORIAS_POR_PORCION[:galletas_saladas] if @cuestionario.galletas_saladas
+    kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
+  end
+
+  def obtener_calorias_embutidos(frecuencia_consumo)
+    # pavo, puerco, salchicha
+    valores_embutidos = { pavo: 21, puerco: 44, salchicha: 56}
+    kcal_total = 0
+
+    kcal_total += valores_embutidos[:pavo] if @cuestionario.jamon_pavo
+    kcal_total += valores_embutidos[:puerco] if @cuestionario.jamon_puerco
+    kcal_total += valores_embutidos[:salchicha] if @cuestionario.salchicha_pavo
+    kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
+  end
+
+  def obtener_calorias_pan(frecuencia_consumo, cantidad)
+    valores_pan = { blanco: 69, pastelitos: 379 }
+    kcal_total = 0
+
+    kcal_total += valores_pan[:blanco] if @cuestionario.pan_blanco
+    kcal_total += valores_pan[:pastelitos] if @cuestionario.mantecadas
+    kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo * cantidad / 7).round(2)
+  end
+
+  def obtener_calorias_frituras(frecuencia_consumo)
+    valores_frituras = { papas: 256, chicharron: 408 }
+
+    kcal_total = 0
+    kcal_total += valores_frituras[:papas] if @cuestionario.fritura_papa
+    kcal_total += valores_frituras[:chicharron] if @cuestionario.fritura_chicharron
+    kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
+  end
+
   def obtener_calorias_multiplicador(kcal_unidad, frecuencia_consumo, cantidad = 1)
     (kcal_unidad * frecuencia_consumo / 7 * cantidad).round(2)
   end
@@ -169,6 +201,54 @@ class CuestionariosController < ApplicationController
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     kg_co2 = arr_valores_kg_co2[origen_alimento]
     (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7).round(2)
+  end
+
+  def obtener_carbono_galletas(frecuencia_consumo)
+    # co2, porciones por kg
+    valores = { saladas: { co2: 2.88 , porciones: 38.46 }, dulces: { co2: 4.37 , porciones: 21.74 } }
+    carbon_total = 0
+
+    carbon_total += (valores[:saladas][:co2] / valores[:saladas][:porciones] * frecuencia_consumo / 7).round(2)
+    carbon_total += (valores[:dulces][:co2] / valores[:dulces][:porciones] * frecuencia_consumo / 7).round(2)
+    carbon_total
+  end
+
+  def obtener_carbon_embutidos(frecuencia_consumo)
+    valores = {
+      jamon_pavo: { co2: 36, porciones: 52.63 },
+      jamon_puerco: { co2: 20, porciones: 32.26 },
+      salchicha: { co2: 21.2, porciones: 30.3 }
+    }
+    carbon_total = 0
+
+    carbon_total += (valores[:jamon_pavo][:co2] / valores[:jamon_pavo][:porciones] * frecuencia_consumo / 7).round(2)
+    carbon_total += (valores[:jamon_puerco][:co2] / valores[:jamon_puerco][:porciones] * frecuencia_consumo / 7).round(2)
+    carbon_total += (valores[:salchicha][:co2] / valores[:salchicha][:porciones] * frecuencia_consumo / 7).round(2)
+    carbon_total
+  end
+
+  def obtener_carbon_pan(frecuencia, cantidad)
+    valores = {
+      pan: { co2: 0.15, porciones: 7.87 },
+      pastelitos: { co2: 8.9, porciones: 10.75 }
+    }
+    carbon_total = 0
+
+    carbon_total += (valores[:pan][:co2] / valores[:pan][:porciones] * frecuencia * cantidad / 7).round(2)
+    carbon_total += (valores[:pastelitos][:co2] / valores[:pastelitos][:porciones] * frecuencia / 7).round(2)
+    carbon_total
+  end
+
+  def obtener_carbono_frituras(frecuencia)
+    valores = {
+      papas: { co2: 6.4, porciones: 20.2 },
+      chicharron: { co2: 23.71, porciones: 14.29 }
+    }
+    carbon_total = 0
+
+    carbon_total += (valores[:papas][:co2] / valores[:papas][:porciones] * frecuencia / 7).round(2)
+    carbon_total += (valores[:chicharron][:co2] / valores[:chicharron][:porciones] * frecuencia / 7).round(2)
+    carbon_total
   end
 
   def obtener_carbono_pescados_y_mariscos(origen, grupo, frecuencia_consumo)
@@ -242,14 +322,19 @@ class CuestionariosController < ApplicationController
     calorias_fruta = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:fruta], @cuestionario.frecuencia_fruta, @cuestionario.cantidad_fruta)
     calorias_tortillas = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:tortillas], @cuestionario.frecuencia_tortillas, @cuestionario.cantidad_tortillas)
     calorias_bolillo = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:bolillo], @cuestionario.frecuencia_bolillo, @cuestionario.cantidad_bolillo)
-    [calorias_huevo, calorias_vegetales, calorias_fruta, calorias_tortillas, calorias_bolillo].sum
+    calorias_chocolate = obtener_calorias_multiplicador(CALORIAS_POR_PORCION[:chocolate], @cuestionario.frecuencia_chocolates, @cuestionario.cantidad_chocolates)
+    [calorias_huevo, calorias_vegetales, calorias_fruta, calorias_tortillas, calorias_bolillo, calorias_chocolate].sum
   end
 
   def contador_calorias_especial
     calorias_insectos = obtener_calorias_insectos(CALORIAS_POR_PORCION[:insectos], @cuestionario.frecuencia_insectos)
     pescados_mariscos = obtener_calorias_pescados_y_mariscos(@cuestionario.valores_pescados_mariscos, @cuestionario.frecuencia_pescados_mariscos)
     tacos = obtener_calorias_tacos(@cuestionario.frecuencia_tacos)
-    [calorias_insectos, pescados_mariscos, tacos].sum
+    galletas = obtener_calorias_galletas(@cuestionario.frecuencia_galletas)
+    embutidos = obtener_calorias_embutidos(@cuestionario.frecuencia_embutidos)
+    panificados = obtener_calorias_pan(@cuestionario.frecuencia_pan, @cuestionario.cantidad_pan)
+    frituras = obtener_calorias_frituras(@cuestionario.frecuencia_frituras)
+    [calorias_insectos, pescados_mariscos, tacos, galletas, embutidos, panificados, frituras].sum
   end
 
   def kcal_calculator
@@ -281,20 +366,24 @@ class CuestionariosController < ApplicationController
     carbono_fruta = obtener_carbono_multiplicador(@cuestionario.origen_frutas, VALORES_KG_CO2[:fruta], PORCIONES_KG[:fruta], @cuestionario.frecuencia_fruta, @cuestionario.cantidad_fruta)
     carbono_tortillas = obtener_carbono_multiplicador(@cuestionario.origen_cereales, VALORES_KG_CO2[:tortillas], PORCIONES_KG[:tortillas], @cuestionario.frecuencia_tortillas, @cuestionario.cantidad_tortillas)
     carbono_bolillo = obtener_carbono_multiplicador(@cuestionario.origen_cereales, VALORES_KG_CO2[:bolillo], PORCIONES_KG[:bolillo], @cuestionario.frecuencia_bolillo, @cuestionario.cantidad_bolillo)
-    [carbono_huevo, carbono_vegetales, carbono_fruta, carbono_tortillas, carbono_bolillo].sum
+    carbono_chocolate = obtener_carbono_multiplicador(@cuestionario.origen_carne, VALORES_KG_CO2[:chocolate], PORCIONES_KG[:chocolate], @cuestionario.frecuencia_chocolates, @cuestionario.cantidad_chocolates)
+    [carbono_huevo, carbono_vegetales, carbono_fruta, carbono_tortillas, carbono_bolillo, carbono_chocolate].sum
   end
 
   def contador_carbono_especial
     pescados = obtener_carbono_pescados_y_mariscos(@cuestionario.origen_carne, @cuestionario.valores_pescados_mariscos, @cuestionario.frecuencia_pescados_mariscos)
     insectos = obtener_carbono_insectos('intensivo', VALORES_KG_CO2[:insectos], PORCIONES_KG[:insectos], @cuestionario.frecuencia_insectos)
     tacos = obtener_carbono_tacos(@cuestionario.frecuencia_tacos)
-    [pescados, insectos, tacos].sum
+    galletas = obtener_carbono_galletas(@cuestionario.frecuencia_galletas)
+    embutidos = obtener_carbon_embutidos(@cuestionario.frecuencia_embutidos)
+    pan = obtener_carbon_pan(@cuestionario.frecuencia_pan, @cuestionario.cantidad_pan)
+    frituras = obtener_carbono_frituras(@cuestionario.frecuencia_frituras)
+    [pescados, insectos, tacos, galletas, embutidos, pan, frituras].sum
   end
 
   def huella_carbono
     @carbono = [contador_carbono_simple, contador_carbono_compuesto, contador_carbono_especial].sum
   end
-
 
   CALORIAS_POR_PORCION = {
     res: 135,
@@ -322,7 +411,10 @@ class CuestionariosController < ApplicationController
     sopas: 277,
     jugos: 110,
     refrescos: 180,
-    bebidas_energetizantes: 178
+    bebidas_energetizantes: 178,
+    galletas_saladas: 98,
+    galletas_dulces: 209,
+    chocolate: 93
   }
 
   PORCIONES_KG = {
@@ -351,7 +443,10 @@ class CuestionariosController < ApplicationController
     sopas: 2.75,
     jugos: 4,
     refrescos: 1.67,
-    bebidas_energetizantes: 6.67
+    bebidas_energetizantes: 6.67,
+    galletas_saladas: 38.46,
+    galletas_dulces: 21.73,
+    chocolate: 55.56
   }
 
   VALORES_KG_CO2 = {
@@ -380,7 +475,10 @@ class CuestionariosController < ApplicationController
     sopas: [0.96, 0.96, 0.96],
     jugos: [3.8, 3.8, 3.8],
     refrescos: [2.56, 2.56, 2.56],
-    bebidas_energetizantes: [2.56, 2.56, 2.56]
+    bebidas_energetizantes: [2.56, 2.56, 2.56],
+    galletas_saladas: [2.88, 2.88, 2.88],
+    galletas_dulces: [4.37, 4.37, 4.37],
+    chocolate: [6.66, 6.66, 6.66]
   }
 
   # no hay valores para salmon, atun, que estan en el cuestionario
@@ -392,6 +490,7 @@ class CuestionariosController < ApplicationController
   # en arroz es intensivo menor que organico?
   # en leguminosas es intensivo menor que organico?
   # son correctos los valores de carbono del atole?
+
   # FOODS_PARAMS = [
   #   { name: "res", calorias_por_porcion: 135, porciones_kg: 10, valores_kg_co2: [16.33,	16.33, 26.99] }
   # ]
@@ -402,8 +501,7 @@ class CuestionariosController < ApplicationController
 
   #   end
 
-  #   def average_dskdj
-  #     @calorias_amaranto
+  #   def average
   #   end
   # end
 end
