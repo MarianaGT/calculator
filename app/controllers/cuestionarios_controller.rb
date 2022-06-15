@@ -156,6 +156,14 @@ class CuestionariosController < ApplicationController
     kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
   end
 
+  def obtener_calorias_galletas(frecuencia_consumo)
+    kcal_total = 0
+
+    kcal_total += CALORIAS_POR_PORCION[:galletas_dulces] if @cuestionario.galletas_dulces
+    kcal_total += CALORIAS_POR_PORCION[:galletas_saladas] if @cuestionario.galletas_saladas
+    kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
+  end
+
   def obtener_calorias_multiplicador(kcal_unidad, frecuencia_consumo, cantidad = 1)
     (kcal_unidad * frecuencia_consumo / 7 * cantidad).round(2)
   end
@@ -244,7 +252,8 @@ class CuestionariosController < ApplicationController
     calorias_insectos = obtener_calorias_insectos(CALORIAS_POR_PORCION[:insectos], @cuestionario.frecuencia_insectos)
     pescados_mariscos = obtener_calorias_pescados_y_mariscos(@cuestionario.valores_pescados_mariscos, @cuestionario.frecuencia_pescados_mariscos)
     tacos = obtener_calorias_tacos(@cuestionario.frecuencia_tacos)
-    [calorias_insectos, pescados_mariscos, tacos].sum
+    galletas = obtener_calorias_galletas(@cuestionario.frecuencia_galletas)
+    [calorias_insectos, pescados_mariscos, tacos, galletas].sum
   end
 
   def kcal_calculator
@@ -290,7 +299,6 @@ class CuestionariosController < ApplicationController
     @carbono = [contador_carbono_simple, contador_carbono_compuesto, contador_carbono_especial].sum
   end
 
-
   CALORIAS_POR_PORCION = {
     res: 135,
     cerdo: 297,
@@ -317,7 +325,9 @@ class CuestionariosController < ApplicationController
     sopas: 277,
     jugos: 110,
     refrescos: 180,
-    bebidas_energetizantes: 178
+    bebidas_energetizantes: 178,
+    galletas_saladas: 98,
+    galletas_dulces: 209
   }
 
   PORCIONES_KG = {
@@ -346,7 +356,9 @@ class CuestionariosController < ApplicationController
     sopas: 2.75,
     jugos: 4,
     refrescos: 1.67,
-    bebidas_energetizantes: 6.67
+    bebidas_energetizantes: 6.67,
+    galletas_saladas: 38.46,
+    galletas_dulces: 21.73
   }
 
   VALORES_KG_CO2 = {
@@ -375,7 +387,9 @@ class CuestionariosController < ApplicationController
     sopas: [0.96, 0.96, 0.96],
     jugos: [3.8, 3.8, 3.8],
     refrescos: [2.56, 2.56, 2.56],
-    bebidas_energetizantes: [2.56, 2.56, 2.56]
+    bebidas_energetizantes: [2.56, 2.56, 2.56],
+    galletas_saladas: [2.88, 2.88, 2.88],
+    galletas_dulces: [4.37, 4.37, 4.37]
   }
 
   # no hay valores para salmon, atun, que estan en el cuestionario
@@ -388,7 +402,6 @@ class CuestionariosController < ApplicationController
   # en leguminosas es intensivo menor que organico?
   # son correctos los valores de carbono del atole?
 
-  
   # FOODS_PARAMS = [
   #   { name: "res", calorias_por_porcion: 135, porciones_kg: 10, valores_kg_co2: [16.33,	16.33, 26.99] }
   # ]
