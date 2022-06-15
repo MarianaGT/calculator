@@ -213,6 +213,20 @@ class CuestionariosController < ApplicationController
     carbon_total
   end
 
+  def obtener_carbon_embutidos(frecuencia_consumo)
+    valores = {
+      jamon_pavo: { co2: 36, porciones: 52.63 },
+      jamon_puerco: { co2: 20, porciones: 32.26 },
+      salchicha: { co2: 21.2, porciones: 30.3 }
+    }
+    carbon_total = 0
+
+    carbon_total += (valores[:jamon_pavo][:co2] / valores[:jamon_pavo][:porciones] * frecuencia_consumo / 7).round(2)
+    carbon_total += (valores[:jamon_puerco][:co2] / valores[:jamon_puerco][:porciones] * frecuencia_consumo / 7).round(2)
+    carbon_total += (valores[:salchicha][:co2] / valores[:salchicha][:porciones] * frecuencia_consumo / 7).round(2)
+    carbon_total
+  end
+
   def obtener_carbono_pescados_y_mariscos(origen, grupo, frecuencia_consumo)
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     valores_grupos_carbono = [[2.95, 3.71, 3.71],
@@ -336,7 +350,8 @@ class CuestionariosController < ApplicationController
     insectos = obtener_carbono_insectos('intensivo', VALORES_KG_CO2[:insectos], PORCIONES_KG[:insectos], @cuestionario.frecuencia_insectos)
     tacos = obtener_carbono_tacos(@cuestionario.frecuencia_tacos)
     galletas = obtener_carbono_galletas(@cuestionario.frecuencia_galletas)
-    [pescados, insectos, tacos, galletas].sum
+    embutidos = obtener_carbon_embutidos(@cuestionario.frecuencia_embutidos)
+    [pescados, insectos, tacos, galletas, embutidos].sum
   end
 
   def huella_carbono
