@@ -175,6 +175,15 @@ class CuestionariosController < ApplicationController
     kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
   end
 
+  def obtener_calorias_pan(frecuencia_consumo, cantidad)
+    valores_pan = { blanco: 69, pastelitos: 379 }
+    kcal_total = 0
+
+    kcal_total += valores_pan[:blanco] if @cuestionario.pan_blanco
+    kcal_total += valores_pan[:pastelitos] if @cuestionario.mantecadas
+    kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo * cantidad / 7).round(2)
+  end
+
   def obtener_calorias_multiplicador(kcal_unidad, frecuencia_consumo, cantidad = 1)
     (kcal_unidad * frecuencia_consumo / 7 * cantidad).round(2)
   end
@@ -265,7 +274,8 @@ class CuestionariosController < ApplicationController
     tacos = obtener_calorias_tacos(@cuestionario.frecuencia_tacos)
     galletas = obtener_calorias_galletas(@cuestionario.frecuencia_galletas)
     embutidos = obtener_calorias_embutidos(@cuestionario.frecuencia_embutidos)
-    [calorias_insectos, pescados_mariscos, tacos, galletas, embutidos].sum
+    panificados = obtener_calorias_pan(@cuestionario.frecuencia_pan, @cuestionario.cantidad_pan)
+    [calorias_insectos, pescados_mariscos, tacos, galletas, embutidos, panificados].sum
   end
 
   def kcal_calculator
