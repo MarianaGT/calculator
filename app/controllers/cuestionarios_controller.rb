@@ -227,6 +227,30 @@ class CuestionariosController < ApplicationController
     carbon_total
   end
 
+  def obtener_carbon_pan(frecuencia, cantidad)
+    valores = {
+      pan: { co2: 0.15, porciones: 7.87 },
+      pastelitos: { co2: 8.9, porciones: 10.75 }
+    }
+    carbon_total = 0
+
+    carbon_total += (valores[:pan][:co2] / valores[:pan][:porciones] * frecuencia * cantidad / 7).round(2)
+    carbon_total += (valores[:pastelitos][:co2] / valores[:pastelitos][:porciones] * frecuencia / 7).round(2)
+    carbon_total
+  end
+
+  def obtener_carbono_frituras(frecuencia)
+    valores = {
+      papas: { co2: 6.4, porciones: 20.2 },
+      chicharron: { co2: 23.71, porciones: 14.29 }
+    }
+    carbon_total = 0
+
+    carbon_total += (valores[:papas][:co2] / valores[:papas][:porciones] * frecuencia / 7).round(2)
+    carbon_total += (valores[:chicharron][:co2] / valores[:chicharron][:porciones] * frecuencia / 7).round(2)
+    carbon_total
+  end
+
   def obtener_carbono_pescados_y_mariscos(origen, grupo, frecuencia_consumo)
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     valores_grupos_carbono = [[2.95, 3.71, 3.71],
@@ -351,7 +375,9 @@ class CuestionariosController < ApplicationController
     tacos = obtener_carbono_tacos(@cuestionario.frecuencia_tacos)
     galletas = obtener_carbono_galletas(@cuestionario.frecuencia_galletas)
     embutidos = obtener_carbon_embutidos(@cuestionario.frecuencia_embutidos)
-    [pescados, insectos, tacos, galletas, embutidos].sum
+    pan = obtener_carbon_pan(@cuestionario.frecuencia_pan, @cuestionario.cantidad_pan)
+    frituras = obtener_carbono_frituras(@cuestionario.frecuencia_frituras)
+    [pescados, insectos, tacos, galletas, embutidos, pan, frituras].sum
   end
 
   def huella_carbono
