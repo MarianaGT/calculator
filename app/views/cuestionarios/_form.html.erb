@@ -316,8 +316,43 @@
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2",
+          input_html: { 'data-bs-target' => '#glucosa', 'data-bs-toggle' => 'collapse' }
         %>
+      </div>
+      <div class="collapse" id="glucosa">
+        <h5 class="text-white text-center pb-1 pt-3">¿Le han detectado alguna vez niveles altos de glucosa en sangre?</h5>
+        <div class="d-flex justify-content-center">
+        <%= f.input :glucosa,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2",
+          input_html: { 'data-bs-target' => '#diagnostico', 'data-bs-toggle' => 'collapse' }
+        %>
+        </div>
+      </div>
+      <div class="collapse" id="diagnostico" >
+        <h5 class="text-white text-center pb-1 pt-3">¿Ha habido algún diagnóstico de diabetes mellitus en su familia?</h5>
+        <div class="d-flex justify-content-center">
+        <%= f.input :diabetes_familia,
+          as: :radio_buttons,
+          collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2",
+          input_html: { 'data-bs-target' => '#sintomas', 'data-bs-toggle' => 'collapse' }
+        %>
+        </div>
+      </div>
+      <div class="collapse" id="sintomas">
+        <h5 class="text-white text-center pb-1 pt-3">¿Ha presentado alguno de los siguientes síntomas en el último mes?</h5>
+        <%= f.input :necesidad_orinar, label: "Necesidad de orinar con frecuencia" %>
+        <%= f.input :perdida_peso, label: "Perdida de peso inexplicable" %>
+        <%= f.input :sed_excesiva %>
+        <%= f.input :hambre_excesiva %>
+        <%#= f.input :diabetes_sintomas, label: "¿Ha presentado alguno de los siguientes síntomas en el último mes?", as: :check_boxes, collection: [['Necesidad de orinar con frecuencia', 'Necesidad de orinar con frecuencia'], ['Perdida de peso inexplicable', 'Perdida de peso inexplicable'], ['Sed excesiva', 'Sed excesiva'], ['Hambre excesiva', 'Hambre excesiva']] %>
       </div>
       <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#persona_actividad" aria-expanded="false" aria-controls="persona_actividad">
         <span class="material-symbols-outlined pt-2">
@@ -328,39 +363,8 @@
 
 
   <div class="form-inputs">
-
-    <h3>Diabetes Mellitus</h3>
-    <p>Si contestó "no sé" en la pregunta sobre diabetes mellitus responda lo siguiente:</p>
-    <h5 class="text-white text-center pb-1 pt-3">¿Le han detectado alguna vez niveles altos de glucosa en sangre?</h5>
-    <div class="d-flex justify-content-center">
-    <%= f.input :glucosa,
-      as: :radio_buttons,
-      collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
-      label_method: :second,
-      value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
-    %>
-    </div>
-    <h5 class="text-white text-center pb-1 pt-3">¿Ha habido algún diagnóstico de diabetes mellitus en su familia?</h5>
-    <div class="d-flex justify-content-center">
-    <%= f.input :diabetes_familia,
-      as: :radio_buttons,
-      collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
-      label_method: :second,
-      value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
-    %>
-    </div>
-    <h5 class="text-white text-center pb-1 pt-3">¿Ha presentado alguno de los siguientes síntomas en el último mes?</h5>
-    <%= f.input :necesidad_orinar, label: "Necesidad de orinar con frecuencia" %>
-    <%= f.input :perdida_peso, label: "Perdida de peso inexplicable" %>
-    <%= f.input :sed_excesiva %>
-    <%= f.input :hambre_excesiva %>
-    <%#= f.input :diabetes_sintomas, label: "¿Ha presentado alguno de los siguientes síntomas en el último mes?", as: :check_boxes, collection: [['Necesidad de orinar con frecuencia', 'Necesidad de orinar con frecuencia'], ['Perdida de peso inexplicable', 'Perdida de peso inexplicable'], ['Sed excesiva', 'Sed excesiva'], ['Hambre excesiva', 'Hambre excesiva']] %>
-
-    <%= image_tag "veggies.png", class: "dieta-pic" %>
-
     <div id="dieta">
+      <%= image_tag "veggies.png", class: "dieta-pic" %>
       <h3 class="text-white pb-1 pt-3">Tus preferencias alimentarias</h3>
       <%= f.input :dieta,
         as: :radio_buttons,
