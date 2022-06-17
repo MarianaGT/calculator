@@ -854,12 +854,11 @@
       label_method: :second,
       value_method: :first,
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
-      radio_button_tag: (""),
-      onClick: ()
+      data: { bs_target: "#cantidad-chocolates", bs_toggle: "collapse" }
     %>
     </div>
 
-    <div id="cantidad-chocolates">
+    <div class="collapse" id="cantidad-chocolates">
       <h5 class="text-white text-center pb-1 pt-3">Si consumes chocolates ¿cuántos consumes en un día?</h5>
       <%= f.input :cantidad_chocolates,
         label: false,
@@ -890,6 +889,6 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, class: "btn btn-danger" %>
+    <%= f.button :submit, "¡Listo!", class: "btn btn-danger" %>
   </div>
 <% end %>
