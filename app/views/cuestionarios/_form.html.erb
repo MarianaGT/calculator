@@ -579,16 +579,19 @@
       collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
       label_method: :second,
       value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group p-2 m-2"
+      item_wrapper_class: "btn btn-outline-danger btn-group p-2 m-2",
+      input_html: { 'data-bs-target' => '#verduras', 'data-bs-toggle' => 'collapse' }
     %>
     </div>
-    <h5 class="text-white text-center pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
-    <%= f.input :cantidad_vegetales,
-      label: false,
-      collection: 0..10,
-      placeholder: "|...",
-      input_html: { class: "bg-input"}
-    %>
+    <div class="collapse" id="verduras">
+      <h5 class="text-white text-center pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
+      <%= f.input :cantidad_vegetales,
+        label: false,
+        collection: 0..10,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+    </div>
     <!-- fruta -->
     <h5 class="text-white text-center pb-1 pt-3">Fruta</h5>
     <div class="d-flex justify-content-center">
