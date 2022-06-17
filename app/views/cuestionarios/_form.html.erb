@@ -745,14 +745,17 @@
       collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
       label_method: :second,
       value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
+      input_html: { 'data-bs-target' => '#embutidos', 'data-bs-toggle' => 'collapse' }
     %>
     </div>
-    <h5 class="text-white text-center pb-1 pt-3">¿Qué embutidos sueles consumir?</h5>
-    <%= f.input :jamon_pavo, label: "Jamon de pavo" %>
-    <%= f.input :jamon_puerco, label: "Jamon de puerco" %>
-    <%= f.input :salchicha_pavo, label: "Salchicha de pavo" %>
-    <%#= f.input :valores_embutidos, label: "¿Qué embutidos sueles consumir?", as: :check_boxes, collection: [['Jamon de pavo', 36.0], ['Jamon de puerco', 20.0], ['Salchicha de pavo', 21.2]] %>
+    <div class="collapse" id="embutidos">
+      <h5 class="text-white text-center pb-1 pt-3">¿Qué embutidos sueles consumir?</h5>
+      <%= f.input :jamon_pavo, label: "Jamon de pavo" %>
+      <%= f.input :jamon_puerco, label: "Jamon de puerco" %>
+      <%= f.input :salchicha_pavo, label: "Salchicha de pavo" %>
+      <%#= f.input :valores_embutidos, label: "¿Qué embutidos sueles consumir?", as: :check_boxes, collection: [['Jamon de pavo', 36.0], ['Jamon de puerco', 20.0], ['Salchicha de pavo', 21.2]] %>
+    </div>
 
     <h5 class="text-white text-center pb-1 pt-3">Pan industrial (pan blanco, integral, donas)</h5>
     <div class="d-flex justify-content-center">
