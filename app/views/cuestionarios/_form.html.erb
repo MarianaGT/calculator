@@ -839,13 +839,16 @@
       collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
       label_method: :second,
       value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
+      input_html: { 'data-bs-target' => '#frituras', 'data-bs-toggle' => 'collapse' }
     %>
     </div>
-    <h5 class="text-white text-center pb-1 pt-3">Si consumes frituras ¿consumes alguna de estas?</h5>
-    <%= f.input :fritura_papa, label: 'Papas' %>
-    <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
-    <%#= f.input :valores_frituras, label: "Si consumes frituras ¿consumes alguna de estas?", as: :check_boxes, collection: [['Papas', 6.4], ['Chicharrones', 23.71]] %>
+    <div class="collapse" id="frituras">
+      <h5 class="text-white text-center pb-1 pt-3">Si consumes frituras, ¿comes alguna de éstas?</h5>
+      <%= f.input :fritura_papa, label: 'Papas' %>
+      <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
+      <%#= f.input :valores_frituras, label: "Si consumes frituras ¿consumes alguna de estas?", as: :check_boxes, collection: [['Papas', 6.4], ['Chicharrones', 23.71]] %>
+    </div>
 
     <h5 class="text-white text-center pb-1 pt-3">Chocolates</h5>
     <div class="d-flex justify-content-center">
@@ -858,7 +861,6 @@
       input_html: { 'data-bs-target' => '#cantidad-chocolates', 'data-bs-toggle' => 'collapse' }
     %>
     </div>
-
     <div class="collapse" id="cantidad-chocolates">
       <h5 class="text-white text-center pb-1 pt-3">¿Cuántos consumes en un día?</h5>
       <%= f.input :cantidad_chocolates,
