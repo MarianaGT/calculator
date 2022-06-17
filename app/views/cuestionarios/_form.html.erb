@@ -439,6 +439,7 @@
     <div id="frecuencia_alimentos">
       <%= image_tag "animal.png", class: "dieta-pic" %>
       <h3 class="text-white pb-1 pt-3">¿Cuántas veces por semana consumes los siguientes alimentos?</h3>
+      <!-- res -->
       <h5 class="text-white text-center pb-1 pt-3">Carne de res</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_res,
@@ -449,6 +450,7 @@
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
+      <!-- puerco -->
       <h5 class="text-white text-center pb-1 pt-3">Carne de puerco</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_puerco,
@@ -459,6 +461,7 @@
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
+      <!-- borrego -->
       <h5 class="text-white text-center pb-1 pt-3">Carne de borrego</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_borrego,
@@ -469,6 +472,7 @@
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
+      <!-- pollo -->
       <h5 class="text-white text-center pb-1 pt-3">Pollo</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_pollo,
@@ -479,6 +483,7 @@
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
+      <!-- salmón -->
       <h5 class="text-white text-center pb-1 pt-3">Salmón</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_salmon,
@@ -489,6 +494,7 @@
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
+      <!-- atún -->
       <h5 class="text-white text-center pb-1 pt-3">Atún enlatado</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_atun,
@@ -498,6 +504,7 @@
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
+      <!-- leche -->
       <h5 class="text-white text-center pb-1 pt-3">Leche de vaca</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_leche,
@@ -508,6 +515,7 @@
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
+      <!-- queso -->
       <h5 class="text-white text-center pb-1 pt-3">Queso</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_queso,
@@ -518,6 +526,7 @@
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
+      <!-- yogurt -->
       <h5 class="text-white text-center pb-1 pt-3">Yogurt</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_yogurt,
@@ -528,6 +537,7 @@
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
+      <!-- pescado -->
       <h5 class="text-white text-center pb-1 pt-3">Pescados y mariscos</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_pescados_mariscos,
@@ -538,16 +548,17 @@
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
-      <h5 class="text-white text-center pb-1 pt-3">Si respondiste que SÍ consumes pescados y mariscos, elige la opción que prefieras</h5>
+      <h5 class="text-white text-center pb-1 pt-3">Si comes pescados y mariscos, elige la opción que más consumas</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :valores_pescados_mariscos,
         as: :radio_buttons,
-        collection: [[2.95, 'Pescados I:Charales/ Huauchinango/ Cazon / Sierra /Bacalo /Trucha'], [9.42, 'Pescados II:Camarón/Pez sierra/Merluza '], [0.73, 'Pescados III:Sardinas/ Arenques/ Abadejo/ Carpa/ Lubina']],
+        collection: [[2.95, 'Charales/ Huauchinango/ Cazón / Sierra /Bacalo /Trucha'], [9.42, 'Camarón/Pez sierra/Merluza '], [0.73, 'Sardinas/ Arenques/ Abadejo/ Carpa/ Lubina']],
         label_method: :second,
         value_method: :first,
         item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
       %>
       </div>
+      <!-- huevo -->
       <h5 class="text-white text-center pb-1 pt-3">Huevo</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_huevo,
@@ -555,15 +566,18 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
+        input_html: { 'data-bs-target' => '#huevos', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
-      <h5 class="text-white pb-1 pt-3">Si consumes huevo, ¿cuántos consumes en un día?</h5>
-      <%= f.input :cantidad_huevo,
-        label: false,
-        placeholder: "|...",
-        input_html: { class: "bg-input"}
-      %>
+      <div class="collapse" id="huevos">
+        <h5 class="text-white pb-1 pt-3">Si comes huevo, ¿cuántos consumes en un día?</h5>
+        <%= f.input :cantidad_huevo,
+          label: false,
+          placeholder: "|...",
+          input_html: { class: "bg-input"}
+        %>
+      </div>
       <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#sexo" aria-expanded="false" aria-controls="sexo">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
