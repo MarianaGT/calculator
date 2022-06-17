@@ -648,6 +648,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
+    <!-- tortillas -->
     <h5 class="text-white text-center pb-1 pt-3">Tortillas</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_tortillas,
@@ -655,16 +656,20 @@
       collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
       label_method: :second,
       value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
+      input_html: { 'data-bs-target' => '#tortillas', 'data-bs-toggle' => 'collapse' }
     %>
     </div>
-    <h5 class="text-white text-center pb-1 pt-3">Si consumes tortillas ¿cuántas consumes en un día?</h5>
-    <%= f.input :cantidad_tortillas,
-      label: false,
-      placeholder: "|...",
-      input_html: { class: "bg-input"}
-    %>
+    <div class="collapse" id="tortillas">
+      <h5 class="text-white text-center pb-1 pt-3">Si consumes tortillas ¿cuántas consumes en un día?</h5>
+      <%= f.input :cantidad_tortillas,
+        label: false,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+    </div>
 
+    <!-- tamales -->
     <%= image_tag "harinas.png", class: "dieta-pic" %>
     <h5 class="text-white text-center pb-1 pt-3">Tamales</h5>
     <div class="d-flex justify-content-center">
@@ -676,6 +681,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
+    <!-- atole -->
     <h5 class="text-white text-center pb-1 pt-3">Atole</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_atole, label: "Atole",
@@ -686,7 +692,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
-
+    <!-- tacos -->
     <h5 class="text-white text-center pb-1 pt-3">Tacos</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_tacos, label: "Tacos",
@@ -705,7 +711,7 @@
       <%= f.input :guisados, label: "De guisados" %>
       <%#= f.input :valores_tacos, label: "Si consumes tacos, ¿cuáles prefieres?", as: :check_boxes, collection: [['Al pastor', 4.85], ['Tacos bistec/suadero', 16.3], ['De guisados', 2.33]] %>
     </div>
-
+    <!-- torta -->
     <h5 class="text-white text-center pb-1 pt-3">Torta</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_torta, label: "Torta",
@@ -716,6 +722,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
+    <!-- bolillo -->
     <h5 class="text-white text-center pb-1 pt-3">Bolillo (sin tomar en cuenta el de la torta)</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_bolillo,
@@ -735,7 +742,7 @@
         input_html: { class: "bg-input"}
       %>
     </div>
-
+    <!-- snadwich -->
     <h5 class="text-white text-center pb-1 pt-3">Sandwich</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_sandwich, label: "Sandwich",
@@ -746,6 +753,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
+    <!-- embutidos -->
     <h5 class="text-white text-center pb-1 pt-3">Embutidos (jamón, salchicha)</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_embutidos,
@@ -764,7 +772,7 @@
       <%= f.input :salchicha_pavo, label: "Salchicha de pavo" %>
       <%#= f.input :valores_embutidos, label: "¿Qué embutidos sueles consumir?", as: :check_boxes, collection: [['Jamon de pavo', 36.0], ['Jamon de puerco', 20.0], ['Salchicha de pavo', 21.2]] %>
     </div>
-
+    <!-- pan industrial -->
     <h5 class="text-white text-center pb-1 pt-3">Pan industrial (pan blanco, integral, donas)</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_pan,
@@ -785,6 +793,7 @@
       placeholder: "|...",
       input_html: { class: "bg-input"}
     %>
+    <!-- sopas instantáneas -->
     <%= image_tag "refrescos.png", class: "dieta-pic" %>
     <h5 class="text-white text-center pb-1 pt-3">Sopas instantáneas</h5>
     <div class="d-flex justify-content-center">
@@ -796,6 +805,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
+    <!-- jugos embotellados -->
     <h5 class="text-white text-center pb-1 pt-3">Jugos embotellados</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_jugos,
@@ -806,6 +816,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
+    <!-- refrescos -->
     <h5 class="text-white text-center pb-1 pt-3">Refrescos</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_refrescos,
@@ -816,6 +827,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
+    <!-- bebidas energizantes -->
     <h5 class="text-white text-center pb-1 pt-3">Bebidas energizantes</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_bebidas_energetizantes,
@@ -826,7 +838,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
-
+    <!-- galletas -->
     <%= image_tag "chocolates.png", class: "dieta-pic" %>
     <h5 class="text-white text-center pb-1 pt-3">Galletas</h5>
     <div class="d-flex justify-content-center">
@@ -845,7 +857,7 @@
       <%= f.input :galletas_dulces %>
       <%#= f.input :valores_galletas, label: "En caso de consumir galletas, ¿cuáles consumes?", as: :check_boxes, collection: [['Galletas saladas', 2.88], ['Dulces', 4.37]] %>
     </div>
-
+    <!-- frituras -->
     <h5 class="text-white text-center pb-1 pt-3">Frituras</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_frituras,
@@ -863,7 +875,7 @@
       <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
       <%#= f.input :valores_frituras, label: "Si consumes frituras ¿consumes alguna de estas?", as: :check_boxes, collection: [['Papas', 6.4], ['Chicharrones', 23.71]] %>
     </div>
-
+    <!-- chocolates -->
     <h5 class="text-white text-center pb-1 pt-3">Chocolates</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_chocolates,
@@ -883,7 +895,7 @@
         input_html: { class: "bg-input"}
       %>
     </div>
-
+    <!-- insectos -->
     <div id="insectos">
       <%= image_tag "insectos.png", class: "sm-icon" %>
       <h5 class="text-white text-center pb-1 pt-3">¿Has consumido insectos alguna vez?</h5>
