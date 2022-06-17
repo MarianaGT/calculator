@@ -570,7 +570,7 @@
         </span>
       </a>
     </div>
-
+    <!-- vegetales -->
     <%= image_tag "veg.png", class: "dieta-pic" %>
     <h5 class="text-white text-center pb-1 pt-3">Vegetales</h5>
     <div class="d-flex justify-content-center">
@@ -589,6 +589,7 @@
       placeholder: "|...",
       input_html: { class: "bg-input"}
     %>
+    <!-- fruta -->
     <h5 class="text-white text-center pb-1 pt-3">Fruta</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_fruta,
@@ -596,17 +597,20 @@
       collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
       label_method: :second,
       value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
+      input_html: { 'data-bs-target' => '#frutas', 'data-bs-toggle' => 'collapse' }
     %>
     </div>
-    <h5 class="text-white text-center pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
-    <%= f.input :cantidad_fruta,
-      label: false,
-      collection: (0..10).to_a,
-      placeholder: "|...",
-      input_html: { class: "bg-input"}
-    %>
-
+    <div class="collapse" id="frutas">
+      <h5 class="text-white text-center pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
+      <%= f.input :cantidad_fruta,
+        label: false,
+        collection: (0..10).to_a,
+        placeholder: "|...",
+        input_html: { class: "bg-input"}
+      %>
+    </div>
+    <!-- arroz -->
     <%= image_tag "leguminosas.png", class: "dieta-pic" %>
     <h5 class="text-white text-center pb-1 pt-3">Arroz</h5>
     <div class="d-flex justify-content-center">
@@ -618,6 +622,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
+    <!-- leguminosas -->
     <h5 class="text-white text-center pb-1 pt-3">Leguminosas (frijol, lenteja, haba)</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_leguminosas,
@@ -628,6 +633,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
+    <!-- avena -->
     <h5 class="text-white text-center pb-1 pt-3">Avena</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_avena,
@@ -638,6 +644,7 @@
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
     %>
     </div>
+    <!-- amaranto -->
     <h5 class="text-white text-center pb-1 pt-3">Amaranto</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_amaranto,
