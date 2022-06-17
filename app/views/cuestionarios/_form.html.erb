@@ -868,27 +868,28 @@
       %>
     </div>
 
-    <%= image_tag "insectos.png", class: "sm-icon" %>
-    <h5 class="text-white text-center pb-1 pt-3">
-
-      Has consumido insectos alguna vez
-    </h5>
-    <div class="d-flex justify-content-center">
-    <%= f.input :insectos,
-      as: :radio_buttons,
-      collection: [['si', 'si'], ['no', 'no']],
-      label_method: :second,
-      value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
-    %>
+    <div id="insectos">
+      <%= image_tag "insectos.png", class: "sm-icon" %>
+      <h5 class="text-white text-center pb-1 pt-3">¿Has consumido insectos alguna vez?</h5>
+      <div class="d-flex justify-content-center">
+      <%= f.input :insectos,
+        as: :radio_buttons,
+        collection: [['si', 'si'], ['no', 'no']],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
+        input_html: { 'data-bs-target' => '#frecuencia-insectos', 'data-bs-toggle' => 'collapse' }
+      %>
+      </div>
+      <div class="collapse" id="frecuencia-insectos">
+      <h5 class="text-white text-center pb-1 pt-3">¿Cuantas veces al mes?</h5>
+        <%= f.input :frecuencia_insectos,
+          label: false,
+          placeholder: "|...",
+          input_html: { class: "bg-input"}
+        %>
+      </div>
     </div>
-    <h5 class="text-white text-center pb-1 pt-3">Si respondiste que si ¿Cuantas veces al mes?</h5>
-    <%= f.input :frecuencia_insectos,
-      label: false,
-      placeholder: "|...",
-      input_html: { class: "bg-input"}
-    %>
-
 
   </div>
 
