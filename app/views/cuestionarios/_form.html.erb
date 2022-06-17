@@ -846,6 +846,7 @@
     <%= f.input :fritura_papa, label: 'Papas' %>
     <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
     <%#= f.input :valores_frituras, label: "Si consumes frituras ¿consumes alguna de estas?", as: :check_boxes, collection: [['Papas', 6.4], ['Chicharrones', 23.71]] %>
+
     <h5 class="text-white text-center pb-1 pt-3">Chocolates</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_chocolates,
@@ -854,12 +855,12 @@
       label_method: :second,
       value_method: :first,
       item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
-      data: { bs_target: "#cantidad-chocolates", bs_toggle: "collapse" }
+      input_html: { 'data-bs-target' => '#cantidad-chocolates', 'data-bs-toggle' => 'collapse' }
     %>
     </div>
 
     <div class="collapse" id="cantidad-chocolates">
-      <h5 class="text-white text-center pb-1 pt-3">Si consumes chocolates ¿cuántos consumes en un día?</h5>
+      <h5 class="text-white text-center pb-1 pt-3">¿Cuántos consumes en un día?</h5>
       <%= f.input :cantidad_chocolates,
         label: false,
         placeholder: "|...",
@@ -867,8 +868,11 @@
       %>
     </div>
 
-    <%= image_tag "insectos.png", class: "" %>
-    <h5 class="text-white text-center pb-1 pt-3">Has consumido insectos alguna vez</h5>
+    <%= image_tag "insectos.png", class: "sm-icon" %>
+    <h5 class="text-white text-center pb-1 pt-3">
+
+      Has consumido insectos alguna vez
+    </h5>
     <div class="d-flex justify-content-center">
     <%= f.input :insectos,
       as: :radio_buttons,

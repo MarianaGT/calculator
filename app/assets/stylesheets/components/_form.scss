@@ -38,12 +38,14 @@ input[type="checkbox"] {
   }
 }
 
-// .cantidad-chocolates {
-//   display: none;
-// }
-
 .dieta-pic {
   display: block;
   width: 90%;
+  margin: 0 auto;
+}
+
+.sm-icon {
+  display: block;
+  width: 48px;
   margin: 0 auto;
 }
