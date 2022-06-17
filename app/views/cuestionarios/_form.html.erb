@@ -824,13 +824,16 @@
       collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
       label_method: :second,
       value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
+      input_html: { 'data-bs-target' => '#galletas', 'data-bs-toggle' => 'collapse' }
     %>
     </div>
-    <h5 class="text-white text-center pb-1 pt-3">En caso de consumir galletas, ¿cuáles consumes?</h5>
-    <%= f.input :galletas_saladas %>
-    <%= f.input :galletas_dulces %>
-    <%#= f.input :valores_galletas, label: "En caso de consumir galletas, ¿cuáles consumes?", as: :check_boxes, collection: [['Galletas saladas', 2.88], ['Dulces', 4.37]] %>
+    <div class="collapse" id="galletas">
+      <h5 class="text-white text-center pb-1 pt-3">Si consumes galletas, ¿cuáles comes?</h5>
+      <%= f.input :galletas_saladas %>
+      <%= f.input :galletas_dulces %>
+      <%#= f.input :valores_galletas, label: "En caso de consumir galletas, ¿cuáles consumes?", as: :check_boxes, collection: [['Galletas saladas', 2.88], ['Dulces', 4.37]] %>
+    </div>
 
     <h5 class="text-white text-center pb-1 pt-3">Frituras</h5>
     <div class="d-flex justify-content-center">
