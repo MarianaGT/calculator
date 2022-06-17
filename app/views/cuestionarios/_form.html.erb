@@ -545,18 +545,21 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
+        input_html: { 'data-bs-target' => '#grupos-pescados', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
-      <h5 class="text-white text-center pb-1 pt-3">Si comes pescados y mariscos, elige la opción que más consumas</h5>
-      <div class="d-flex justify-content-center">
-      <%= f.input :valores_pescados_mariscos,
-        as: :radio_buttons,
-        collection: [[2.95, 'Charales/ Huauchinango/ Cazón / Sierra /Bacalo /Trucha'], [9.42, 'Camarón/Pez sierra/Merluza '], [0.73, 'Sardinas/ Arenques/ Abadejo/ Carpa/ Lubina']],
-        label_method: :second,
-        value_method: :first,
-        item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
-      %>
+      <div class="collapse" id="grupos-pescados">
+        <h5 class="text-white text-center pb-1 pt-3">Si comes pescados y mariscos, elige la opción que más consumas</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :valores_pescados_mariscos,
+            as: :radio_buttons,
+            collection: [[2.95, 'charales - huauchinango - cazón - sierra - bacalo - trucha'], [9.42, 'camarón - sierra - merluza '], [0.73, 'sardinas - arenques - abadejo - carpa - lubina']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+          %>
+        </div>
       </div>
       <!-- huevo -->
       <h5 class="text-white text-center pb-1 pt-3">Huevo</h5>
