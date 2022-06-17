@@ -694,14 +694,18 @@
       collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
       label_method: :second,
       value_method: :first,
-      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
+      item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2",
+      input_html: { 'data-bs-target' => '#tacos', 'data-bs-toggle' => 'collapse' }
     %>
     </div>
-    <h5 class="text-white text-center pb-1 pt-3">Si consumes tacos, ¿cuáles prefieres?</h5>
-    <%= f.input :al_pastor %>
-    <%= f.input :suadero, label: "Tacos bistec/suadero" %>
-    <%= f.input :guisados, label: "De guisados" %>
-    <%#= f.input :valores_tacos, label: "Si consumes tacos, ¿cuáles prefieres?", as: :check_boxes, collection: [['Al pastor', 4.85], ['Tacos bistec/suadero', 16.3], ['De guisados', 2.33]] %>
+    <div class="collapse" id="tacos">
+      <h5 class="text-white text-center pb-1 pt-3">Si consumes tacos, ¿cuáles prefieres?</h5>
+      <%= f.input :al_pastor %>
+      <%= f.input :suadero, label: "Tacos bistec/suadero" %>
+      <%= f.input :guisados, label: "De guisados" %>
+      <%#= f.input :valores_tacos, label: "Si consumes tacos, ¿cuáles prefieres?", as: :check_boxes, collection: [['Al pastor', 4.85], ['Tacos bistec/suadero', 16.3], ['De guisados', 2.33]] %>
+    </div>
+
     <h5 class="text-white text-center pb-1 pt-3">Torta</h5>
     <div class="d-flex justify-content-center">
     <%= f.input :frecuencia_torta, label: "Torta",
