@@ -490,6 +490,7 @@ class CuestionariosController < ApplicationController
   # en arroz es intensivo menor que organico?
   # en leguminosas es intensivo menor que organico?
   # son correctos los valores de carbono del atole?
+  # tenemos referencia de pan integral pero no se hacen preguntas al respecto en el quiz, son necesarias?
 
   # FOODS_PARAMS = [
   #   { name: "res", calorias_por_porcion: 135, porciones_kg: 10, valores_kg_co2: [16.33,	16.33, 26.99] }
