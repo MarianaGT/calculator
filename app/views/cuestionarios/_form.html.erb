@@ -5,7 +5,7 @@
 
   <div class="form-inputs p-3">
     <div>
-      <h3 class="text-white pb-1 pt-3 d-flex">
+      <h3 class="text-white pb-1 pt-3 d-flex display-1">
         <span class="material-symbols-outlined p-1"> mail </span>
         <span class="pr-1 text-success">.</span>
         Correo electrónico
@@ -105,13 +105,20 @@
       <h3 class="text-white pb-1 pt-3 d-flex">
         <span class="material-symbols-outlined p-1"> flag </span>
         <span class="pr-1 text-success">.</span>
-        Dónde vives
+        País donde vives
       </h3>
-      <div class="d-flex justify-content-around">
+      <div class="d-flex justify-content-around big-text">
         <%= f.input :pais,
-          label: false,
           placeholder: "País",
-          input_html: { class: "bg-input"}
+          as: :radio_buttons,
+          collection: [
+            ['grupo2', '🇲🇽 🇧🇷 🇬🇧'],
+            ['grupo4', '🇦🇷 🇨🇳 🇯🇵 🇩🇪 🇪🇸'],
+            ['grupo6', '🇺🇸 🇨🇦 🇦🇺']
+          ],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-danger text-xl btn-group p-5 mx-2"
         %>
         <%= f.input :ciudad,
           label: false,
@@ -952,7 +959,7 @@
 
   </div>
 
-  <div class="form-actions">
+  <div class="d-flex justify-content-center mt-4">
     <%= f.button :submit, "¡Listo!", class: "btn btn-danger" %>
   </div>
 <% end %>
