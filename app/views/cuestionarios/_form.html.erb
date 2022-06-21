@@ -5,7 +5,7 @@
 
   <div class="form-inputs p-3">
     <div>
-      <h3 class="text-white pb-1 pt-3 d-flex display-1">
+      <h3 class="text-white pb-1 pt-3 d-flex">
         <span class="material-symbols-outlined p-1"> mail </span>
         <span class="pr-1 text-success">.</span>
         Correo electrónico
@@ -15,7 +15,7 @@
         placeholder: "|...",
         input_html: { class: "bg-input"}
       %>
-      <a class="btn btn-danger rounded-circle mt-3 mr-auto mb-3" data-bs-toggle="collapse" href="#nombre" aria-expanded="false" aria-controls="nombre">
+      <a class="btn btn-danger rounded-circle mt-3 mb-3" data-bs-toggle="collapse" href="#nombre" aria-expanded="false" aria-controls="nombre">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -101,31 +101,25 @@
       </div>
     </div>
 
+    <!-- pais -->
     <div class="collapse" id="pais">
       <h3 class="text-white pb-1 pt-3 d-flex">
         <span class="material-symbols-outlined p-1"> flag </span>
         <span class="pr-1 text-success">.</span>
         País donde vives
       </h3>
-      <div class="d-flex justify-content-around big-text">
-        <%= f.input :pais,
-          placeholder: "País",
-          as: :radio_buttons,
-          collection: [
-            ['grupo2', '🇲🇽 🇧🇷 🇬🇧'],
-            ['grupo4', '🇦🇷 🇨🇳 🇯🇵 🇩🇪 🇪🇸'],
-            ['grupo6', '🇺🇸 🇨🇦 🇦🇺']
-          ],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-danger text-xl btn-group p-5 mx-2"
-        %>
-        <%= f.input :ciudad,
-          label: false,
-          placeholder: "Ciudad",
-          input_html: { class: "bg-input"}
-        %>
-      </div>
+      <%= f.input :pais,
+        placeholder: "País",
+        as: :radio_buttons,
+        collection: [
+          ['grupo2', '🇲🇽 MX 🇧🇷 BR 🇬🇧 GB'],
+          ['grupo4', '🇦🇷 AR 🇪🇸 ES 🇩🇪 DE'],
+          ['grupo6', '🇺🇸 US 🇨🇦 CA 🇦🇺 AU']
+        ],
+        label_method: :second,
+        value_method: :first,
+        item_wrapper_class: "btn btn-outline-danger btn-group p-3 m-2 display-1"
+      %>
       <a class="btn btn-danger rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#localidad" aria-expanded="false" aria-controls="localidad">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
@@ -139,14 +133,22 @@
         <span class="pr-1 text-success">.</span>
         Localidad
       </h3>
-      <%= f.input :localidad,
-        as: :radio_buttons,
-        collection: [['Rural', 'Rural'], ['Urbana', 'Urbana']],
-        label_method: :second,
-        value_method: :first,
+      <%= f.input :ciudad,
         label: false,
-        item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        placeholder: "Ciudad",
+        input_html: { class: "bg-input"}
       %>
+      <h5 class="text-white text-center pb-1 pt-3">es...</h5>
+      <div class="d-flex justify-content-center">
+        <%= f.input :localidad,
+          as: :radio_buttons,
+          collection: [['Rural', 'Rural'], ['Urbana', 'Urbana']],
+          label_method: :second,
+          value_method: :first,
+          label: false,
+          item_wrapper_class: "btn btn-outline-danger btn-group px-2 mx-2"
+        %>
+      </div>
       <button class="btn btn-danger rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#peso" aria-expanded="false" aria-controls="peso">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
