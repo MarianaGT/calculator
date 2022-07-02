@@ -8,6 +8,10 @@
   &::placeholder {
     color: white;
   }
+  &::invalid:required {
+    font-weight: bold;
+    border-color: red;
+  }
 }
 
 legend {
