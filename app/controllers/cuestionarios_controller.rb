@@ -251,7 +251,7 @@ class CuestionariosController < ApplicationController
     carbon_total
   end
 
-  def obtener_carbono_pescados_y_mariscos(origen, grupo, frecuencia_consumo)
+  def obtener_carbono_pescados_y_mariscos(origen, grupo, frecuencia_consumo = 0)
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     valores_grupos_carbono = [[2.95, 3.71, 3.71],
                               [9.42, 10.13, 10.13],
