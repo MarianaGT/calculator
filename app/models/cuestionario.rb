@@ -1,6 +1,5 @@
 class Cuestionario < ApplicationRecord
   validates :email, presence: true, format: { with: /\w+@\w+\.\w{2}/ }
-  validates :nombre, presence: true
   validates :edad, presence: true
   validates :sexo, presence: true
   validates :escolaridad, presence: true
