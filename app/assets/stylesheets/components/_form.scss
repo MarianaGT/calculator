@@ -8,6 +8,9 @@
   &::placeholder {
     color: white;
   }
+  &::invalid {
+    border-color: $warning;
+  }
 }
 
 legend {

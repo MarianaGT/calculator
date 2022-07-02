@@ -130,23 +130,23 @@ class CuestionariosController < ApplicationController
 
   # THIS SECTION CONTAINS LOGIC AND FORMULAS FOR CALORIES CALCULATOR
 
-  def obtener_calorias(kcal_porcion, frecuencia_consumo)
+  def obtener_calorias(kcal_porcion, frecuencia_consumo = 0)
     (kcal_porcion * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_calorias_pescados_y_mariscos(grupo, frecuencia_consumo)
+  def obtener_calorias_pescados_y_mariscos(grupo, frecuencia_consumo = 0)
     calorias_segun_grupo = [226, 195, 194]
     kcal_porcion = calorias_segun_grupo[grupo.to_i]
     (kcal_porcion * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_calorias_insectos(kcal_porcion, frecuencia_consumo)
+  def obtener_calorias_insectos(kcal_porcion, frecuencia_consumo = 0)
     frecuencia_consumo = 0 if frecuencia_consumo.nil?
 
     (kcal_porcion * frecuencia_consumo / 4 / 7).round(2)
   end
 
-  def obtener_calorias_tacos(frecuencia_consumo)
+  def obtener_calorias_tacos(frecuencia_consumo = 0)
     # pastor bistec guisado
     valores_tacos = [490, 414, 468]
     kcal_total = 0
@@ -156,7 +156,7 @@ class CuestionariosController < ApplicationController
     kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_calorias_galletas(frecuencia_consumo)
+  def obtener_calorias_galletas(frecuencia_consumo = 0)
     kcal_total = 0
 
     kcal_total += CALORIAS_POR_PORCION[:galletas_dulces] if @cuestionario.galletas_dulces
@@ -164,7 +164,7 @@ class CuestionariosController < ApplicationController
     kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_calorias_embutidos(frecuencia_consumo)
+  def obtener_calorias_embutidos(frecuencia_consumo = 0)
     # pavo, puerco, salchicha
     valores_embutidos = { pavo: 21, puerco: 44, salchicha: 56}
     kcal_total = 0
@@ -175,7 +175,7 @@ class CuestionariosController < ApplicationController
     kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_calorias_pan(frecuencia_consumo, cantidad)
+  def obtener_calorias_pan(frecuencia_consumo = 0, cantidad)
     valores_pan = { blanco: 69, pastelitos: 379 }
     kcal_total = 0
 
@@ -184,7 +184,7 @@ class CuestionariosController < ApplicationController
     kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo * cantidad / 7).round(2)
   end
 
-  def obtener_calorias_frituras(frecuencia_consumo)
+  def obtener_calorias_frituras(frecuencia_consumo = 0)
     valores_frituras = { papas: 256, chicharron: 408 }
 
     kcal_total = 0
@@ -193,7 +193,7 @@ class CuestionariosController < ApplicationController
     kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_calorias_multiplicador(kcal_unidad, frecuencia_consumo, cantidad = 1)
+  def obtener_calorias_multiplicador(kcal_unidad, frecuencia_consumo = 0, cantidad = 1)
     (kcal_unidad * frecuencia_consumo / 7 * cantidad).round(2)
   end
 
@@ -203,7 +203,7 @@ class CuestionariosController < ApplicationController
     (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_carbono_galletas(frecuencia_consumo)
+  def obtener_carbono_galletas(frecuencia_consumo = 0)
     # co2, porciones por kg
     valores = { saladas: { co2: 2.88 , porciones: 38.46 }, dulces: { co2: 4.37 , porciones: 21.74 } }
     carbon_total = 0
@@ -213,7 +213,7 @@ class CuestionariosController < ApplicationController
     carbon_total
   end
 
-  def obtener_carbon_embutidos(frecuencia_consumo)
+  def obtener_carbon_embutidos(frecuencia_consumo = 0)
     valores = {
       jamon_pavo: { co2: 36, porciones: 52.63 },
       jamon_puerco: { co2: 20, porciones: 32.26 },
@@ -227,7 +227,7 @@ class CuestionariosController < ApplicationController
     carbon_total
   end
 
-  def obtener_carbon_pan(frecuencia, cantidad)
+  def obtener_carbon_pan(frecuencia = 0, cantidad)
     valores = {
       pan: { co2: 0.15, porciones: 7.87 },
       pastelitos: { co2: 8.9, porciones: 10.75 }
@@ -239,7 +239,7 @@ class CuestionariosController < ApplicationController
     carbon_total
   end
 
-  def obtener_carbono_frituras(frecuencia)
+  def obtener_carbono_frituras(frecuencia = 0)
     valores = {
       papas: { co2: 6.4, porciones: 20.2 },
       chicharron: { co2: 23.71, porciones: 14.29 }
@@ -251,7 +251,7 @@ class CuestionariosController < ApplicationController
     carbon_total
   end
 
-  def obtener_carbono_pescados_y_mariscos(origen, grupo, frecuencia_consumo)
+  def obtener_carbono_pescados_y_mariscos(origen, grupo, frecuencia_consumo = 0)
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     valores_grupos_carbono = [[2.95, 3.71, 3.71],
                               [9.42, 10.13, 10.13],
@@ -263,14 +263,14 @@ class CuestionariosController < ApplicationController
     (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_carbono_insectos(origen, arr_valores_kg_co2, porciones_por_kilo, frecuencia_consumo)
+  def obtener_carbono_insectos(origen, arr_valores_kg_co2, porciones_por_kilo, frecuencia_consumo = 0)
     frecuencia_consumo = 0.0 if frecuencia_consumo.nil?
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     kg_co2 = arr_valores_kg_co2[origen_alimento]
     (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7 / 4).round(2)
   end
 
-  def obtener_carbono_tacos(frecuencia_consumo)
+  def obtener_carbono_tacos(frecuencia_consumo = 0)
     # pastor bistec guisado
     valores_tacos = [[0.97, 5.71],
                      [2.45, 6.66],
@@ -282,7 +282,7 @@ class CuestionariosController < ApplicationController
     carbon_total
   end
 
-  def obtener_carbon_por_taco(kg_co2, porciones_por_kilo, frecuencia_consumo)
+  def obtener_carbon_por_taco(kg_co2, porciones_por_kilo, frecuencia_consumo = 0)
     (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7).round(2)
   end
 
