@@ -270,7 +270,7 @@ class CuestionariosController < ApplicationController
     (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7 / 4).round(2)
   end
 
-  def obtener_carbono_tacos(frecuencia_consumo)
+  def obtener_carbono_tacos(frecuencia_consumo = 0)
     # pastor bistec guisado
     valores_tacos = [[0.97, 5.71],
                      [2.45, 6.66],
