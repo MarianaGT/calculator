@@ -193,7 +193,7 @@ class CuestionariosController < ApplicationController
     kcal_total.eql?(0) ? 0 : (kcal_total * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_calorias_multiplicador(kcal_unidad, frecuencia_consumo, cantidad = 1)
+  def obtener_calorias_multiplicador(kcal_unidad, frecuencia_consumo = 0, cantidad = 1)
     (kcal_unidad * frecuencia_consumo / 7 * cantidad).round(2)
   end
 
