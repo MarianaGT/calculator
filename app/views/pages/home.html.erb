@@ -1,5 +1,5 @@
 <div>
-  <h1 class="text-white big-text text-center m-2">Mide tu impacto en el planeta</h1>
+  <h1 class="display-1 text-white big-text text-center m-2">Mide tu impacto en el planeta</h1>
   <p class="text-white font-weight-bold text-center text-uppercase m-2">Huella de carbono y de salud</p class="text-center">
 </div>
 <%= image_tag "portada.png", class: "dieta-pic" %>
@@ -9,14 +9,14 @@
 </div>
 
 <div class="d-flex justify-content-center py-5">
-  <%= link_to "Ver resultados de cuestionarios", cuestionarios_path, class: 'btn btn-primary' %>
+  <%= link_to "Ver resultados de cuestionarios", cuestionarios_path %>
 </div>
 
-<div class="text-center">
+<div class="bg-dark text-white d-flex flex-column justify-content-around align-items-center p-5">
   <%= image_tag "bubble.png" %>
-  <span><small>TU IMPACTO</small></span>
-  <span><small>TU IMPACTO</small></span>
-  <span><small>TU IMPACTO</small></span>
+  <span><small><u>TU IMPACTO</u></small></span>
+  <span><small>Calorias <strong><%= @calorias %> kcal</strong></small></span>
+  <span><small>Emisiones <strong><%= @carbono %> kg/CO2</strong></small></span>
 </div>
 <div class="container bg-dark text-white">
   <div class="row">
