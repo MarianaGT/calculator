@@ -1,5 +1,5 @@
 <div>
-  <h1 class="text-white big-text text-center m-2">Mide tu impacto en el planeta</h1>
+  <h1 class="display-1 text-white big-text text-center m-2">Mide tu impacto en el planeta</h1>
   <p class="text-white font-weight-bold text-center text-uppercase m-2">Huella de carbono y de salud</p class="text-center">
 </div>
 <%= image_tag "portada.png", class: "dieta-pic" %>
@@ -9,60 +9,116 @@
 </div>
 
 <div class="d-flex justify-content-center py-5">
-  <%= link_to "Ver resultados de cuestionarios", cuestionarios_path, class: 'btn btn-primary' %>
+  <%= link_to "Ver resultados de cuestionarios", cuestionarios_path %>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-2 d-flex flex-column justify-content-around align-items-center">
-      <p><small>4,000</small></p>
-      <p><small>3,500</small></p>
-      <p><small>3,000</small></p>
+<!--   Resultados que van en el show -->
+<div class="bg-results bg-dark text-white p-2">
+  <div class="d-flex flex-column justify-content-around align-items-center p-5">
+    <%= image_tag "bubble.png", class: 'bubble' %>
+    <span class="letter-spacing-1"><small><u>TU IMPACTO</u></small></span>
+    <span><small>Calorias <strong class="text-success"><%= @calorias %> kcal</strong></small></span>
+    <span><small>Emisiones <strong class="text-success"><%= @carbono %> kg/CO2</strong></small></span>
+  </div>
+  <div class=" text-center">
+    <h3>En relación a la gente de tu país, tu nivel de contaminación es <u>bajo.</u></h3><br>
+    <h3>De acuerdo a tu estatura, peso actual, edad y sexo, tu consumo de calorías es <u>bajo.</u></h3><br>
+    <p class="display-6 text-success">Excelente, sigue así.</p><br>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-2 d-flex flex-column justify-content-around align-items-center">
+        <p><small>4,000</small></p>
+        <p><small>3,500</small></p>
+        <p><small>3,000</small></p>
+      </div>
+      <div class="col-3 border">
+        <h1>🇲🇽🇬🇧🇧🇷🇨🇷🇩🇲🇪🇬🇲🇦🇱🇨🇮🇩</h1>
+      </div>
+      <div class="col-3 border">
+        <h1>🇨🇳🇯🇵🇩🇪🇮🇹🇦🇷🇨🇱🇹🇷🇸🇰🇩🇰🇧🇬🇧🇸🇮🇪🇸🇹🇲🇹🇱🇧🇬🇷🇸🇪🇨🇭</h1>
+      </div>
+      <div class="col-3 border">
+        <h1>🇺🇸🇰🇷🇷🇺🇨🇦🇧🇪🇦🇺🇦🇹🇫🇮</h1>
+      </div>
     </div>
-    <div class="col-3 border">
-      <h1>🇲🇽🇬🇧🇧🇷🇨🇷🇩🇲🇪🇬🇲🇦🇱🇨🇮🇩</h1>
+    <div class="row">
+      <div class="col-2 d-flex flex-column justify-content-around align-items-center">
+        <p><small>2,500</small></p>
+        <p><small>2,000</small></p>
+        <p><small>1,500</small></p>
+        <h2>Kcal</h2>
+      </div>
+      <div class="col-3 border">
+        <h1>🇵🇰🇳🇬🇧🇮🇧🇩🇸🇸🇲🇿🇸🇱🇨🇬</h1>
+      </div>
+      <div class="col-3 border">
+        <h1>🇹🇭🇧🇸🇮🇶🇭🇷🇲🇻</h1>
+      </div>
+      <div class="col-3 border">
+        <h1>🇲🇳🇸🇨</h1>
+      </div>
     </div>
-    <div class="col-3 border">
-      <h1>🇨🇳🇯🇵🇩🇪🇮🇹🇦🇷🇨🇱🇹🇷🇸🇰🇩🇰🇧🇬🇧🇸🇮🇪🇸🇹🇲🇹🇱🇧🇬🇷🇸🇪🇨🇭</h1>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-9 d-flex justify-content-between mb-2">
+        <span><small>0</small></span>
+        <span><small>1.3</small></span>
+        <span><small>2.7</small></span>
+        <span><small>4.1</small></span>
+        <span><small>5.4</small></span>
+        <span><small>6.8</small></span>
+        <span><small>8.2</small></span>
+        <span><small>9.5</small></span>
+      </div>
     </div>
-    <div class="col-3 border">
-      <h1>🇺🇸🇰🇷🇷🇺🇨🇦🇧🇪🇦🇺🇦🇹🇫🇮</h1>
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-9">
+        <h2 class="text-center">CO<small>2</small> por día</h2>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-2 d-flex flex-column justify-content-around align-items-center">
-      <p><small>2,500</small></p>
-      <p><small>2,000</small></p>
-      <p><small>1,500</small></p>
-      <h2>Kcal</h2>
-    </div>
-    <div class="col-3 border">
-      <h1>🇵🇰🇳🇬🇧🇮🇧🇩🇸🇸🇲🇿🇸🇱🇨🇬</h1>
-    </div>
-    <div class="col-3 border">
-      <h1>🇹🇭🇧🇸🇮🇶🇭🇷🇲🇻</h1>
-    </div>
-    <div class="col-3 border">
-      <h1>🇲🇳🇸🇨</h1>
-    </div>
+  <div class="text-center mt-3">
+    <p>Así se ve la relación entre emisiones y consumo de calorías por países actualmente.</p>
+    <p>¿Qué puedes hacer tú?</p>
+    <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#saber-mas" aria-expanded="false" aria-controls="saber-mas">
+      <span class="material-symbols-outlined pt-2">
+        arrow_downward
+      </span>
+    </button>
   </div>
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-9 d-flex justify-content-between">
-      <span><small>0</small></span>
-      <span><small>1.3</small></span>
-      <span><small>2.7</small></span>
-      <span><small>4.1</small></span>
-      <span><small>5.4</small></span>
-      <span><small>6.8</small></span>
-      <span><small>8.2</small></span>
-      <span><small>9.5</small></span>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-2"></div>
-    <div class="col-9">
-      <h2 class="text-center">CO2 por día</h2>
+</div>
+<div class="collapse bg-results bg-light" id="saber-mas">
+  <div class="container p-2">
+    <div class="row mt-5">
+      <div class="col-6">
+        <p>El 14.5% de la contaminación global viene de la industria del ganado.</p>
+        <p>Reducir tu consumo de carne roja y de queso puede ayudar a cortar 1/3 de la contaminación.</p>
+        <p>Disminuye tu consumo de carne de res, ya que la producción de esta es responsable de la mayor
+        cantidad de emisiones de gases de efecto invernadero en la industria alimentaria. La OMS
+        recomienda consumir 90g/persona/día para ver un efecto significativo en las emisiones de carbono
+        y la salud.</p>
+        <p>Limitar el consumo de azúcar. ¿Sabías qué..? El producto agrícola de mayor demanda y producción
+        es la caña de azúcar, y gran parte de esta se destina a la producción de bebidas azucaradas y
+        alimentos altamente procesados, generando una acumulación en la sangre.</p>
+        <p>Consumir productos locales y de temporada. ¿Sabías qué..? Esto reduce el transporte de los
+        alimentos y por lo tanto los combustibles fósiles utilizados, por lo que su huella de carbono es
+        menor.</p>
+        <p>Asegúrate de comprar solo lo que necesitas, para evitar el desperdicio de alimentos.</p>
+        <p>Aumentar el consumo de frutas y verduras en por lo menos 5 porciones al día, ya que reduce el
+        riesgo de padecer enfermedades no transmisibles.</p>
+        <p>Abrirnos al consumo de fuentes alternativas de proteínas como leguminosas e insectos.</p>
+        <p>Y recuerda...cuida la calidad de tus alimentos, puedes buscar asesoría en un profesional de la
+        salud.</p>
+      </div>
+      <div class="col-2">
+        <%= image_tag "co2.png" %>
+      </div>
     </div>
   </div>
 </div>
+<div class="bg-results bg-dark text-white p-2">
+  <p><small>¿Quieres saber qué más hacer? Contáctanos a proyecto@gmail.com</small></p>
+</div>
+
