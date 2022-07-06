@@ -135,7 +135,7 @@ class CuestionariosController < ApplicationController
   end
 
   def obtener_calorias_pescados_y_mariscos(grupo, frecuencia_consumo = 0)
-    carbono_valores = ["2.95", "9.42", "0.73"]
+    carbono_valores = %w[uno dos tres]
     indice = carbono_valores.index(grupo)
     calorias_segun_grupo = [226, 195, 194]
     kcal_porcion = calorias_segun_grupo[indice]
@@ -254,13 +254,15 @@ class CuestionariosController < ApplicationController
   end
 
   def obtener_carbono_pescados_y_mariscos(origen, grupo, frecuencia_consumo = 0)
+    grupos = %w[uno dos tres]
+    indice_grupo = grupos.index(grupo)
     origen_alimento = ['no consumo', 'organico', 'intensivo'].index(origen)
     valores_grupos_carbono = [[2.95, 3.71, 3.71],
                               [9.42, 10.13, 10.13],
                               [0.73, 1.44, 1.44]]
     valores_grupos_porciones = [5, 6.25, 5]
-    arr_valores_kg_co2 = valores_grupos_carbono[grupo.to_i]
-    porciones_por_kilo = valores_grupos_porciones[grupo.to_i]
+    arr_valores_kg_co2 = valores_grupos_carbono[indice_grupo]
+    porciones_por_kilo = valores_grupos_porciones[indice_grupo]
     kg_co2 = arr_valores_kg_co2[origen_alimento]
     (kg_co2 / porciones_por_kilo * frecuencia_consumo / 7).round(2)
   end
