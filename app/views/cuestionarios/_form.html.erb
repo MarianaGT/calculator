@@ -4,7 +4,7 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs p-3">
-    <div>
+    <div id="email">
       <h3 class="text-white pb-1 pt-3 d-flex">
         <span class="material-symbols-outlined p-1"> mail </span>
         <span class="pr-1 text-success">.</span>
@@ -558,7 +558,7 @@
         <div class="d-flex justify-content-center">
           <%= f.input :valores_pescados_mariscos,
             as: :radio_buttons,
-            collection: [[2.95, 'charales - huauchinango - cazón - sierra - bacalo - trucha'], [9.42, 'camarón - sierra - merluza '], [0.73, 'sardinas - arenques - abadejo - carpa - lubina']],
+            collection: [["2.95", 'charales - huauchinango - cazón - sierra - bacalo - trucha'], ["9.42", 'camarón - sierra - merluza '], ["0.73", 'sardinas - arenques - abadejo - carpa - lubina']],
             label_method: :second,
             value_method: :first,
             item_wrapper_class: "btn btn-outline-danger btn-group px-2 m-2"
@@ -767,7 +767,7 @@
     </div>
     <div class="collapse" id="bolillo">
       <h5 class="text-white text-center pb-1 pt-3">Si comes bolillos, ¿cuántos consumes en un día?</h5>
-      <%= f.input :nombre,
+      <%= f.input :cantidad_bolillo,
         label: false,
         placeholder: "|...",
         input_html: { class: "bg-input"}
