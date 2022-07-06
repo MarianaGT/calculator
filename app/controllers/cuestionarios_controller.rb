@@ -134,8 +134,8 @@ class CuestionariosController < ApplicationController
     (kcal_porcion * frecuencia_consumo / 7).round(2)
   end
 
-  def obtener_calorias_pescados_y_mariscos(grupo, frecuencia_consumo)
-    carbono_valores = ["2.45", "9.42", "0.73"]
+  def obtener_calorias_pescados_y_mariscos(grupo, frecuencia_consumo = 0)
+    carbono_valores = ["2.95", "9.42", "0.73"]
     indice = carbono_valores.index(grupo)
     calorias_segun_grupo = [226, 195, 194]
     kcal_porcion = calorias_segun_grupo[indice]
