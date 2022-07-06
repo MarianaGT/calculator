@@ -1,5 +1,5 @@
 class CuestionariosController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[new create show index]
+  skip_before_action :authenticate_user!, only: %i[new create show]
   before_action :set_cuestionario, only: %i[show edit update destroy]
 
   def index
