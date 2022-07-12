@@ -59,11 +59,10 @@
     <%= image_tag "bubble.png", class: 'bubble' %>
     <span class="letter-spacing-1"><small><u>TU IMPACTO</u></small></span>
     <span><small>Calorias <strong class="text-success"><%= @calorias %> kcal</strong></small></span>
-    <span><small>Huella de salud <strong class="text-success"><%= @hs2 %> kcal</strong></small></span>
     <span><small>Emisiones <strong class="text-success"><%= @carbono %> kg/CO2</strong></small></span>
   </div>
   <div class=" text-center">
-    <h3>En relación a la gente de tu país, tu nivel de contaminación es <u>bajo.</u></h3><br>
+    <h3>En relación a la gente de tu país, tu nivel de contaminación es <u><%= @nivel_contaminacion %>.</u></h3><br>
     <h3>De acuerdo a tu estatura, peso actual, edad y sexo, tu consumo de calorías es <u><%= @nivel_consumo_calorias %>.</u></h3><br>
   </div>
   <div class="container mt-5">
@@ -74,14 +73,23 @@
         <p><small>3,500</small></p>
         <p><small>3,000</small></p>
       </div>
-      <div class="col-3 border">
-        <h1>🇲🇽🇬🇧🇧🇷🇨🇷🇩🇲🇪🇬🇲🇦🇱🇨🇮🇩</h1>
+      <div class="col-3 border" id="grupo2">
+        <h1>
+          <%= "Tu pais es: #{@cuestionario.pais}" if @grupo_pais.eql?("II") %>
+          <%= "Tu estas aquí" if @calorias > 2750 && @carbono < 3.2 %>
+        </h1>
       </div>
-      <div class="col-3 border">
-        <h1>🇨🇳🇯🇵🇩🇪🇮🇹🇦🇷🇨🇱🇹🇷🇸🇰🇩🇰🇧🇬🇧🇸🇮🇪🇸🇹🇲🇹🇱🇧🇬🇷🇸🇪🇨🇭</h1>
+      <div class="col-3 border" id="grupo4">
+        <h1>
+          <%= "Tu pais es: #{@cuestionario.pais}" if @grupo_pais.eql?("IV") %>
+          <%= "Tu estas aquí" if @calorias > 2750 && @carbono > 3.2 && @carbono < 6.4 %>
+        </h1>
       </div>
-      <div class="col-3 border">
-        <h1>🇺🇸🇰🇷🇷🇺🇨🇦🇧🇪🇦🇺🇦🇹🇫🇮</h1>
+      <div class="col-3 border" id="grupo6">
+        <h1>
+          <%= "Tu pais es: #{@cuestionario.pais}" if @grupo_pais.eql?("VI") %>
+          <%= "Tu estas aquí" if @calorias > 2750 && @carbono > 6.4 %>
+        </h1>
       </div>
     </div>
     <div class="row">
@@ -91,14 +99,23 @@
         <p><small>1,500</small></p>
         <h2>Kcal</h2>
       </div>
-      <div class="col-3 border">
-        <h1>🇵🇰🇳🇬🇧🇮🇧🇩🇸🇸🇲🇿🇸🇱🇨🇬</h1>
+      <div class="col-3 border" id="grupo1">
+        <h1>
+          <%= "Tu pais es: #{@cuestionario.pais}" if @grupo_pais.eql?("I") %>
+          <%= "Tu estas aquí" if @calorias < 2750 && @carbono < 3.2 %>
+        </h1>
       </div>
-      <div class="col-3 border">
-        <h1>🇹🇭🇧🇸🇮🇶🇭🇷🇲🇻</h1>
+      <div class="col-3 border" id="grupo3">
+        <h1>
+          <%= "Tu pais es: #{@cuestionario.pais}" if @grupo_pais.eql?("III") %>
+          <%= "Tu estas aquí" if @calorias < 2750 && @carbono < 6.4 && @carbono > 3.2 %>
+        </h1>
       </div>
-      <div class="col-3 border">
-        <h1>🇲🇳🇸🇨</h1>
+      <div class="col-3 border" id="grupo5">
+        <h1>
+          <%= "Tu pais es: #{@cuestionario.pais}" if @grupo_pais.eql?("V") %>
+          <%= "Tu estas aquí" if @calorias < 2750 && @carbono > 6.4 %>
+        </h1>
       </div>
     </div>
     <div class="row">

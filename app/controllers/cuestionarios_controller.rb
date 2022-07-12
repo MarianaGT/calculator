@@ -12,6 +12,7 @@ class CuestionariosController < ApplicationController
     kcal_calculator
     huella_carbono
     nivel_consumo_calorias(@cuestionario.sexo, @calorias, @hs2)
+    nivel_contaminacion(@cuestionario.pais, @carbono)
   end
 
   def new
@@ -416,6 +417,40 @@ class CuestionariosController < ApplicationController
     end
   end
 
+  def grupo_helper(pais)
+    @grupo_pais = nil
+    if GRUPOS_GRAFICA[:I][:paises].include?(pais)
+      @grupo_pais = "I"
+    elsif GRUPOS_GRAFICA[:II][:paises].include?(pais)
+      @grupo_pais = "II"
+    elsif GRUPOS_GRAFICA[:III][:paises].include?(pais)
+      @grupo_pais = "III"
+    elsif GRUPOS_GRAFICA[:IV][:paises].include?(pais)
+      @grupo_pais = "IV"
+    elsif GRUPOS_GRAFICA[:V][:paises].include?(pais)
+      @grupo_pais = "V"
+    else
+      @grupo_pais = "VI"
+    end
+    @grupo_pais
+  end
+
+  def nivel_contaminacion(pais, huella_carbono)
+    @nivel_contaminacion = nil
+
+    grupo = GRUPOS_GRAFICA[grupo_helper(pais).to_sym]
+    min = grupo[:kg_co2][:min]
+    max = grupo[:kg_co2][:max]
+
+    if huella_carbono < min
+      @nivel_contaminacion = NIVELES[0]
+    elsif huella_carbono > max
+      @nivel_contaminacion = NIVELES[2]
+    else
+      @nivel_contaminacion = NIVELES[1]
+    end
+  end
+
   CALORIAS_POR_PORCION = {
     res: 135,
     cerdo: 297,
@@ -512,7 +547,7 @@ class CuestionariosController < ApplicationController
     chocolate: [6.66, 6.66, 6.66]
   }
 
-  NIVELES = %W[bajo normal alto]
+  NIVELES = %W[bajo medio alto]
 
   GRUPOS_GRAFICA = {
     I: {
