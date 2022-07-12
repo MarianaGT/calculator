@@ -12,6 +12,7 @@ class CuestionariosController < ApplicationController
     kcal_calculator
     huella_carbono
     nivel_consumo_calorias(@cuestionario.sexo, @calorias, @hs2)
+    nivel_contaminacion(@cuestionario.pais, @carbono)
   end
 
   def new
@@ -413,6 +414,38 @@ class CuestionariosController < ApplicationController
       else
         @nivel_consumo_calorias = NIVELES[1]
       end
+    end
+  end
+
+  def grupo_helper(pais)
+    if GRUPOS_GRAFICA[:I][:paises].include?(pais)
+      "I"
+    elsif GRUPOS_GRAFICA[:II][:paises].include?(pais)
+      "II"
+    elsif GRUPOS_GRAFICA[:III][:paises].include?(pais)
+      "III"
+    elsif GRUPOS_GRAFICA[:IV][:paises].include?(pais)
+      "IV"
+    elsif GRUPOS_GRAFICA[:V][:paises].include?(pais)
+      "V"
+    else
+      "VI"
+    end
+  end
+
+  def nivel_contaminacion(pais, huella_carbono)
+    @nivel_contaminacion = nil
+
+    grupo = GRUPOS_GRAFICA[grupo_helper(pais).to_sym]
+    min = grupo[:kg_co2][:min]
+    max = grupo[:kg_co2][:max]
+
+    if huella_carbono < min
+      @nivel_contaminacion = NIVELES[0]
+    elsif huella_carbono > max
+      @nivel_contaminacion = NIVELES[2]
+    else
+      @nivel_contaminacion = NIVELES[1]
     end
   end
 
