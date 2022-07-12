@@ -418,19 +418,21 @@ class CuestionariosController < ApplicationController
   end
 
   def grupo_helper(pais)
+    @grupo_pais = nil
     if GRUPOS_GRAFICA[:I][:paises].include?(pais)
-      "I"
+      @grupo_pais = "I"
     elsif GRUPOS_GRAFICA[:II][:paises].include?(pais)
-      "II"
+      @grupo_pais = "II"
     elsif GRUPOS_GRAFICA[:III][:paises].include?(pais)
-      "III"
+      @grupo_pais = "III"
     elsif GRUPOS_GRAFICA[:IV][:paises].include?(pais)
-      "IV"
+      @grupo_pais = "IV"
     elsif GRUPOS_GRAFICA[:V][:paises].include?(pais)
-      "V"
+      @grupo_pais = "V"
     else
-      "VI"
+      @grupo_pais = "VI"
     end
+    @grupo_pais
   end
 
   def nivel_contaminacion(pais, huella_carbono)
