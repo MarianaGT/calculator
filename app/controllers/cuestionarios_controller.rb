@@ -11,6 +11,7 @@ class CuestionariosController < ApplicationController
     hs2
     kcal_calculator
     huella_carbono
+    nivel_consumo_calorias(@cuestionario.sexo, @calorias, @hs2)
   end
 
   def new
@@ -393,6 +394,28 @@ class CuestionariosController < ApplicationController
     @carbono = [contador_carbono_simple, contador_carbono_compuesto, contador_carbono_especial].sum
   end
 
+  def nivel_consumo_calorias(genero, calorias, huella_salud)
+    @nivel_consumo_calorias = nil
+
+    if genero.eql?('femenino')
+      if calorias > (huella_salud + 200)
+        @nivel_consumo_calorias = NIVELES[2]
+      elsif calorias < (huella_salud - 200)
+        @nivel_consumo_calorias = NIVELES[0]
+      else
+        @nivel_consumo_calorias = NIVELES[1]
+      end
+    else
+      if calorias > (huella_salud + 250)
+        @nivel_consumo_calorias = NIVELES[2]
+      elsif calorias < (huella_salud - 250)
+        @nivel_consumo_calorias = NIVELES[0]
+      else
+        @nivel_consumo_calorias = NIVELES[1]
+      end
+    end
+  end
+
   CALORIAS_POR_PORCION = {
     res: 135,
     cerdo: 297,
@@ -487,6 +510,77 @@ class CuestionariosController < ApplicationController
     galletas_saladas: [2.88, 2.88, 2.88],
     galletas_dulces: [4.37, 4.37, 4.37],
     chocolate: [6.66, 6.66, 6.66]
+  }
+
+  NIVELES = %W[bajo normal alto]
+
+  GRUPOS_GRAFICA = {
+    I: {
+      paises: %W[Pakistan Nigeria Afganistan Burundi Bangladesh Burundi Sudán\sdel\sSur Malaui Mozambique Sierra\sLeona Rep\sDem\sCongo Zimbabue],
+      kcal: {
+        min: 1500,
+        max: 2750
+      },
+      kg_co2: {
+        min: 0.02,
+        max: 3.17
+      }
+    },
+    II: {
+      paises: %W[México Reino\sUnido Brasil Costa\sRica Dominica Egipto Fiyi Marruecos Mauricio Santa\sLucia Indonesia],
+      kcal: {
+        min: 2750,
+        max: 4000
+      },
+      kg_co2: {
+        min: 0.02,
+        max: 3.17
+      }
+    },
+    III: {
+      paises: %W[Tailandia Bahamas Irak Azerbaiyán Croacia Las\sMaldivas],
+      kcal: {
+        min: 1500,
+        max: 2750
+      },
+      kg_co2: {
+        min: 3.2,
+        max: 6.3
+      }
+    },
+    IV: {
+      paises: %w[China Japón Alemania Italia Argentina Chile Turquía Argelia Barbados Bielorrusia Bulgaria Chipre Dinamarca Eslovaquia Eslovenia España Grecia Irlanda Letonia Lituania Líbano Malta Portugal Rumanía Suecia Suiza Ucrania],
+      kcal: {
+        min: 2750,
+        max: 4000
+      },
+      kg_co2: {
+        min: 3.2,
+        max: 6.3
+      }
+    },
+    V: {
+      paises: %w[Mongolia Seychelles],
+      kcal: {
+        min: 1500,
+        max: 2750
+      },
+      kg_co2: {
+        min: 6.4,
+        max: 9.5
+      }
+    },
+    VI: {
+      paises: %w[USA Corea Rusia Canadá Australia Austria Finlandia Bélgica],
+      kcal: {
+        min: 2750,
+        max: 4000
+      },
+      kg_co2: {
+        min: 6.4,
+        max: 9.5
+      }
+    }
   }
 
   # no hay valores para salmon, atun, que estan en el cuestionario
