@@ -512,7 +512,7 @@ class CuestionariosController < ApplicationController
     chocolate: [6.66, 6.66, 6.66]
   }
 
-  NIVELES = %W[bajo normal alto]
+  NIVELES = %W[bajo medio alto]
 
   GRUPOS_GRAFICA = {
     I: {
