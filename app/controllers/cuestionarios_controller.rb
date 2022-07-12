@@ -89,7 +89,11 @@ class CuestionariosController < ApplicationController
     # HS= HB: 1324 x 0.9 x 1.1 + 10% de HB.
     # ETA= 132
     # HS= 1,310 + 132= 1,442 kcal
-    ((harris_benedict * 0.9 * @factor_actividad_fisica) + eta).floor
+    if @factor_actividad_fisica.positive?
+      ((harris_benedict * 0.9 * @factor_actividad_fisica) + eta).round(2)
+    else
+      ((harris_benedict * 0.9) + eta).round(2)
+    end
   end
 
   def lorentz
