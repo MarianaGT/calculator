@@ -514,6 +514,75 @@ class CuestionariosController < ApplicationController
 
   NIVELES = %W[bajo normal alto]
 
+  GRUPOS_GRAFICA = {
+    I: {
+      paises: %W[Pakistan Nigeria Afganistan Burundi Bangladesh Burundi Sudán\sdel\sSur Malaui Mozambique Sierra\sLeona Rep\sDem\sCongo Zimbabue],
+      kcal: {
+        min: 1500,
+        max: 2750
+      },
+      kg_co2: {
+        min: 0.02,
+        max: 3.17
+      }
+    },
+    II: {
+      paises: %W[México Reino\sUnido Brasil Costa\sRica Dominica Egipto Fiyi Marruecos Mauricio Santa\sLucia Indonesia],
+      kcal: {
+        min: 2750,
+        max: 4000
+      },
+      kg_co2: {
+        min: 0.02,
+        max: 3.17
+      }
+    },
+    III: {
+      paises: %W[Tailandia Bahamas Irak Azerbaiyán Croacia Las\sMaldivas],
+      kcal: {
+        min: 1500,
+        max: 2750
+      },
+      kg_co2: {
+        min: 3.2,
+        max: 6.3
+      }
+    },
+    IV: {
+      paises: %w[China Japón Alemania Italia Argentina Chile Turquía Argelia Barbados Bielorrusia Bulgaria Chipre Dinamarca Eslovaquia Eslovenia España Grecia Irlanda Letonia Lituania Líbano Malta Portugal Rumanía Suecia Suiza Ucrania],
+      kcal: {
+        min: 2750,
+        max: 4000
+      },
+      kg_co2: {
+        min: 3.2,
+        max: 6.3
+      }
+    },
+    V: {
+      paises: %w[Mongolia Seychelles],
+      kcal: {
+        min: 1500,
+        max: 2750
+      },
+      kg_co2: {
+        min: 6.4,
+        max: 9.5
+      }
+    },
+    VI: {
+      paises: %w[USA Corea Rusia Canadá Australia Austria Finlandia Bélgica],
+      kcal: {
+        min: 2750,
+        max: 4000
+      },
+      kg_co2: {
+        min: 6.4,
+        max: 9.5
+      }
+    }
+  }
+
   # no hay valores para salmon, atun, que estan en el cuestionario
   # en el cuestionario no hay preguntas de pavo pero si estan los valores
   # no hay pregunta del origen del queso ni del yogurt, calculado con el origen de la leche
