@@ -11,6 +11,7 @@ class CuestionariosController < ApplicationController
     hs2
     kcal_calculator
     huella_carbono
+    nivel_consumo_calorias(@cuestionario.sexo, @calorias, @hs2)
   end
 
   def new
@@ -393,6 +394,28 @@ class CuestionariosController < ApplicationController
     @carbono = [contador_carbono_simple, contador_carbono_compuesto, contador_carbono_especial].sum
   end
 
+  def nivel_consumo_calorias(genero, calorias, huella_salud)
+    @nivel_consumo_calorias = nil
+
+    if genero.eql?('femenino')
+      if calorias > (huella_salud + 200)
+        @nivel_consumo_calorias = NIVELES[2]
+      elsif calorias < (huella_salud - 200)
+        @nivel_consumo_calorias = NIVELES[0]
+      else
+        @nivel_consumo_calorias = NIVELES[1]
+      end
+    else
+      if calorias > (huella_salud + 250)
+        @nivel_consumo_calorias = NIVELES[2]
+      elsif calorias < (huella_salud - 250)
+        @nivel_consumo_calorias = NIVELES[0]
+      else
+        @nivel_consumo_calorias = NIVELES[1]
+      end
+    end
+  end
+
   CALORIAS_POR_PORCION = {
     res: 135,
     cerdo: 297,
@@ -488,6 +511,8 @@ class CuestionariosController < ApplicationController
     galletas_dulces: [4.37, 4.37, 4.37],
     chocolate: [6.66, 6.66, 6.66]
   }
+
+  NIVELES = %W[bajo normal alto]
 
   # no hay valores para salmon, atun, que estan en el cuestionario
   # en el cuestionario no hay preguntas de pavo pero si estan los valores

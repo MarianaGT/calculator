@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<!-- Esta seccion se oculto usando d-none, anteriormente aqui estaban reflejados los valores de la encuesta -->
 <div class="container my-3 d-none">
   <h3>HS 1</h3>
   <p>
@@ -63,7 +64,7 @@
   </div>
   <div class=" text-center">
     <h3>En relación a la gente de tu país, tu nivel de contaminación es <u>bajo.</u></h3><br>
-    <h3>De acuerdo a tu estatura, peso actual, edad y sexo, tu consumo de calorías es <u>bajo.</u></h3><br>
+    <h3>De acuerdo a tu estatura, peso actual, edad y sexo, tu consumo de calorías es <u><%= @nivel_consumo_calorias %>.</u></h3><br>
   </div>
   <div class="container mt-5">
     <p class="text-center">Así se ve actualmente la relación entre emisiones y consumo de calorías por país.</p>
