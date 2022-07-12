@@ -1,25 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container my-3">
-  <h3>Calculadora de Calorias</h3>
-    <p>
-      Calorias:
-      <%= @calorias %> kcal
-    </p>
-  <hr>
-  <h3>Huella de carbono</h3>
-    <p>
-      Huella de carbono:
-      <%= @carbono %> kg.
-    </p>
-  <hr>
   <h3>HS 1</h3>
   <p>
     Harris Benedict:
     <%= @harris_benedict %> kcal
   </p>
   <p>
-    Factor de activdad fisica:
+    Factor de actividad fisica:
     <%= @factor_actividad_fisica %>
   </p>
   <p>
@@ -75,9 +63,9 @@
   <div class=" text-center">
     <h3>En relación a la gente de tu país, tu nivel de contaminación es <u>bajo.</u></h3><br>
     <h3>De acuerdo a tu estatura, peso actual, edad y sexo, tu consumo de calorías es <u>bajo.</u></h3><br>
-    <p class="display-6 text-success">Excelente, sigue así.</p><br>
   </div>
   <div class="container mt-5">
+    <p class="text-center">Así se ve actualmente la relación entre emisiones y consumo de calorías por país.</p>
     <div class="row">
       <div class="col-2 d-flex flex-column justify-content-around align-items-center">
         <p><small>4,000</small></p>
@@ -131,9 +119,8 @@
       </div>
     </div>
   </div>
-  <div class="text-center mt-3">
-    <p>Así se ve la relación entre emisiones y consumo de calorías por países actualmente.</p>
-    <p>¿Qué puedes hacer tú?</p>
+  <div class="text-center mt-5 mb-3">
+    <p class="display-6 pt-5 text-success">¿Y luego?</p><br>
     <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#saber-mas" aria-expanded="false" aria-controls="saber-mas">
       <span class="material-symbols-outlined pt-2">
         arrow_downward
@@ -145,31 +132,64 @@
   <div class="container p-2">
     <div class="row mt-5">
       <div class="col-6">
-        <p>El 14.5% de la contaminación global viene de la industria del ganado.</p>
-        <p>Reducir tu consumo de carne roja y de queso puede ayudar a cortar 1/3 de la contaminación.</p>
-        <p>Disminuye tu consumo de carne de res, ya que la producción de esta es responsable de la mayor
+        <h3>
+          <% if (0..0.75).include? @calorias / @hs1 %>
+            <p>Tu consumo actual de kcal es deficiente. ¡Está en riesgo tu salud!</p>
+            <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
+          <% elsif (0.76..0.85).include? @calorias / @hs1 %>
+            <p>Tu consumo de kcal es menor al que requieres para mantener tu peso, por lo que bajaras de peso.</p>
+            <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
+          <% elsif (0.86..1.09).include? @calorias / @hs1 %>
+            <p>Tu consumo de kcal es suficiente para mantener tu peso actual.</p>
+            <h5 class="text-success">Excelente, ¡sigue así!</h5><br>
+          <% elsif (1..1.25).include? @calorias / @hs1 %>
+            <p>Estás consumiendo 25% más de lo que deberías para mantener tu peso actual. Si continuas con esa alimentación subirás de peso.</p>
+            <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
+          <% elsif (1.26..1.5).include? @calorias / @hs1 %>
+            <p>Estás consumiendo 50% más de lo que deberías para mantener tu peso actual. Si continuas con esa alimentación subirás de peso.</p>
+            <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
+          <% elsif (1.51..1.75).include? @calorias / @hs1 %>
+            <p>Estás consumiendo 75% más de lo que deberías para mantener tu peso actual. Si continuas con esa alimentación subirás de peso.</p>
+            <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
+          <% elsif (1.76..2).include? @calorias / @hs1 %>
+            <p>Estás consumiendo <strong>dos veces más</strong> de lo que deberías para mantener tu peso actual. Si continuas con esa alimentación subirás de peso y además tienes mayor riesgo de padecer enfermedades cardiovasculares, diabetes y cáncer.</p>
+            <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
+          <% elsif (2.1..3).include? @calorias / @hs1 %>
+            <p>Estás consumiendo <strong>tres veces más</strong> de lo que deberías para mantener tu peso actual. Si continuas con esa alimentación subirás de peso y además tienes mayor riesgo de padecer enfermedades cardiovasculares, diabetes y cáncer.</p>
+            <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
+          <% elsif (3.1..4).include? @calorias / @hs1 %>
+            <p>Estás consumiendo <strong>cuatro veces más</strong> de lo que deberías para mantener tu peso actual. Si continuas con esa alimentación subirás de peso y además tienes mayor riesgo de padecer enfermedades cardiovasculares, diabetes y cáncer.</p>
+            <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
+          <% else (4.1..5).include? @calorias / @hs1 %>
+            <p>Estás consumiendo <strong>cinco veces más</strong> de lo que deberías para mantener tu peso actual. Si continuas con esa alimentación subirás de peso y además tienes mayor riesgo de padecer enfermedades cardiovasculares, diabetes y cáncer.</p>
+            <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
+          <% end %>
+        </h3>
+        <p>Las <strong>enfermedades cardiovasculares, diabetes y cáncer</strong> (no transmisibles) matan 41 millones de personas cada año. Eso equivale al <strong>71% de las muertes</strong> que se producen en el mundo.</p><br>
+        <p><strong>Haz ejercicio</strong>. ¡Muy bueno para tu salud! Podrían evitarse 5 millones de muertes con un mayor nivel de actividad física en la población mundial.</p><br>
+        <p><strong>Disminuye tu consumo de carne de res.</strong> Su producción es responsable de la mayor
         cantidad de emisiones de gases de efecto invernadero en la industria alimentaria. La OMS
-        recomienda consumir 90g/persona/día para ver un efecto significativo en las emisiones de carbono
-        y la salud.</p>
-        <p>Limitar el consumo de azúcar. ¿Sabías qué..? El producto agrícola de mayor demanda y producción
-        es la caña de azúcar, y gran parte de esta se destina a la producción de bebidas azucaradas y
-        alimentos altamente procesados, generando una acumulación en la sangre.</p>
-        <p>Consumir productos locales y de temporada. ¿Sabías qué..? Esto reduce el transporte de los
-        alimentos y por lo tanto los combustibles fósiles utilizados, por lo que su huella de carbono es
-        menor.</p>
-        <p>Asegúrate de comprar solo lo que necesitas, para evitar el desperdicio de alimentos.</p>
-        <p>Aumentar el consumo de frutas y verduras en por lo menos 5 porciones al día, ya que reduce el
-        riesgo de padecer enfermedades no transmisibles.</p>
-        <p>Abrirnos al consumo de fuentes alternativas de proteínas como leguminosas e insectos.</p>
-        <p>Y recuerda...cuida la calidad de tus alimentos, puedes buscar asesoría en un profesional de la
-        salud.</p>
+        recomienda consumir 90g por día para ver un efecto significativo en las emisiones de carbono
+        y la salud.</p><br>
+        <p><strong>Limita tu consumo de grasas saturadas, azúcar y sal.</strong> Modificando tu dieta puedes reducir el riesgo de que te de obesidad, accidentes vasculares cerebrales, diabetes, cáncer de mama y de colon.</p><br>
+        <p><strong>Consume productos locales y de temporada.</strong> Si se reduce el transporte de los
+        alimentos se reducen los combustibles fósiles utilizados, por lo que su huella de carbono es
+        menor.</p><br>
+        <p><strong>Compra solo lo que necesitas</strong> para evitar el desperdicio de alimentos.</p><br>
+        <h5 class="text-success">¡Tampoco mueras de hambre!</h5>
+        <p>Necesitas mínimo <%= @harris_benedict %> kcal para que tu cuerpo haga las funciones básicas de tu metabolismo como respirar y dormir.</p><br>
+        <p><strong>Aumenta el consumo de frutas y verduras</strong>. Mínimo 5 porciones al día reducen el
+        riesgo de padecer enfermedades no transmisibles.</p><br>
+        <p>Abre tu mente al consumo de fuentes alternativas de proteínas como <strong>leguminosas e insectos</strong>.</p><br>
+        <p>Busca <strong>asesoría</strong> de un profesional de la salud si no sabes qué hacer. Estamos para ayudarte e informarte.</p>
       </div>
       <div class="col-2">
         <%= image_tag "co2.png" %>
       </div>
     </div>
   </div>
+  <div class="bg-results bg-success text-dark p-2 text-center">
+    <p><small>C O N T A C T O ____ proyecto@gmail.com</small></p>
+  </div>
 </div>
-<div class="bg-results bg-dark text-white p-2">
-  <p><small>¿Quieres saber qué más hacer? Contáctanos a proyecto@gmail.com</small></p>
-</div>
+
