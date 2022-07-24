@@ -4,7 +4,7 @@
 
 .bg-input {
   background-color: $success;
-  border: 2px solid green;
+  border: 2px solid black;
   &::placeholder {
     color: gray;
   }
@@ -24,8 +24,8 @@ input[type="radio"] {
   &:checked {
     display: block;
     border-color: white;
-    background-color: green;
-    color: green;
+    background-color: black;
+    color: black;
     transform: scale(1.7);
   }
 }
@@ -35,8 +35,8 @@ input[type="checkbox"] {
   transform: scale(1.7);
   &:checked {
     border-color: white;
-    background-color: green;
-    color: green;
+    background-color: black;
+    color: black;
     transform: scale(1.9);
   }
 }
