@@ -245,7 +245,7 @@
           <% elsif (3.1..4).cover? @calorias / @hs1 %>
             <p>Estás consumiendo <strong>cuatro veces más</strong> de lo que deberías para mantener tu peso actual. Si continuas con esa alimentación subirás de peso y además tienes mayor riesgo de padecer enfermedades cardiovasculares, diabetes y cáncer.</p>
             <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
-          <% else (4.1..5).cover? @calorias / @hs1 %>
+          <% else ((4.1)..5).cover? @calorias / @hs1 %>
             <p>Estás consumiendo <strong>cinco veces más</strong> de lo que deberías para mantener tu peso actual. Si continuas con esa alimentación subirás de peso y además tienes mayor riesgo de padecer enfermedades cardiovasculares, diabetes y cáncer.</p>
             <h5 class="text-success">Ánimo, siempre puedes hacer algo.</h5><br>
           <% end %>
