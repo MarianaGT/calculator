@@ -540,7 +540,7 @@
           input_html: { 'data-bs-target' => '#grupos-pescados', 'data-bs-toggle' => 'collapse' }
         %>
       </div>
-      <div>
+      <div class="collapse" id="grupos-pescados">
         <h5 class="text-center pb-1 pt-3">Si comes pescados y mariscos, elige la opción que más consumas</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :valores_pescados_mariscos,
@@ -614,7 +614,7 @@
         input_html: { 'data-bs-target' => '#frutas', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
-      <div class="collapse" id="frutas">
+      <div>
         <h5>¿Cuántas frutas consumes en un día?</h5>
         <%= f.input :cantidad_fruta,
           label: false,
@@ -739,7 +739,7 @@
         input_html: { 'data-bs-target' => '#tacos', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
-      <div>
+      <div class="collapse" id="tacos">
         <h5 class="text-center pb-1 pt-3">Si consumes tacos, ¿cuáles prefieres?</h5>
         <%= f.input :al_pastor %>
         <%= f.input :suadero, label: "Tacos bistec/suadero" %>
@@ -800,7 +800,7 @@
         input_html: { 'data-bs-target' => '#embutidos', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
-      <div>
+      <div class="collapse" id="embutidos">
         <h5 class="text-center pb-1 pt-3">¿Qué embutidos sueles consumir?</h5>
         <%= f.input :jamon_pavo, label: "Jamon de pavo" %>
         <%= f.input :jamon_puerco, label: "Jamon de puerco" %>
@@ -941,8 +941,8 @@
         input_html: { 'data-bs-target' => '#cantidad-chocolates', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
-      <div class="collapse" id="cantidad-chocolates">
-        <h5 class="text-center pb-1 pt-3">¿Cuántos consumes en un día?</h5>
+      <div>
+        <h5 class="text-center pb-1 pt-3">¿Cuántos chocolates comes en un día?</h5>
         <%= f.input :cantidad_chocolates,
           label: false,
           placeholder: "|...",
