@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+.bg-custom {
+  background-color: $green;
+}
+
 .bubble {
   height: 50px;
   margin: 1em;
@@ -10,4 +14,11 @@
 .letter-spacing-1 {
   letter-spacing: 0.2em;
   padding: 0.1em;
+}
+
+.location-dot {
+  height: 20px;
+  width: 20px;
+  background-color: #f0796d;
+  border-radius: 50%
 }
