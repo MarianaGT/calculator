@@ -54,23 +54,40 @@
 
 
 <!--   Resultados que van en el show -->
-<div class="bg-results bg-dark text-white p-2">
+<div class="bg-results p-2">
   <div class="d-flex flex-column justify-content-around align-items-center p-5">
     <%= image_tag "bubble.png", class: 'bubble' %>
-    <span class="letter-spacing-1"><small><u>TU IMPACTO</u></small></span>
-    <span><small>Calorias <strong class="text-success"><%= @calorias %> kcal</strong></small></span>
-    <span><small>Emisiones <strong class="text-success"><%= @carbono %> kg/CO2</strong></small></span>
-  </div>
-  <div class=" text-center">
-    <h3>IMC 8.7 Normal</h3>
-    <div>
-      <h2>De acuerdo a tu estatura, peso actual, edad y sexo, deberías de consumir <%=@hs1%> kcal.</h2>
-      <h2>Si te encontraras en un peso ideal deberías consumir <%=@hs2%> kcal.</h2>
-      <h2>De acuerdo a los resultados de tu encuesta consumes <%=@calorias%> kcal.</h2>
-    </div>
-    <p>Explicacioncita mini IMC</p>
+    <h4 class="letter-spacing-1 opacity-80">TU IMPACTO</h4>
+    <h1>Calorias <strong class="text-success"><%= @calorias %> kcal</strong></h1>
+    <h1>Emisiones <strong class="text-success"><%= @carbono %> kg/CO2</strong></h1>
   </div>
 
+  <table class="table table-borderless">
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <td><h3>IMC</h3></td>
+        <td><h3 class="text-success">8.7 normal</h3><p>IMC es la relación entre tu peso y tu talla que se usa para identificar sobrepeso y obesidad en adultos</p></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td><h3>Deberías consumir</h3></td>
+        <td><h3 class="text-success"><%=@hs1%> kcal</h3><p>De acuerdo a tu estatura, edad, sexo y peso actual</p></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td><h3>Peso ideal</h3></td>
+        <td><h3 class="text-success"><%=@hs2%> kcal</h3><p>Lo recomendable para estar en tu peso ideal</p></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td><h3>Actualmente consumes</h3></td>
+        <td><h3 class="text-success"><%=@calorias%> kcal</h3><p>De acuerdo a los resultados de tu encuesta</p></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="bg-results bg-dark text-white p-2">
   <div class="container mt-5">
     <p class="text-center">Así se ve actualmente la relación entre emisiones y consumo de calorías por país.</p>
     <div class="row">
@@ -83,7 +100,7 @@
         <h1>
           <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("II") %>
           <% if @calorias > 2750 && @carbono < 3.2 %>
-            <span class="location-dot bg-light"></span>
+            <span class="location-dot bg-orange"></span>
           <% end %>
         </h1>
         <p>México está aquí</p>
