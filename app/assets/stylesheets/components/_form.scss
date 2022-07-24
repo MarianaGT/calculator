@@ -1,12 +1,12 @@
 .big-text {
-  font-size: 3em;
+  font-size: 5em;
 }
 
 .bg-input {
   background-color: $success;
   border: 2px solid black;
   &::placeholder {
-    color: white;
+    color: gray;
   }
   &::invalid {
     border-color: $warning;

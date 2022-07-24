@@ -20,7 +20,7 @@
             <%= link_to "Respuestas", cuestionarios_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag ("carbon-footprint.svg"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
@@ -28,7 +28,7 @@
         <% else %>
           <li class="nav-item">
             <%= link_to new_user_session_path, class: "navbar-brand" do %>
-              <%= image_tag ("carbon-footprint.png") %>
+              <%= image_tag ("carbon-footprint.svg") %>
             <% end %>
           </li>
         <% end %>

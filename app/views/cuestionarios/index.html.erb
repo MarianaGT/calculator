@@ -2,9 +2,10 @@
 
 <div class="p-2">
   <h3 class="m-2">Cuestionarios</h3>
-  <table class="table table-hover p-1 m-2 overflow-auto">
+  <table class="table table-hover p-3 m-2 overflow-auto">
     <thead>
       <tr>
+        <th scope="col">ID</th>
         <th scope="col">Email</th>
         <th scope="col">Nombre</th>
         <th scope="col">Edad</th>
@@ -89,6 +90,7 @@
     <tbody>
       <% @cuestionarios.each do |cuestionario| %>
         <tr>
+          <td><%= cuestionario.id %></td>
           <td><%= cuestionario.email %></td>
           <td><%= cuestionario.nombre %></td>
           <td><%= cuestionario.edad %></td>
@@ -167,7 +169,7 @@
           <td><%= cuestionario.frecuencia_chocolates %></td>
           <td><%= cuestionario.cantidad_chocolates %></td>
           <td><%= link_to 'Resultado', cuestionario %></td>
-          <td><%= link_to 'Eliminar', cuestionario, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-white' %></td>
+          <td><%= link_to 'Eliminar', cuestionario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
     </tbody>
