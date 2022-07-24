@@ -216,7 +216,7 @@
 <div class="collapse bg-results bg-light" id="saber-mas">
   <div class="container p-2">
     <div class="row mt-5 mb-3">
-      <div class="col-6">
+      <div class="col-9">
         <h3>
           <% if (0..0.75).include? @calorias / @hs1 %>
             <p>Tu consumo actual de kcal es deficiente. ¡Está en riesgo tu salud!</p>
@@ -268,10 +268,10 @@
         <p>Abre tu mente al consumo de fuentes alternativas de proteínas como <strong>leguminosas e insectos</strong>.</p><br>
         <p>Busca <strong>asesoría</strong> de un profesional de la salud si no sabes qué hacer. Estamos para ayudarte e informarte.</p>
       </div>
-      <div class="col-2">
-        <%= image_tag "corazon.png" %>
-        <%= image_tag "rinon.png" %>
-        <%= image_tag "co2.png" %>
+      <div class="col-3 d-flex flex-column justify-content-around">
+        <%= image_tag "corazon.png", class: "dieta-pic" %>
+        <%= image_tag "rinon.png", class: "dieta-pic" %>
+        <%= image_tag "co2.png", class: "dieta-pic" %>
       </div>
     </div>
   </div>
