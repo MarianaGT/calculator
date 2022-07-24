@@ -97,27 +97,42 @@
         <p><small>3,000</small></p>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo2">
-        <h1>
-          <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("II") %>
-          <% if @calorias > 2750 && @carbono < 3.2 %>
-            <span class="location-dot bg-success"></span>
-            <h2>Tú</h2>
+        <h3>
+          <% if @grupo_pais.eql?("II") %>
+            <div class="location-dot bg-primary"></div>
+            <span class="text-primary">tu país</span><br>
           <% end %>
-        </h1>
+          <% if @calorias > 2750 && @carbono < 3.2 %>
+            <div class="location-dot bg-danger"></div>
+            <span class="text-danger">tú</span>
+          <% end %>
+        </h3>
         <p><small>🇲🇽 México está aquí</small></p>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo4">
-        <h1>
-          <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("IV") %>
-          <%= "Tú estas aquí" if @calorias > 2750 && @carbono > 3.2 && @carbono < 6.4 %>
-        </h1>
+        <h3>
+          <% if @grupo_pais.eql?("IV") %>
+            <div class="location-dot bg-primary"></div>
+            <span class="text-primary">tu país</span><br>
+          <% end %>
+          <% if @calorias > 2750 && @carbono > 3.2 && @carbono < 6.4 %>
+            <div class="location-dot bg-danger"></div>
+            <span class="text-danger">tú</span>
+          <% end %>
+        </h3>
         <p><small>🇨🇳 China está aquí</small></p>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo6">
-        <h1>
-          <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("VI") %>
-          <%= "Tú estas aquí" if @calorias > 2750 && @carbono > 6.4 %>
-        </h1>
+        <h3>
+          <% if @grupo_pais.eql?("VI") %>
+            <div class="location-dot bg-primary"></div>
+            <span class="text-primary">tu país</span><br>
+          <% end %>
+          <% if @calorias > 2750 && @carbono > 6.4 %>
+            <div class="location-dot bg-danger"></div>
+            <span class="text-danger">tú</span>
+          <% end %>
+        </h3>
         <p><small>🇺🇸 EUA está aquí</small></p>
       </div>
     </div>
@@ -142,17 +157,29 @@
         <p><small>🇧🇩 Bangladesh está aquí</small></p>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo3">
-        <h1>
-          <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("III") %>
-          <%= "Tú estas aquí" if @calorias < 2750 && @carbono < 6.4 && @carbono > 3.2 %>
-        </h1>
+        <h3>
+          <% if @grupo_pais.eql?("III") %>
+            <div class="location-dot bg-primary"></div>
+            <span class="text-primary">tu país</span><br>
+          <% end %>
+          <% if @calorias < 2750 && @carbono < 6.4 && @carbono > 3.2 %>
+            <div class="location-dot bg-danger"></div>
+            <span class="text-danger">tú</span>
+          <% end %>
+        </h3>
         <p><small>🇹🇭 Tailandia está aquí</small></p>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo5">
-        <h1>
-          <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("V") %>
-          <%= "Tú estas aquí" if @calorias < 2750 && @carbono > 6.4 %>
-        </h1>
+        <h3>
+          <% if @grupo_pais.eql?("V") %>
+            <div class="location-dot bg-primary"></div>
+            <span class="text-primary">tu país</span><br>
+          <% end %>
+          <% if @calorias < 2750 && @carbono > 6.4 %>
+            <div class="location-dot bg-danger"></div>
+            <span class="text-danger">tú</span>
+          <% end %>
+        </h3>
         <p><small>🇲🇳 Mongolia está aquí</small></p>
       </div>
     </div>
