@@ -6,7 +6,7 @@
   background-color: $success;
   border: 2px solid green;
   &::placeholder {
-    color: white;
+    color: gray;
   }
   &::invalid {
     border-color: $warning;
