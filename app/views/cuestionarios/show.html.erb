@@ -89,7 +89,7 @@
 </div>
 <div class="bg-results bg-dark p-2">
   <div class="container mt-5 mb-5">
-    <h4 class="text-center text-white pb-4">Así se ve actualmente la relación entre emisiones y consumo de calorías por país.</h4>
+    <h4 class="text-center text-white pb-4">Así se ve la relación entre consumo de calorías y emisiones por país hoy en día.</h4>
     <div class="row">
       <div class="col-2 text-white d-flex flex-column justify-content-around align-items-center">
         <p><small>4,000</small></p>
@@ -97,42 +97,42 @@
         <p><small>3,000</small></p>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo2">
-        <h3>
+        <h4>
           <% if @grupo_pais.eql?("II") %>
             <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br>
+            <span class="text-primary">tu país</span><br><br>
           <% end %>
           <% if @calorias > 2750 && @carbono < 3.2 %>
             <div class="location-dot bg-danger"></div>
             <span class="text-danger">tú</span>
           <% end %>
-        </h3>
+        </h4>
         <p><small>🇲🇽 México está aquí</small></p>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo4">
-        <h3>
+        <h4>
           <% if @grupo_pais.eql?("IV") %>
             <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br>
+            <span class="text-primary">tu país</span><br><br>
           <% end %>
           <% if @calorias > 2750 && @carbono > 3.2 && @carbono < 6.4 %>
             <div class="location-dot bg-danger"></div>
             <span class="text-danger">tú</span>
           <% end %>
-        </h3>
+        </h4>
         <p><small>🇨🇳 China está aquí</small></p>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo6">
-        <h3>
+        <h4>
           <% if @grupo_pais.eql?("VI") %>
             <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br>
+            <span class="text-primary">tu país</span><br><br>
           <% end %>
           <% if @calorias > 2750 && @carbono > 6.4 %>
             <div class="location-dot bg-danger"></div>
             <span class="text-danger">tú</span>
           <% end %>
-        </h3>
+        </h4>
         <p><small>🇺🇸 EUA está aquí</small></p>
       </div>
     </div>
@@ -141,45 +141,45 @@
         <p><small>2,500</small></p>
         <p><small>2,000</small></p>
         <p><small>1,500</small></p>
-        <h2>Kcal</h2>
+        <h4>Kcal</h4>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo1">
-        <h3>
+        <h4 class="text-center m-2">
           <% if @grupo_pais.eql?("I") %>
             <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br>
+            <span class="text-primary">tu país</span><br><br>
           <% end %>
           <% if @calorias < 2750 && @carbono < 3.2 %>
             <div class="location-dot bg-danger"></div>
             <span class="text-danger">tú</span>
           <% end %>
-        </h3>
+        </h4>
         <p><small>🇧🇩 Bangladesh está aquí</small></p>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo3">
-        <h3>
+        <h4>
           <% if @grupo_pais.eql?("III") %>
             <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br>
+            <span class="text-primary">tu país</span><br><br>
           <% end %>
           <% if @calorias < 2750 && @carbono < 6.4 && @carbono > 3.2 %>
             <div class="location-dot bg-danger"></div>
             <span class="text-danger">tú</span>
           <% end %>
-        </h3>
+        </h4>
         <p><small>🇹🇭 Tailandia está aquí</small></p>
       </div>
       <div class="col-3 border border-dark bg-light" id="grupo5">
-        <h3>
+        <h4>
           <% if @grupo_pais.eql?("V") %>
             <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br>
+            <span class="text-primary">tu país</span><br><br>
           <% end %>
           <% if @calorias < 2750 && @carbono > 6.4 %>
             <div class="location-dot bg-danger"></div>
             <span class="text-danger">tú</span>
           <% end %>
-        </h3>
+        </h4>
         <p><small>🇲🇳 Mongolia está aquí</small></p>
       </div>
     </div>
@@ -199,13 +199,11 @@
     <div class="row">
       <div class="col-2"></div>
       <div class="col-9">
-        <h2 class="text-center text-white">CO<small>2</small> por día</h2>
+        <h4 class="text-center text-white">CO<small>2</small> por día</h4>
       </div>
     </div>
   </div>
-
-  <h3 class="text-white">En relación a la gente de tu país, tu nivel de contaminación es <u><%= @nivel_contaminacion %>.</u></h3>
-  <h3 class="text-white">De acuerdo a tu estatura, peso actual, edad y sexo, tu consumo de calorías es <u><%= @nivel_consumo_calorias %>.</u></h3><br>
+  <h3 class="text-white text-center">En relación a la gente de <%= @cuestionario.pais %>, tu nivel de contaminación es <u><%= @nivel_contaminacion %></u> y tu consumo de calorías es <u><%= @nivel_consumo_calorias %>.</u></h3>
   <div class="text-center mt-5 mb-3">
     <p class="display-6 pt-5 text-success">¿Y luego?</p><br>
     <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#saber-mas" aria-expanded="false" aria-controls="saber-mas">
@@ -217,7 +215,7 @@
 </div>
 <div class="collapse bg-results bg-light" id="saber-mas">
   <div class="container p-2">
-    <div class="row mt-5">
+    <div class="row mt-5 mb-3">
       <div class="col-6">
         <h3>
           <% if (0..0.75).include? @calorias / @hs1 %>
@@ -269,19 +267,16 @@
         riesgo de padecer enfermedades no transmisibles.</p><br>
         <p>Abre tu mente al consumo de fuentes alternativas de proteínas como <strong>leguminosas e insectos</strong>.</p><br>
         <p>Busca <strong>asesoría</strong> de un profesional de la salud si no sabes qué hacer. Estamos para ayudarte e informarte.</p>
-        <p>NOTTAAA: Los resultados de este cuestionario pueden variar en casos específicos.</p>
-        <p>Para más información....</p>
-        <p>¡Muchas gracias! Con tu participación ayudas a mi aceptación en Nature.</p>
       </div>
       <div class="col-2">
         <%= image_tag "corazon.png" %>
         <%= image_tag "rinon.png" %>
         <%= image_tag "co2.png" %>
-        <%= image_tag "veg.png" %>
       </div>
     </div>
   </div>
-  <div class="bg-results bg-success text-dark p-2 text-center">
-    <p><small>C O N T A C T O ____ huelladecarbonoysalud@gmail.com</small></p>
+  <div class="bg-results bg-success text-white p-2">
+    <p class="text-justify"><small>* Los resultados de este cuestionario pueden variar en casos específicos. Contáctanos para saber más sobre el marco y el alcance de este proyecto científico. ¡Muchas gracias!</small></p>
+    <p class="text-center"><small><strong>huelladecarbonoysalud@gmail.com</strong></small></p>
   </div>
 </div>
