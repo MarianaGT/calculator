@@ -150,12 +150,12 @@
       <div class="d-flex justify-content-around">
         <%= f.input :peso,
           label: false,
-          placeholder: "Peso (kg)",
+          placeholder: "Peso kg (70)",
           input_html: { class: "bg-input"}
         %>
         <%= f.input :altura,
           label: false,
-          placeholder: "Estatura (m)",
+          placeholder: "Estatura m (1.60)",
           input_html: { class: "bg-input"}
         %>
       </div>
@@ -970,7 +970,7 @@
           input_html: { 'data-bs-target' => '#frecuencia-insectos', 'data-bs-toggle' => 'collapse' }
         %>
       </div>
-      <div class="collapse" id="frecuencia-insectos">
+      <div>
         <h5 class="text-center pb-1 pt-3">¿Cuantas veces al mes?</h5>
         <%= f.input :frecuencia_insectos,
           label: false,
