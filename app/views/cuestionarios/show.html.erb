@@ -87,73 +87,78 @@
     </tbody>
   </table>
 </div>
-<div class="bg-results bg-dark text-white p-2">
-  <div class="container mt-5">
-    <p class="text-center">Así se ve actualmente la relación entre emisiones y consumo de calorías por país.</p>
+<div class="bg-results bg-dark p-2">
+  <div class="container mt-5 mb-5">
+    <h4 class="text-center text-white pb-4">Así se ve actualmente la relación entre emisiones y consumo de calorías por país.</h4>
     <div class="row">
-      <div class="col-2 d-flex flex-column justify-content-around align-items-center">
+      <div class="col-2 text-white d-flex flex-column justify-content-around align-items-center">
         <p><small>4,000</small></p>
         <p><small>3,500</small></p>
         <p><small>3,000</small></p>
       </div>
-      <div class="col-3 border" id="grupo2">
+      <div class="col-3 border border-dark bg-light" id="grupo2">
         <h1>
           <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("II") %>
           <% if @calorias > 2750 && @carbono < 3.2 %>
-            <span class="location-dot bg-orange"></span>
+            <span class="location-dot bg-success"></span>
+            <h2>Tú</h2>
           <% end %>
         </h1>
-        <p>México está aquí</p>
+        <p><small>🇲🇽 México está aquí</small></p>
       </div>
-      <div class="col-3 border" id="grupo4">
+      <div class="col-3 border border-dark bg-light" id="grupo4">
         <h1>
           <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("IV") %>
           <%= "Tú estas aquí" if @calorias > 2750 && @carbono > 3.2 && @carbono < 6.4 %>
         </h1>
-        <p>China está aquí</p>
+        <p><small>🇨🇳 China está aquí</small></p>
       </div>
-      <div class="col-3 border" id="grupo6">
+      <div class="col-3 border border-dark bg-light" id="grupo6">
         <h1>
           <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("VI") %>
           <%= "Tú estas aquí" if @calorias > 2750 && @carbono > 6.4 %>
         </h1>
-        <p>EUA está aquí</p>
+        <p><small>🇺🇸 EUA está aquí</small></p>
       </div>
     </div>
     <div class="row">
-      <div class="col-2 d-flex flex-column justify-content-around align-items-center">
+      <div class="col-2 text-white d-flex flex-column justify-content-around align-items-center">
         <p><small>2,500</small></p>
         <p><small>2,000</small></p>
         <p><small>1,500</small></p>
         <h2>Kcal</h2>
       </div>
-      <div class="col-3 border" id="grupo1">
-        <h1>
-          <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("I") %>
-          <% if @calorias < 2750 && @carbono < 3.2 %>
-            <div class="location-dot bg-light"></div>
+      <div class="col-3 border border-dark bg-light" id="grupo1">
+        <h3>
+          <% if @grupo_pais.eql?("I") %>
+            <div class="location-dot bg-primary"></div>
+            <span class="text-primary">tu país</span><br>
           <% end %>
-        </h1>
-        <p>Bangladesh está aquí</p>
+          <% if @calorias < 2750 && @carbono < 3.2 %>
+            <div class="location-dot bg-danger"></div>
+            <span class="text-danger">tú</span>
+          <% end %>
+        </h3>
+        <p><small>🇧🇩 Bangladesh está aquí</small></p>
       </div>
-      <div class="col-3 border" id="grupo3">
+      <div class="col-3 border border-dark bg-light" id="grupo3">
         <h1>
           <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("III") %>
           <%= "Tú estas aquí" if @calorias < 2750 && @carbono < 6.4 && @carbono > 3.2 %>
         </h1>
-        <p>Tailandia está aquí</p>
+        <p><small>🇹🇭 Tailandia está aquí</small></p>
       </div>
-      <div class="col-3 border" id="grupo5">
+      <div class="col-3 border border-dark bg-light" id="grupo5">
         <h1>
           <%= "#{@cuestionario.pais} está aquí" if @grupo_pais.eql?("V") %>
           <%= "Tú estas aquí" if @calorias < 2750 && @carbono > 6.4 %>
         </h1>
-        <p>Mongolia está aquí</p>
+        <p><small>🇲🇳 Mongolia está aquí</small></p>
       </div>
     </div>
     <div class="row">
       <div class="col-2"></div>
-      <div class="col-9 d-flex justify-content-between mb-2">
+      <div class="col-9 text-white d-flex justify-content-between mb-2">
         <span><small>0</small></span>
         <span><small>1.3</small></span>
         <span><small>2.7</small></span>
@@ -167,12 +172,13 @@
     <div class="row">
       <div class="col-2"></div>
       <div class="col-9">
-        <h2 class="text-center">CO<small>2</small> por día</h2>
+        <h2 class="text-center text-white">CO<small>2</small> por día</h2>
       </div>
     </div>
   </div>
-    <h3>En relación a la gente de tu país, tu nivel de contaminación es <u><%= @nivel_contaminacion %>.</u></h3>
-    <h3>De acuerdo a tu estatura, peso actual, edad y sexo, tu consumo de calorías es <u><%= @nivel_consumo_calorias %>.</u></h3><br>
+
+  <h3 class="text-white">En relación a la gente de tu país, tu nivel de contaminación es <u><%= @nivel_contaminacion %>.</u></h3>
+  <h3 class="text-white">De acuerdo a tu estatura, peso actual, edad y sexo, tu consumo de calorías es <u><%= @nivel_consumo_calorias %>.</u></h3><br>
   <div class="text-center mt-5 mb-3">
     <p class="display-6 pt-5 text-success">¿Y luego?</p><br>
     <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#saber-mas" aria-expanded="false" aria-controls="saber-mas">
