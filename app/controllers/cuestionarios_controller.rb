@@ -392,7 +392,7 @@ class CuestionariosController < ApplicationController
   end
 
   def huella_carbono
-    @carbono = [contador_carbono_simple, contador_carbono_compuesto, contador_carbono_especial].sum
+    @carbono = [contador_carbono_simple, contador_carbono_compuesto, contador_carbono_especial].sum.round(2)
   end
 
   def nivel_consumo_calorias(genero, calorias, huella_salud)
