@@ -64,25 +64,35 @@
 
   <table class="table table-borderless">
     <tbody>
-      <!-- <tr>
+      <tr>
         <th scope="row"></th>
         <td><h3>IMC</h3></td>
-        <td><h3 class="text-success">8.7 normal</h3><p>IMC es la relación entre tu peso y tu talla que se usa para identificar sobrepeso y obesidad en adultos</p></td>
-      </tr> -->
+        <td><h3 class="text-success"><%= imc = (@cuestionario.peso / (@cuestionario.altura)**2).round(2) %>
+          <% if (0..18.4).include? imc %>
+            bajo peso
+          <% elsif (18.5..24.9).include? imc %>
+            normal
+          <% elsif (25..29.9).include? imc %>
+            sobrepeso
+          <% else (30..40).include? imc %>
+            obesidad
+          <% end %>
+          </h3><p>IMC es la relación entre tu peso y tu talla que se usa para identificar sobrepeso y obesidad en adultos</p></td>
+      </tr>
       <tr>
         <th scope="row"></th>
         <td><h3>Deberías consumir</h3></td>
-        <td><h3 class="text-success"><%=@hs1%> kcal</h3><p>De acuerdo a tu estatura, edad, sexo y peso actual</p></td>
+        <td><h3 class="text-success"><%= @hs1 %> kcal</h3><p>De acuerdo a tu estatura, edad, sexo y peso actual</p></td>
       </tr>
       <tr>
         <th scope="row"></th>
         <td><h3>Peso ideal</h3></td>
-        <td><h3 class="text-success"><%=@hs2%> kcal</h3><p>Lo recomendable para estar en tu peso ideal</p></td>
+        <td><h3 class="text-success"><%= @hs2 %> kcal</h3><p>Lo recomendable para estar en tu peso ideal</p></td>
       </tr>
       <tr>
         <th scope="row"></th>
         <td><h3>Actualmente consumes</h3></td>
-        <td><h3 class="text-success"><%=@calorias%> kcal</h3><p>De acuerdo a los resultados de tu encuesta</p></td>
+        <td><h3 class="text-success"><%= @calorias %> kcal</h3><p>De acuerdo a los resultados de tu encuesta</p></td>
       </tr>
     </tbody>
   </table>
