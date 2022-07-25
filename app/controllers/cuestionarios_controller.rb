@@ -134,6 +134,13 @@ class CuestionariosController < ApplicationController
     @hs2 = hs(@harris_benedict_ajustado, @eta2)
   end
 
+  def imc
+    # height = @cuestionario.peso
+    # weight = @cuestionario.altura
+    # @imc = height / weight**2
+    @imc = (@cuestionario.peso / (@cuestionario.altura)**2).round(2)
+  end
+
   # THIS SECTION CONTAINS LOGIC AND FORMULAS FOR CALORIES CALCULATOR
 
   def obtener_calorias(kcal_porcion, frecuencia_consumo = 0)
