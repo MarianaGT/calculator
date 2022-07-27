@@ -21,7 +21,7 @@
 
 ## Overview
 
-![Screenshot 2021-04-15 at 11 24 06](https://user-images.githubusercontent.com/64441365/114904872-ee85a000-9ddd-11eb-9f3d-160f4abdffdf.png)
+![Screenshot 2022-07-27 at 18 25 27](https://user-images.githubusercontent.com/64441365/181389864-bace8cbc-eb4b-48e5-b2c2-eee0805f35e2.png)
 
 The STEVIE site surveys the impact your food habits has on climate change. This scientific project was developed in collaboration with UNAM.
 
