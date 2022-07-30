@@ -312,9 +312,12 @@
           label_method: :second,
           value_method: :first,
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
-          input_html: { 'data-bs-target' => '#glucosa', 'data-bs-toggle' => 'collapse' }
+          input_html: { 'data-bs-target' => '#diabetes', 'data-bs-toggle' => 'collapse' }
         %>
       </div>
+    </div>
+
+    <div id="diabetes" class="collapse">
       <div>
         <h5 class="text-center pb-1 pt-3">¿Te han detectado alguna vez niveles altos de glucosa en sangre?</h5>
         <div class="d-flex justify-content-center">
@@ -349,7 +352,7 @@
         <%= f.input :hambre_excesiva %>
         <%#= f.input :diabetes_sintomas, label: "¿Ha presentado alguno de los siguientes síntomas en el último mes?", as: :check_boxes, collection: [['Necesidad de orinar con frecuencia', 'Necesidad de orinar con frecuencia'], ['Perdida de peso inexplicable', 'Perdida de peso inexplicable'], ['Sed excesiva', 'Sed excesiva'], ['Hambre excesiva', 'Hambre excesiva']] %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#dieta" aria-expanded="false" aria-controls="dieta">
+      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#dieta" aria-expanded="false" aria-controls="dieta">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -384,9 +387,16 @@
           collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+          input_html: { 'data-bs-target' => '#arrow-pais', 'data-bs-toggle' => 'collapse' }
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <h5 class="text-center pb-1 pt-3">Frutas</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :origen_frutas,
@@ -397,6 +407,12 @@
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <h5 class="text-center pb-1 pt-3">Carne</h5>
       <div class="d-flex justify-content-center">
         <%= f.input :origen_carne,
@@ -407,6 +423,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <h5 class="text-center pb-1 pt-3">Leche</h5>
       <div class="d-flex justify-content-center">
         <%= f.input :origen_leche,
@@ -417,6 +439,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <h5 class="text-center pb-1 pt-3">Cereales (tortilla, arroz, avena)</h5>
       <div class="d-flex justify-content-center">
         <%= f.input :origen_cereales,
@@ -448,6 +476,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- puerco -->
       <h5 class="text-center pb-1 pt-3">Carne de puerco</h5>
       <div class="d-flex justify-content-center">
@@ -459,6 +493,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- borrego -->
       <h5 class="text-center pb-1 pt-3">Carne de borrego</h5>
       <div class="d-flex justify-content-center">
@@ -470,6 +510,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- pollo -->
       <h5 class="text-center pb-1 pt-3">Pollo</h5>
       <div class="d-flex justify-content-center">
@@ -481,6 +527,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- salmón -->
       <h5 class="text-center pb-1 pt-3">Salmón</h5>
       <div class="d-flex justify-content-center">
@@ -492,6 +544,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- atún -->
       <h5 class="text-center pb-1 pt-3">Atún enlatado</h5>
       <div class="d-flex justify-content-center">
@@ -502,6 +560,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- leche -->
       <h5 class="text-center pb-1 pt-3">Leche de vaca</h5>
       <div class="d-flex justify-content-center">
@@ -513,6 +577,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- queso -->
       <h5 class="text-center pb-1 pt-3">Queso</h5>
       <div class="d-flex justify-content-center">
@@ -524,6 +594,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- yogurt -->
       <h5 class="text-center pb-1 pt-3">Yogurt</h5>
       <div class="d-flex justify-content-center">
@@ -535,6 +611,12 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- pescado -->
       <h5 class="text-center pb-1 pt-3">Pescados y mariscos</h5>
       <div class="d-flex justify-content-center">
@@ -571,6 +653,12 @@
           input_html: { 'data-bs-target' => '#huevos', 'data-bs-toggle' => 'collapse' }
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <div>
         <h5 class="pb-1 pt-3">¿Cuántos huevos consumes en un día?</h5>
         <%= f.input :cantidad_huevo,
@@ -600,6 +688,12 @@
         input_html: { 'data-bs-target' => '#verduras', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <div>
         <h5 class="text-center pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
         <%= f.input :cantidad_vegetales,
@@ -609,6 +703,12 @@
           input_html: { class: "bg-input"}
         %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- fruta -->
       <h5 class="text-center pb-1 pt-3">Fruta</h5>
       <div class="d-flex justify-content-center">
@@ -621,6 +721,12 @@
         input_html: { 'data-bs-target' => '#frutas', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <div>
         <h5>¿Cuántas frutas consumes en un día?</h5>
         <%= f.input :cantidad_fruta,
@@ -650,6 +756,12 @@
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- leguminosas -->
       <h5 class="text-center pb-1 pt-3">Leguminosas (frijol, lenteja, haba)</h5>
       <div class="d-flex justify-content-center">
@@ -661,6 +773,12 @@
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- avena -->
       <h5 class="text-center pb-1 pt-3">Avena</h5>
       <div class="d-flex justify-content-center">
@@ -672,6 +790,12 @@
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- amaranto -->
       <h5 class="text-center pb-1 pt-3">Amaranto</h5>
       <div class="d-flex justify-content-center">
@@ -683,6 +807,12 @@
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- tortillas -->
       <h5 class="text-center pb-1 pt-3">Tortillas</h5>
       <div class="d-flex justify-content-center">
@@ -695,6 +825,12 @@
         input_html: { 'data-bs-target' => '#tortillas', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <div>
         <h5 class="text-center pb-1 pt-3">¿Cuántas tortillas consumes en un día?</h5>
         <%= f.input :cantidad_tortillas,
@@ -723,6 +859,12 @@
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- atole -->
       <h5 class="text-center pb-1 pt-3">Atole</h5>
       <div class="d-flex justify-content-center">
@@ -734,6 +876,12 @@
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- tacos -->
       <h5 class="text-center pb-1 pt-3">Tacos</h5>
       <div class="d-flex justify-content-center">
@@ -764,6 +912,12 @@
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- bolillo -->
       <h5 class="text-center pb-1 pt-3">Bolillo (sin tomar en cuenta el de la torta)</h5>
       <div class="d-flex justify-content-center">
@@ -776,6 +930,12 @@
         input_html: { 'data-bs-target' => '#bolillo', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <div>
         <h5 class="text-center pb-1 pt-3">¿Cuántos bolillos consumes en un día?</h5>
         <%= f.input :cantidad_bolillo,
@@ -795,6 +955,12 @@
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+
       <!-- embutidos -->
       <h5 class="text-center pb-1 pt-3">Embutidos (jamón, salchicha)</h5>
       <div class="d-flex justify-content-center">
