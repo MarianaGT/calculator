@@ -485,161 +485,180 @@
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+          input_html: { 'data-bs-target' => '#arrow-frecuencia-puerco', 'data-bs-toggle' => 'collapse' }
         %>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+      <button id="arrow-frecuencia-puerco" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-puerco" aria-expanded="false" aria-controls="alimentos">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
       </button>
 
       <!-- puerco -->
-      <h5 class="text-center pb-1 pt-3">Carne de puerco</h5>
-      <div class="d-flex justify-content-center">
-        <%= f.input :frecuencia_puerco,
-          as: :radio_buttons,
-          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-        %>
+      <div id="frecuencia-puerco" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Carne de puerco</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :frecuencia_puerco,
+            as: :radio_buttons,
+            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+            input_html: { 'data-bs-target' => '#arrow-frecuencia-borrego', 'data-bs-toggle' => 'collapse' }
+          %>
+        </div>
+        <button id="arrow-frecuencia-borrego" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-borrego" aria-expanded="false" aria-controls="alimentos">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
-
       <!-- borrego -->
-      <h5 class="text-center pb-1 pt-3">Carne de borrego</h5>
-      <div class="d-flex justify-content-center">
-        <%= f.input :frecuencia_borrego,
-          as: :radio_buttons,
-          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-        %>
+      <div id="frecuencia-borrego" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Carne de borrego</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :frecuencia_borrego,
+            as: :radio_buttons,
+            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+            input_html: { 'data-bs-target' => '#arrow-frecuencia-pollo', 'data-bs-toggle' => 'collapse' }
+          %>
+        </div>
+        <button id="arrow-frecuencia-pollo" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-pollo" aria-expanded="false" aria-controls="alimentos">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
-
       <!-- pollo -->
-      <h5 class="text-center pb-1 pt-3">Pollo</h5>
-      <div class="d-flex justify-content-center">
-        <%= f.input :frecuencia_pollo,
-          as: :radio_buttons,
-          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-        %>
+      <div id="frecuencia-pollo" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Pollo</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :frecuencia_pollo,
+            as: :radio_buttons,
+            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+            input_html: { 'data-bs-target' => '#arrow-frecuencia-salmon', 'data-bs-toggle' => 'collapse' }
+          %>
+        </div>
+        <button id="arrow-frecuencia-salmon" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-salmon" aria-expanded="false" aria-controls="alimentos">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
-
       <!-- salmón -->
-      <h5 class="text-center pb-1 pt-3">Salmón</h5>
-      <div class="d-flex justify-content-center">
-        <%= f.input :frecuencia_salmon,
-          as: :radio_buttons,
-          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-        %>
+      <div id="frecuencia-salmon" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Salmón</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :frecuencia_salmon,
+            as: :radio_buttons,
+            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+            input_html: { 'data-bs-target' => '#arrow-frecuencia-atun', 'data-bs-toggle' => 'collapse' }
+          %>
+        </div>
+        <button id="arrow-frecuencia-atun" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-atun" aria-expanded="false" aria-controls="alimentos">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
-
       <!-- atún -->
-      <h5 class="text-center pb-1 pt-3">Atún enlatado</h5>
-      <div class="d-flex justify-content-center">
-        <%= f.input :frecuencia_atun,
-          as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-        %>
+      <div id="frecuencia-atun" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Atún enlatado</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :frecuencia_atun,
+            as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+            input_html: { 'data-bs-target' => '#arrow-frecuencia-leche', 'data-bs-toggle' => 'collapse' }
+          %>
+        </div>
+        <button id="arrow-frecuencia-leche" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-leche" aria-expanded="false" aria-controls="alimentos">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
-
       <!-- leche -->
-      <h5 class="text-center pb-1 pt-3">Leche de vaca</h5>
-      <div class="d-flex justify-content-center">
-        <%= f.input :frecuencia_leche,
-          as: :radio_buttons,
-          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-        %>
+      <div id="frecuencia-leche" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Leche de vaca</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :frecuencia_leche,
+            as: :radio_buttons,
+            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+            input_html: { 'data-bs-target' => '#arrow-frecuencia-queso', 'data-bs-toggle' => 'collapse' }
+          %>
+        </div>
+        <button id="arrow-frecuencia-queso" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-queso" aria-expanded="false" aria-controls="alimentos">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
-
       <!-- queso -->
-      <h5 class="text-center pb-1 pt-3">Queso</h5>
-      <div class="d-flex justify-content-center">
-        <%= f.input :frecuencia_queso,
-          as: :radio_buttons,
-          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-        %>
+      <div id="frecuencia-queso" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Queso</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :frecuencia_queso,
+            as: :radio_buttons,
+            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+            input_html: { 'data-bs-target' => '#arrow-frecuencia-yogurt', 'data-bs-toggle' => 'collapse' }
+          %>
+        </div>
+        <button id="arrow-frecuencia-yogurt" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-yogurt" aria-expanded="false" aria-controls="alimentos">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
-
       <!-- yogurt -->
-      <h5 class="text-center pb-1 pt-3">Yogurt</h5>
-      <div class="d-flex justify-content-center">
-        <%= f.input :frecuencia_yogurt,
-          as: :radio_buttons,
-          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-        %>
+      <div id="frecuencia-yogurt" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Yogurt</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :frecuencia_yogurt,
+            as: :radio_buttons,
+            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+            input_html: { 'data-bs-target' => '#arrow-frecuencia-pescados', 'data-bs-toggle' => 'collapse' }
+          %>
+        </div>
+        <button id="arrow-frecuencia-pescados" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-pescados" aria-expanded="false" aria-controls="alimentos">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
-
       <!-- pescado -->
-      <h5 class="text-center pb-1 pt-3">Pescados y mariscos</h5>
-      <div class="d-flex justify-content-center">
-        <%= f.input :frecuencia_pescados_mariscos,
-          as: :radio_buttons,
-          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-          input_html: { 'data-bs-target' => '#grupos-pescados', 'data-bs-toggle' => 'collapse' }
-        %>
+      <div id="frecuencia-pescados" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Pescados y mariscos</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :frecuencia_pescados_mariscos,
+            as: :radio_buttons,
+            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+            input_html: { 'data-bs-target' => '#grupos-pescados', 'data-bs-toggle' => 'collapse' }
+          %>
+        </div>
       </div>
       <div class="collapse" id="grupos-pescados">
         <h5 class="text-center pb-1 pt-3">Si comes pescados y mariscos, elige la opción que más consumas</h5>
@@ -652,38 +671,41 @@
             item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
+        <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-huevo" aria-expanded="false" aria-controls="alimentos">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <!-- huevo -->
-      <h5 class="text-center pb-1 pt-3">Huevo</h5>
-      <div class="d-flex justify-content-center">
-        <%= f.input :frecuencia_huevo,
-          as: :radio_buttons,
-          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-          label_method: :second,
-          value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-          input_html: { 'data-bs-target' => '#huevos', 'data-bs-toggle' => 'collapse' }
-        %>
-      </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
 
-      <div>
-        <h5 class="pb-1 pt-3">¿Cuántos huevos consumes en un día?</h5>
+      <!-- huevo -->
+      <div id="frecuencia-huevo" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Huevo</h5>
+        <div class="d-flex justify-content-center">
+          <%= f.input :frecuencia_huevo,
+            as: :radio_buttons,
+            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+            label_method: :second,
+            value_method: :first,
+            item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
+            input_html: { 'data-bs-target' => '#huevos', 'data-bs-toggle' => 'collapse' }
+          %>
+        </div>
+      </div>
+      <div id="huevos" class="collapse">
+        <h5 class="text-center pb-1 pt-3">¿Cuántos huevos consumes en un día?</h5>
         <%= f.input :cantidad_huevo,
           label: false,
+          collection: 0..10,
           placeholder: "|...",
-          input_html: { class: "bg-input"}
+          input_html: { 'data-bs-target' => '#arrow-frutas-verduras', 'data-bs-toggle' => 'collapse' }
         %>
+        <button id="arrow-frutas-verduras" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frutas-verduras" aria-expanded="false" aria-controls="frutas-verduras">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frutas-verduras" aria-expanded="false" aria-controls="frutas-verduras">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <div class="collapse" id="frutas-verduras">
@@ -700,59 +722,52 @@
         input_html: { 'data-bs-target' => '#verduras', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
 
-      <div>
+      <div id="verduras" class="collapse">
         <h5 class="text-center pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
         <%= f.input :cantidad_vegetales,
           label: false,
           collection: 0..10,
           placeholder: "|...",
-          input_html: { class: "bg-input"}
+          input_html: { 'data-bs-target' => '#arrow-frutas', 'data-bs-toggle' => 'collapse' }
         %>
+        <button id="arrow-frutas" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-fruta" aria-expanded="false" aria-controls="alimentos">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
+
 
       <!-- fruta -->
-      <h5 class="text-center pb-1 pt-3">Fruta</h5>
-      <div class="d-flex justify-content-center">
-      <%= f.input :frecuencia_fruta,
-        as: :radio_buttons,
-        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
-        label_method: :second,
-        value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#frutas', 'data-bs-toggle' => 'collapse' }
-      %>
+      <div id="frecuencia-fruta" class="collapse">
+        <h5 class="text-center pb-1 pt-3">Fruta</h5>
+        <div class="d-flex justify-content-center">
+        <%= f.input :frecuencia_fruta,
+          as: :radio_buttons,
+          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+          label_method: :second,
+          value_method: :first,
+          item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
+          input_html: { 'data-bs-target' => '#frutas', 'data-bs-toggle' => 'collapse' }
+        %>
+        </div>
       </div>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
 
-      <div>
-        <h5>¿Cuántas frutas consumes en un día?</h5>
+      <div id="frutas" class="collapse">
+        <h5 class="text-center pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
         <%= f.input :cantidad_fruta,
           label: false,
-          collection: (0..10).to_a,
+          collection: (0..10),
           placeholder: "|...",
-          input_html: { class: "bg-input"}
+          input_html: { 'data-bs-target' => '#arrow-harinas', 'data-bs-toggle' => 'collapse' }
         %>
+        <button id="arrow-harinas" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#harinas" aria-expanded="false" aria-controls="harinas">
+          <span class="material-symbols-outlined pt-2">
+            arrow_downward
+          </span>
+        </button>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#harinas" aria-expanded="false" aria-controls="harinas">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <div class="collapse" id="harinas">
@@ -833,7 +848,7 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+        item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
         input_html: { 'data-bs-target' => '#tortillas', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
