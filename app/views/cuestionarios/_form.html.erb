@@ -12,9 +12,9 @@
       <%= f.input :email,
         label: false,
         placeholder: "|...",
-        input_html: { class: "bg-input"}
+        input_html: { 'data-bs-target' => '#arrow-nombre', 'data-bs-toggle' => 'collapse', 'class' => 'bg-input' }
       %>
-      <a class="btn btn-success rounded-circle mt-3 mr-auto mb-3" data-bs-toggle="collapse" href="#nombre" aria-expanded="false" aria-controls="nombre">
+      <a id="arrow-nombre" class="btn btn-success rounded-circle mt-3 mr-auto mb-3 collapse" data-bs-toggle="collapse" href="#nombre" aria-expanded="false" aria-controls="nombre">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -29,9 +29,9 @@
       <%= f.input :nombre,
         label: false,
         placeholder: "|...",
-        input_html: { class: "bg-input"}
+        input_html: { 'data-bs-target' => '#arrow-edad', 'data-bs-toggle' => 'collapse', 'class' => 'bg-input' }
       %>
-      <a class="btn btn-success rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#edad" aria-expanded="false" aria-controls="edad">
+      <a id="arrow-edad" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" data-bs-toggle="collapse" href="#edad" aria-expanded="false" aria-controls="edad">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -46,9 +46,9 @@
       <%= f.input :edad,
         label: false,
         placeholder: "|...",
-        input_html: { class: "bg-input"}
+        input_html: { 'data-bs-target' => '#arrow-sexo', 'data-bs-toggle' => 'collapse', 'class' => 'bg-input' }
       %>
-      <a class="btn btn-success rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#sexo" aria-expanded="false" aria-controls="sexo">
+      <a id="arrow-sexo" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" data-bs-toggle="collapse" href="#sexo" aria-expanded="false" aria-controls="sexo">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -66,9 +66,10 @@
         collection: [['femenino', 'Femenino'],['masculino', 'Masculino']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
+        input_html: { 'data-bs-target' => '#arrow-escolaridad', 'data-bs-toggle' => 'collapse', 'class' => 'bg-input' }
       %>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#escolaridad" aria-expanded="false" aria-controls="escolaridad">
+      <button id="arrow-escolaridad" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#escolaridad" aria-expanded="false" aria-controls="escolaridad">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -79,7 +80,6 @@
       <div class="form_radio-group">
         <h3 class="pb-1 pt-3 d-flex">
           <span class="material-symbols-outlined p-1"> school </span>
-
           Escolaridad
         </h3>
         <%= f.input :escolaridad,
