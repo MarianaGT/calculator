@@ -67,7 +67,7 @@
         label_method: :second,
         value_method: :first,
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
-        input_html: { 'data-bs-target' => '#arrow-escolaridad', 'data-bs-toggle' => 'collapse', 'class' => 'bg-input' }
+        input_html: { 'data-bs-target' => '#arrow-escolaridad', 'data-bs-toggle' => 'collapse'}
       %>
       <button id="arrow-escolaridad" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#escolaridad" aria-expanded="false" aria-controls="escolaridad">
         <span class="material-symbols-outlined pt-2">
@@ -87,9 +87,10 @@
           collection: [['Primaria', 'Primaria'], ['Secundaria', 'Secundaria'], ['Preparatoria', 'Preparatoria'], ['Universidad', 'Universidad'], ['Postgrado', 'Postgrado']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-1"
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-1",
+          input_html: { 'data-bs-target' => '#arrow-pais', 'data-bs-toggle' => 'collapse' }
         %>
-        <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#pais" aria-expanded="false" aria-controls="pais">
+        <button id="arrow-pais" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#pais" aria-expanded="false" aria-controls="pais">
           <span class="material-symbols-outlined pt-2">
             arrow_downward
           </span>
@@ -107,7 +108,7 @@
           label: false,
           collection: ["Afganistan", "Alemania", "Argelia", "Argentina", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladesh", "Barbados", "Bielorrusia", "Brasil", "Bulgaria", "Burundi", "Burundi", "Bélgica", "Canadá", "Chile", "China", "Chipre", "Corea", "Costa Rica", "Croacia", "Dinamarca", "Dominica", "Egipto", "Eslovaquia", "Eslovenia", "España", "Finlandia", "Fiyi", "Grecia", "Indonesia", "Irak", "Irlanda", "Italia", "Japón", "Las Maldivas", "Letonia", "Lituania", "Líbano", "Malaui", "Malta", "Marruecos", "Mauricio", "Mongolia", "Mozambique", "México", "Nigeria", "Pakistan", "Portugal", "Reino Unido", "Rep Dem Congo", "Rumanía", "Rusia", "Santa Lucia", "Seychelles", "Sierra Leona", "Sudán del Sur", "Suecia", "Suiza", "Tailandia", "Turquía", "USA", "Ucrania", "Zimbabue"],
           placeholder: "País",
-          input_html: { class: "bg-input"}
+          input_html: { 'data-bs-target' => '#arrow-localidad', 'data-bs-toggle' => 'collapse', 'class' => 'bg-input' }
         %>
         <%= f.input :ciudad,
           label: false,
@@ -115,7 +116,7 @@
           input_html: { class: "bg-input"}
         %>
       </div>
-      <a class="btn btn-success rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#localidad" aria-expanded="false" aria-controls="localidad">
+      <a id="arrow-localidad" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" data-bs-toggle="collapse" href="#localidad" aria-expanded="false" aria-controls="localidad">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -133,9 +134,10 @@
         label_method: :second,
         value_method: :first,
         label: false,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
+        input_html: { 'data-bs-target' => '#arrow-peso', 'data-bs-toggle' => 'collapse' }
       %>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#peso" aria-expanded="false" aria-controls="peso">
+      <button id="arrow-peso" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#peso" aria-expanded="false" aria-controls="peso">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -156,10 +158,10 @@
         <%= f.input :altura,
           label: false,
           placeholder: "Estatura m (1.60)",
-          input_html: { class: "bg-input"}
+          input_html: { 'data-bs-target' => '#arrow-alimentacion-sana', 'data-bs-toggle' => 'collapse', 'class' => 'bg-input' }
         %>
       </div>
-      <a class="btn btn-success rounded-circle mt-3 float-right mb-3" data-bs-toggle="collapse" href="#alimentacion_sana" aria-expanded="false" aria-controls="alimentacion_sana">
+      <a id="arrow-alimentacion-sana" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" data-bs-toggle="collapse" href="#alimentacion_sana" aria-expanded="false" aria-controls="alimentacion_sana">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -176,9 +178,10 @@
         collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
+        input_html: { 'data-bs-target' => '#arrow-alimentacion-dana-ambiente', 'data-bs-toggle' => 'collapse' }
       %>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#alimentacion_dana_ambiente" aria-expanded="false" aria-controls="alimentacion_dana_ambiente">
+      <button id="arrow-alimentacion-dana-ambiente" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentacion_dana_ambiente" aria-expanded="false" aria-controls="alimentacion_dana_ambiente">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -195,9 +198,10 @@
         collection: [['Nada', 'Nada'], ['Poco', 'Poco'], ['Mucho', 'Mucho'], ['No se', 'No se']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
+        input_html: { 'data-bs-target' => '#arrow-persona-actividad', 'data-bs-toggle' => 'collapse' }
       %>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#persona_actividad" aria-expanded="false" aria-controls="persona_actividad">
+      <button id="arrow-persona-actividad" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#persona_actividad" aria-expanded="false" aria-controls="persona_actividad">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -215,9 +219,10 @@
         collection: [['Sedentaria', 'Sedentaria'], ['Fisicamente activa', 'Fisicamente activa'], ['Deportista', 'Deportista']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+        input_html: { 'data-bs-target' => '#arrow-actividad-fisica', 'data-bs-toggle' => 'collapse' }
       %>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#actividad_fisica" aria-expanded="false" aria-controls="actividad_fisica">
+      <button id="arrow-actividad-fisica" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#actividad_fisica" aria-expanded="false" aria-controls="actividad_fisica">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -234,9 +239,10 @@
         collection: [[0, 'Ninguna'], [1, 'Una vez'], [2, '2-3 veces'], [3, '4-5 veces'], [4, 'Diario']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+        input_html: { 'data-bs-target' => '#arrow-padecimientos', 'data-bs-toggle' => 'collapse' }
       %>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#padecimientos" aria-expanded="false" aria-controls="padecimientos">
+      <button id="arrow-padecimientos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#padecimientos" aria-expanded="false" aria-controls="padecimientos">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -343,7 +349,7 @@
         <%= f.input :hambre_excesiva %>
         <%#= f.input :diabetes_sintomas, label: "¿Ha presentado alguno de los siguientes síntomas en el último mes?", as: :check_boxes, collection: [['Necesidad de orinar con frecuencia', 'Necesidad de orinar con frecuencia'], ['Perdida de peso inexplicable', 'Perdida de peso inexplicable'], ['Sed excesiva', 'Sed excesiva'], ['Hambre excesiva', 'Hambre excesiva']] %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#dieta" aria-expanded="false" aria-controls="dieta">
+      <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#dieta" aria-expanded="false" aria-controls="dieta">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -358,9 +364,10 @@
         collection: [['Vegetariana estricta', 'Vegetariana estricta'], ['Lactovegetarianas', 'Lactovegetarianas'], ['Lactoovovegetarianas', 'Lactoovovegetarianas'], ['Omnívoras (me alimento de plantas y animales)', 'Omnívoras (me alimento de plantas y animales)']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+        input_html: { 'data-bs-target' => '#arrow-alimentos', 'data-bs-toggle' => 'collapse' }
       %>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
+      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -420,7 +427,7 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-alimentos" aria-expanded="false" aria-controls="frecuencia-alimentos">
+      <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-alimentos" aria-expanded="false" aria-controls="frecuencia-alimentos">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -572,7 +579,7 @@
           input_html: { class: "bg-input"}
         %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#frutas-verduras" aria-expanded="false" aria-controls="frutas-verduras">
+      <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frutas-verduras" aria-expanded="false" aria-controls="frutas-verduras">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -623,7 +630,7 @@
           input_html: { class: "bg-input"}
         %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#harinas" aria-expanded="false" aria-controls="harinas">
+      <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#harinas" aria-expanded="false" aria-controls="harinas">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -696,7 +703,7 @@
           input_html: { class: "bg-input"}
         %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#comidas-procesadas" aria-expanded="false" aria-controls="comidas-procesadas">
+      <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#comidas-procesadas" aria-expanded="false" aria-controls="comidas-procesadas">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -831,7 +838,7 @@
       <%= f.input :pan_blanco %>
       <%= f.input :mantecadas, label: "Pastelitos empaquetados / donas / mantecadas" %>
       <%#= f.input :valores_pan, label: "Si consumes panes industrializados ¿consumes alguno de estos?", as: :check_boxes, collection: [['Pan blanco', 0.15], ['Pan integral', 20.0], ['Pastelitos empaquetados/ donas/mantecadas', 4.37]] %>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#bebidas" aria-expanded="false" aria-controls="bebidas">
+      <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#bebidas" aria-expanded="false" aria-controls="bebidas">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -884,7 +891,7 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#galletas-frituras" aria-expanded="false" aria-controls="galletas-frituras">
+      <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#galletas-frituras" aria-expanded="false" aria-controls="galletas-frituras">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -948,7 +955,7 @@
           placeholder: "|...",
           input_html: { class: "bg-input"}
         %>
-        <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#insectos" aria-expanded="false" aria-controls="insectos">
+        <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#insectos" aria-expanded="false" aria-controls="insectos">
           <span class="material-symbols-outlined pt-2">
             arrow_downward
           </span>
