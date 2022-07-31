@@ -459,10 +459,10 @@ class CuestionariosController < ApplicationController
   end
 
   CALORIAS_POR_PORCION = {
-    res: 135,
-    cerdo: 297,
-    borrego: 177,
-    pollo: 195,
+    res: 270,
+    cerdo: 594,
+    borrego: 354,
+    pollo: 390,
     leche: 152,
     queso: 100,
     yogurt: 91,
@@ -491,10 +491,10 @@ class CuestionariosController < ApplicationController
   }
 
   PORCIONES_KG = {
-    res: 10,
-    puerco: 10,
-    borrego: 10,
-    pollo: 10,
+    res: 20,
+    puerco: 20,
+    borrego: 20,
+    pollo: 20,
     leche: 4,
     queso: 33.33,
     yogurt: 8,

@@ -19,11 +19,12 @@ legend {
 
 input[type="radio"] {
   display: none;
+  font-size: 1.2em;
   background-color: $success;
   transform: scale(0.2);
   &:checked {
     display: block;
-    border-color: white;
+    border-color: #65d84a;
     background-color: black;
     color: black;
     transform: scale(1.7);
@@ -34,7 +35,7 @@ input[type="checkbox"] {
   background-color: $success;
   transform: scale(1.7);
   &:checked {
-    border-color: white;
+    border-color: #65d84a;
     background-color: black;
     color: black;
     transform: scale(1.9);

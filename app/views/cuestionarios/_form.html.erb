@@ -911,7 +911,7 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
         input_html: { 'data-bs-target' => '#arrow-taco', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
@@ -1077,7 +1077,7 @@
       %>
     </div>
 
-    <div id="panes" id="collapse">
+    <div id="panes" class="collapse">
       <h5 class="text-center pb-1 pt-3">¿Comes alguno de estos panes?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :pan_blanco %>
@@ -1250,6 +1250,7 @@
       <h5 class="text-center pb-1 pt-3">¿Cuántos chocolates comes en un día?</h5>
       <%= f.input :cantidad_chocolates,
         label: false,
+        collection: (0..10),
         placeholder: "|...",
         input_html: { 'data-bs-target' => '#arrow-insectos', 'data-bs-toggle' => 'collapse' }
       %>
@@ -1280,13 +1281,13 @@
       <h5 class="text-center pb-1 pt-3">¿Cuantas veces al mes?</h5>
       <%= f.input :frecuencia_insectos,
         label: false,
+        collection: (0..10),
         placeholder: "|...",
         input_html: { 'data-bs-target' => '#listo', 'data-bs-toggle' => 'collapse' }
       %>
-    </div>
-
-    <div id="listo" class="d-flex justify-content-center mt-4">
-      <%= f.button :submit, "¡Listo!", class: "btn btn-success btn-lg" %>
+      <div id="listo" class="d-flex justify-content-center mt-4 collapse">
+        <%= f.button :submit, "¡Listo!", class: "btn btn-success btn-lg" %>
+      </div>
     </div>
 
   </div>
