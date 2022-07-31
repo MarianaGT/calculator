@@ -1224,7 +1224,7 @@
         <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
         <%#= f.input :valores_frituras, label: "Si consumes frituras ¿consumes alguna de estas?", as: :check_boxes, collection: [['Papas', 6.4], ['Chicharrones', 23.71]] %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#galletas-frituras" aria-expanded="false" aria-controls="galletas-frituras">
+      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#chocolate" aria-expanded="false" aria-controls="chocolate">
         <span class="material-symbols-outlined pt-2">
           arrow_downward
         </span>
@@ -1232,6 +1232,7 @@
     </div>
 
       <!-- chocolates -->
+    <div id="chocolate" class="collapse">
       <h5 class="text-center pb-1 pt-3">Chocolates</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_chocolates,
@@ -1240,25 +1241,26 @@
         label_method: :second,
         value_method: :first,
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#cantidad-chocolates', 'data-bs-toggle' => 'collapse' }
+        input_html: { 'data-bs-target' => '#chocolates', 'data-bs-toggle' => 'collapse' }
       %>
       </div>
-      <div>
-        <h5 class="text-center pb-1 pt-3">¿Cuántos chocolates comes en un día?</h5>
-        <%= f.input :cantidad_chocolates,
-          label: false,
-          placeholder: "|...",
-          input_html: { class: "bg-input"}
-        %>
-        <button class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#insectos" aria-expanded="false" aria-controls="insectos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
-      </div>
+    </div>
 
+    <div id="chocolates" class="collapse">
+      <h5 class="text-center pb-1 pt-3">¿Cuántos chocolates comes en un día?</h5>
+      <%= f.input :cantidad_chocolates,
+        label: false,
+        placeholder: "|...",
+        input_html: { 'data-bs-target' => '#arrow-insectos', 'data-bs-toggle' => 'collapse' }
+      %>
+      <button id="arrow-insectos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#insecto" aria-expanded="false" aria-controls="insecto">
+        <span class="material-symbols-outlined pt-2">
+          arrow_downward
+        </span>
+      </button>
+    </div>
 
-    <div class="collapse" id="insectos">
+    <div class="collapse" id="insecto">
       <!-- insectos -->
       <%= image_tag "insectos.png", class: "sm-icon" %>
       <h5 class="text-center pb-1 pt-3">¿Has consumido insectos alguna vez?</h5>
@@ -1269,20 +1271,22 @@
           label_method: :second,
           value_method: :first,
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-          input_html: { 'data-bs-target' => '#frecuencia-insectos', 'data-bs-toggle' => 'collapse' }
+          input_html: { 'data-bs-target' => '#insectos', 'data-bs-toggle' => 'collapse' }
         %>
       </div>
-      <div>
-        <h5 class="text-center pb-1 pt-3">¿Cuantas veces al mes?</h5>
-        <%= f.input :frecuencia_insectos,
-          label: false,
-          placeholder: "|...",
-          input_html: { 'data-bs-target' => '#frecuencia-insectos', 'data-bs-toggle' => 'collapse' }
-        %>
-      </div>
-      <div class="d-flex justify-content-center mt-4">
-        <%= f.button :submit, "¡Listo!", class: "btn btn-success btn-lg" %>
-      </div>
+    </div>
+
+    <div id="insectos" class="collapse">
+      <h5 class="text-center pb-1 pt-3">¿Cuantas veces al mes?</h5>
+      <%= f.input :frecuencia_insectos,
+        label: false,
+        placeholder: "|...",
+        input_html: { 'data-bs-target' => '#listo', 'data-bs-toggle' => 'collapse' }
+      %>
+    </div>
+
+    <div id="listo" class="d-flex justify-content-center mt-4">
+      <%= f.button :submit, "¡Listo!", class: "btn btn-success btn-lg" %>
     </div>
 
   </div>
