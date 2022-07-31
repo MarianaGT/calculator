@@ -355,7 +355,7 @@ class CuestionariosController < ApplicationController
   end
 
   def kcal_calculator
-    @calorias = ([contador_calorias_simple, contador_calorias_compuesto, contador_calorias_especial].sum).round(2)
+    @calorias = (([contador_calorias_simple, contador_calorias_compuesto, contador_calorias_especial].sum)*1.4).round(2)
   end
 
   def contador_carbono_simple
