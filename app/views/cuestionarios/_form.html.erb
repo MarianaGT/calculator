@@ -165,14 +165,9 @@
         collection: [['Sedentaria', 'Sedentaria'], ['Fisicamente activa', 'Fisicamente activa'], ['Deportista', 'Deportista']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-actividad-fisica', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
-      <button id="arrow-actividad-fisica" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#actividad_fisica" aria-expanded="false" aria-controls="actividad_fisica">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
+
     </div>
 
     <div  id="actividad_fisica">
@@ -185,14 +180,8 @@
         collection: [[0, 'Ninguna'], [1, 'Una vez'], [2, '2-3 veces'], [3, '4-5 veces'], [4, 'Diario']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-padecimientos', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
-      <button id="arrow-padecimientos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#padecimientos" aria-expanded="false" aria-controls="padecimientos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <div  id="padecimientos">
@@ -257,8 +246,7 @@
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
-          input_html: { 'data-bs-target' => '#diabetes', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
         %>
       </div>
     </div>
@@ -272,8 +260,7 @@
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
-          input_html: { 'data-bs-target' => '#diagnostico', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
         %>
         </div>
       </div>
@@ -285,8 +272,7 @@
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
-          input_html: { 'data-bs-target' => '#sintomas', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
         %>
         </div>
       </div>
@@ -300,11 +286,6 @@
           <%#= f.input :diabetes_sintomas, label: "¿Ha presentado alguno de los siguientes síntomas en el último mes?", as: :check_boxes, collection: [['Necesidad de orinar con frecuencia', 'Necesidad de orinar con frecuencia'], ['Perdida de peso inexplicable', 'Perdida de peso inexplicable'], ['Sed excesiva', 'Sed excesiva'], ['Hambre excesiva', 'Hambre excesiva']] %>
         </div>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#dieta" aria-expanded="false" aria-controls="dieta">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <div  id="dieta">
@@ -315,14 +296,9 @@
         collection: [['Vegetariana estricta', 'Vegetariana estricta'], ['Lactovegetarianas', 'Lactovegetarianas'], ['Lactoovovegetarianas', 'Lactoovovegetarianas'], ['Omnívoras (me alimento de plantas y animales)', 'Omnívoras (me alimento de plantas y animales)']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-alimentos', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
-      <button id="arrow-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentos" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
+      
     </div>
 
     <div  id="alimentos">
@@ -335,15 +311,9 @@
           collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-          input_html: { 'data-bs-target' => '#arrow-compras-frutas', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
-      <button id="arrow-compras-frutas" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#compras-frutas" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
       <!-- compras frutas -->
       <div id="compras-frutas" >
         <h5 class="text-center pb-1 pt-3">Frutas</h5>
@@ -353,15 +323,9 @@
           collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-          input_html: { 'data-bs-target' => '#arrow-compras-carne', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
         </div>
-        <button id="arrow-compras-carne" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#compras-carne" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
       <!-- compras carne -->
       <div id="compras-carne" >
@@ -372,15 +336,9 @@
             collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-compras-leche', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-compras-leche" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#compras-leche" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
       <!-- compras leche -->
       <div id="compras-leche" >
@@ -391,15 +349,9 @@
             collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-compras-cereales', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-compras-cereales" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#compras-cereales" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
       <!-- compras cereales -->
       <div id="compras-cereales" >
@@ -410,15 +362,9 @@
             collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-frecuencia-alimentos', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-frecuencia-alimentos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-alimentos" aria-expanded="false" aria-controls="frecuencia-alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
     </div>
 
@@ -433,15 +379,10 @@
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-          input_html: { 'data-bs-target' => '#arrow-frecuencia-puerco', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
-      <button id="arrow-frecuencia-puerco" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-puerco" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
+
 
       <!-- puerco -->
       <div id="frecuencia-puerco" >
@@ -452,15 +393,9 @@
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-frecuencia-borrego', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-frecuencia-borrego" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-borrego" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
       <!-- borrego -->
       <div id="frecuencia-borrego" >
@@ -471,15 +406,9 @@
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-frecuencia-pollo', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-frecuencia-pollo" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-pollo" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
       <!-- pollo -->
       <div id="frecuencia-pollo" >
@@ -490,15 +419,9 @@
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-frecuencia-salmon', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-frecuencia-salmon" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-salmon" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
       <!-- salmón -->
       <div id="frecuencia-salmon" >
@@ -509,15 +432,9 @@
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-frecuencia-atun', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-frecuencia-atun" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-atun" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
       <!-- atún -->
       <div id="frecuencia-atun" >
@@ -527,15 +444,9 @@
             as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-frecuencia-leche', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-frecuencia-leche" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-leche" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
       <!-- leche -->
       <div id="frecuencia-leche" >
@@ -546,15 +457,9 @@
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-frecuencia-queso', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-frecuencia-queso" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-queso" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
       <!-- queso -->
       <div id="frecuencia-queso" >
@@ -565,15 +470,10 @@
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-frecuencia-yogurt', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-frecuencia-yogurt" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-yogurt" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
+
       </div>
       <!-- yogurt -->
       <div id="frecuencia-yogurt" >
@@ -584,15 +484,9 @@
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#arrow-frecuencia-pescados', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button id="arrow-frecuencia-pescados" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-pescados" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
       <!-- pescado -->
       <div id="frecuencia-pescados" >
@@ -603,8 +497,7 @@
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-            input_html: { 'data-bs-target' => '#grupos-pescados', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
       </div>
@@ -619,11 +512,6 @@
             item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
           %>
         </div>
-        <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-huevo" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
 
       <!-- huevo -->
@@ -635,8 +523,7 @@
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
             value_method: :first,
-            item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
-            input_html: { 'data-bs-target' => '#huevos', 'data-bs-toggle' => 'collapse' }
+            item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2"
           %>
         </div>
       </div>
@@ -645,14 +532,8 @@
         <%= f.input :cantidad_huevo,
           label: false,
           collection: 0..10,
-          placeholder: "|...",
-          input_html: { 'data-bs-target' => '#arrow-frutas-verduras', 'data-bs-toggle' => 'collapse' }
+          placeholder: "|..."
         %>
-        <button id="arrow-frutas-verduras" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frutas-verduras" aria-expanded="false" aria-controls="frutas-verduras">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
     </div>
 
@@ -666,8 +547,7 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
-        input_html: { 'data-bs-target' => '#verduras', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2"
       %>
       </div>
 
@@ -676,14 +556,8 @@
         <%= f.input :cantidad_vegetales,
           label: false,
           collection: 0..10,
-          placeholder: "|...",
-          input_html: { 'data-bs-target' => '#arrow-frutas', 'data-bs-toggle' => 'collapse' }
+          selected: [0]
         %>
-        <button id="arrow-frutas" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#frecuencia-fruta" aria-expanded="false" aria-controls="alimentos">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
 
 
@@ -696,8 +570,7 @@
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
-          input_html: { 'data-bs-target' => '#frutas', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2"
         %>
         </div>
       </div>
@@ -706,15 +579,9 @@
         <h5 class="text-center pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
         <%= f.input :cantidad_fruta,
           label: false,
-          collection: (0..10),
-          placeholder: "|...",
-          input_html: { 'data-bs-target' => '#arrow-arroz', 'data-bs-toggle' => 'collapse' }
+          collection: (1..10),
+          selected:[0]
         %>
-        <button id="arrow-arroz" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#arroz" aria-expanded="false" aria-controls="arroz">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
     </div>
 
@@ -728,15 +595,9 @@
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-          input_html: { 'data-bs-target' => '#arrow-leguminosas', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
-      <button id="arrow-leguminosas" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#leguminosas" aria-expanded="false" aria-controls="alimentos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <!-- leguminosas -->
@@ -748,15 +609,9 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-avena', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
-      <button id="arrow-avena" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#avena" aria-expanded="false" aria-controls="avena">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <!-- avena -->
@@ -768,15 +623,9 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-amaranto', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
-      <button id="arrow-amaranto" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#amaranto" aria-expanded="false" aria-controls="amaranto">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <!-- amaranto -->
@@ -788,15 +637,9 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-tortilla', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
-      <button id="arrow-tortilla" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#tortilla" aria-expanded="false" aria-controls="tortilla">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <!-- tortillas -->
@@ -808,8 +651,7 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
-        input_html: { 'data-bs-target' => '#tortillas', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2"
       %>
       </div>
     </div>
@@ -819,14 +661,8 @@
       <%= f.input :cantidad_tortillas,
         label: false,
         collection: (0..10),
-        placeholder: "|...",
-        input_html: { 'data-bs-target' => '#arrow-tamales', 'data-bs-toggle' => 'collapse' }
+        selected:[1]
       %>
-      <button id="arrow-tamales" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#tamales" aria-expanded="false" aria-controls="tamales">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <div  id="tamales">
@@ -839,15 +675,9 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-atole', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
-      <button id="arrow-atole" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#atole" aria-expanded="false" aria-controls="atole">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <!-- atole -->
@@ -859,15 +689,9 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-taco', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
-      <button id="arrow-taco" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#taco" aria-expanded="false" aria-controls="taco">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
       <!-- tacos -->
@@ -879,8 +703,7 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#tacos', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
     </div>
@@ -893,11 +716,6 @@
         <%= f.input :guisados, label: "De guisados" %>
         <%#= f.input :valores_tacos, label: "Si consumes tacos, ¿cuáles prefieres?", as: :check_boxes, collection: [['Al pastor', 4.85], ['Tacos bistec/suadero', 16.3], ['De guisados', 2.33]] %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#torta" aria-expanded="false" aria-controls="torta">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
       <!-- torta -->
@@ -909,15 +727,9 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-bolillo', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
-      <button id="arrow-bolillo" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#bolillo" aria-expanded="false" aria-controls="bolillo">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
       <!-- bolillo -->
@@ -929,8 +741,7 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#bolillos', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
     </div>
@@ -940,14 +751,8 @@
       <%= f.input :cantidad_bolillo,
         label: false,
         collection: (0..10),
-        placeholder: "|...",
-        input_html: { 'data-bs-target' => '#arrow-sandwich', 'data-bs-toggle' => 'collapse' }
+        selected:[0]
       %>
-      <button id="arrow-sandwich" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#sandwich" aria-expanded="false" aria-controls="sandwich">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
       <!-- sandwich -->
@@ -959,15 +764,9 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-embutidos', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
-      <button id="arrow-embutidos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#embutido" aria-expanded="false" aria-controls="embutido">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
       <!-- embutidos -->
@@ -979,8 +778,7 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#embutidos', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
     </div>
@@ -993,11 +791,7 @@
         <%= f.input :salchicha_pavo, label: "Salchicha de pavo" %>
         <%#= f.input :valores_embutidos, label: "¿Qué embutidos sueles consumir?", as: :check_boxes, collection: [['Jamon de pavo', 36.0], ['Jamon de puerco', 20.0], ['Salchicha de pavo', 21.2]] %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#pan-industrial" aria-expanded="false" aria-controls="pan-industrial">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
+
     </div>
 
       <!-- pan industrial -->
@@ -1009,8 +803,7 @@
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-          input_html: { 'data-bs-target' => '#rebanadas', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
     </div>
@@ -1020,8 +813,7 @@
       <%= f.input :cantidad_pan,
         label: false,
         collection: (0..10),
-        placeholder: "|...",
-        input_html: { 'data-bs-target' => '#panes', 'data-bs-toggle' => 'collapse' }
+        selected:[1]
       %>
     </div>
 
@@ -1032,11 +824,6 @@
         <%= f.input :mantecadas, label: "Pastelitos empaquetados / donas / mantecadas" %>
         <%#= f.input :valores_pan, label: "Si consumes panes industrializados ¿consumes alguno de estos?", as: :check_boxes, collection: [['Pan blanco', 0.15], ['Pan integral', 20.0], ['Pastelitos empaquetados/ donas/mantecadas', 4.37]] %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#sopas" aria-expanded="false" aria-controls="sopas">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <div  id="sopas">
@@ -1049,15 +836,9 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-jugos', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
-      <button id="arrow-jugos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#jugos" aria-expanded="false" aria-controls="jugos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
       <!-- jugos embotellados -->
@@ -1069,15 +850,9 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-refrescos', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
-      <button id="arrow-refrescos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#refrescos" aria-expanded="false" aria-controls="refrescos">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
       <!-- refrescos -->
@@ -1089,15 +864,9 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#arrow-bebidas', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
-      <button id="arrow-bebidas" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#bebidas" aria-expanded="false" aria-controls="bebidas">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
       <!-- bebidas energizantes -->
@@ -1109,15 +878,9 @@
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-          input_html: { 'data-bs-target' => '#arrow-galleta', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
-      <button id="arrow-galleta" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#galleta" aria-expanded="false" aria-controls="galleta">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <div  id="galleta">
@@ -1130,8 +893,7 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#galletas', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
     </div>
@@ -1143,11 +905,6 @@
         <%= f.input :galletas_dulces %>
         <%#= f.input :valores_galletas, label: "En caso de consumir galletas, ¿cuáles consumes?", as: :check_boxes, collection: [['Galletas saladas', 2.88], ['Dulces', 4.37]] %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#fritura" aria-expanded="false" aria-controls="fritura">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
       <!-- frituras -->
@@ -1159,8 +916,7 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#frituras', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
     </div>
@@ -1172,11 +928,6 @@
         <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
         <%#= f.input :valores_frituras, label: "Si consumes frituras ¿consumes alguna de estas?", as: :check_boxes, collection: [['Papas', 6.4], ['Chicharrones', 23.71]] %>
       </div>
-      <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#chocolate" aria-expanded="false" aria-controls="chocolate">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
       <!-- chocolates -->
@@ -1188,8 +939,7 @@
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-        input_html: { 'data-bs-target' => '#chocolates', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
       %>
       </div>
     </div>
@@ -1199,14 +949,8 @@
       <%= f.input :cantidad_chocolates,
         label: false,
         collection: (0..10),
-        placeholder: "|...",
-        input_html: { 'data-bs-target' => '#arrow-insectos', 'data-bs-toggle' => 'collapse' }
+        selected:[1]
       %>
-      <button id="arrow-insectos" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#insecto" aria-expanded="false" aria-controls="insecto">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
     <div  id="insecto">
@@ -1219,8 +963,7 @@
           collection: [['si', 'si'], ['no', 'no']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
-          input_html: { 'data-bs-target' => '#insectos', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
         %>
       </div>
     </div>
@@ -1230,10 +973,9 @@
       <%= f.input :frecuencia_insectos,
         label: false,
         collection: (0..10),
-        placeholder: "|...",
-        input_html: { 'data-bs-target' => '#listo', 'data-bs-toggle' => 'collapse' }
+        selected: [1]
       %>
-      <div id="listo" class="d-flex justify-content-center mt-4 collapse">
+      <div id="listo" class="d-flex justify-content-center mt-4">
         <%= f.button :submit, "¡Listo!", class: "btn btn-success btn-lg" %>
       </div>
     </div>
