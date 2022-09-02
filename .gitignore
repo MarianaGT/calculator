@@ -17,6 +17,10 @@
 /tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
+.idea/*
+vendor/bundle/*
+vendor/cache/*
+vendor/plugins/*
 
 # Ignore uploaded files in development.
 /storage/*
