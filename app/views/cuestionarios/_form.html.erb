@@ -3,59 +3,43 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="text-center form-inputs p-3">
+  <div class="text-lg-start form-inputs p-3">
+    <h2 class="pb-1 pt-3">Información general</h2>
+    <hr class="pb-1" color="#013220"/>
     <div id="email">
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> mail </span>
-        Correo electrónico
+        Correo electrónico*
       </h3>
       <%= f.input :email,
         label: false,
-        placeholder: "|...",
-        input_html: { 'data-bs-target' => '#arrow-nombre', 'data-bs-toggle' => 'collapse'}
+        placeholder: "juanperez@gmail.com"
       %>
-      <a id="arrow-nombre" class="btn btn-success rounded-circle mt-3 mb-3 collapse" data-bs-toggle="collapse" href="#nombre" aria-expanded="false" aria-controls="nombre">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </a>
     </div>
 
-    <div class="collapse" id="nombre">
+    <div  id="nombre">
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> face </span>
         Nombre (opcional)
       </h3>
       <%= f.input :nombre,
         label: false,
-        placeholder: "|...",
-        input_html: { 'data-bs-target' => '#arrow-edad', 'data-bs-toggle' => 'collapse' }
+        placeholder: "Nombre"
       %>
-      <a id="arrow-edad" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" data-bs-toggle="collapse" href="#edad" aria-expanded="false" aria-controls="edad">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </a>
     </div>
 
-    <div class="collapse" id="edad">
+    <div id="edad">
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> sentiment_satisfied </span>
         Edad
       </h3>
       <%= f.input :edad,
         label: false,
-        placeholder: "|...",
-        input_html: { 'data-bs-target' => '#arrow-sexo', 'data-bs-toggle' => 'collapse'}
+        placeholder: "14"
       %>
-      <a id="arrow-sexo" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" data-bs-toggle="collapse" href="#sexo" aria-expanded="false" aria-controls="sexo">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </a>
     </div>
 
-    <div class="collapse" id="sexo">
+    <div id="sexo">
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> diversity_3 </span>
         Sexo
@@ -66,17 +50,11 @@
         collection: [['femenino', 'Femenino'],['masculino', 'Masculino']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
-        input_html: { 'data-bs-target' => '#arrow-escolaridad', 'data-bs-toggle' => 'collapse'}
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
       %>
-      <button id="arrow-escolaridad" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#escolaridad" aria-expanded="false" aria-controls="escolaridad">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
-    <div class="collapse" id="escolaridad">
+    <div  id="escolaridad">
       <div class="form_radio-group">
         <h3 class="pb-1 pt-3">
           <span class="material-symbols-outlined p-1"> school </span>
@@ -87,42 +65,31 @@
           collection: [['Primaria', 'Primaria'], ['Secundaria', 'Secundaria'], ['Preparatoria', 'Preparatoria'], ['Universidad', 'Universidad'], ['Postgrado', 'Postgrado']],
           label_method: :second,
           value_method: :first,
-          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-1",
-          input_html: { 'data-bs-target' => '#arrow-pais', 'data-bs-toggle' => 'collapse' }
+          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-1"
         %>
-        <button id="arrow-pais" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#pais" aria-expanded="false" aria-controls="pais">
-          <span class="material-symbols-outlined pt-2">
-            arrow_downward
-          </span>
-        </button>
       </div>
     </div>
 
-    <div class="collapse" id="pais">
+    <div  id="pais">
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> flag </span>
         Dónde vives
       </h3>
+      <hr class="pb-1" color="#013220"/>
       <div class="d-flex justify-content-around">
         <%= f.input :pais,
           label: false,
           collection: ["Afganistan", "Alemania", "Argelia", "Argentina", "Australia", "Austria", "Azerbaiyán", "Bahamas", "Bangladesh", "Barbados", "Bielorrusia", "Brasil", "Bulgaria", "Burundi", "Burundi", "Bélgica", "Canadá", "Chile", "China", "Chipre", "Corea", "Costa Rica", "Croacia", "Dinamarca", "Dominica", "Egipto", "Eslovaquia", "Eslovenia", "España", "Finlandia", "Fiyi", "Grecia", "Indonesia", "Irak", "Irlanda", "Italia", "Japón", "Las Maldivas", "Letonia", "Lituania", "Líbano", "Malaui", "Malta", "Marruecos", "Mauricio", "Mongolia", "Mozambique", "México", "Nigeria", "Pakistan", "Portugal", "Reino Unido", "Rep Dem Congo", "Rumanía", "Rusia", "Santa Lucia", "Seychelles", "Sierra Leona", "Sudán del Sur", "Suecia", "Suiza", "Tailandia", "Turquía", "USA", "Ucrania", "Zimbabue"],
-          placeholder: "País",
-          input_html: { 'data-bs-target' => '#arrow-localidad', 'data-bs-toggle' => 'collapse' }
+          selected:["México"]
         %>
         <%= f.input :ciudad,
           label: false,
           placeholder: "Ciudad"
         %>
       </div>
-      <a id="arrow-localidad" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" data-bs-toggle="collapse" href="#localidad" aria-expanded="false" aria-controls="localidad">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </a>
     </div>
 
-    <div class="collapse" id="localidad">
+    <div  id="localidad">
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> home </span>
         Localidad
@@ -133,17 +100,13 @@
         label_method: :second,
         value_method: :first,
         label: false,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
-        input_html: { 'data-bs-target' => '#arrow-peso', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
       %>
-      <button id="arrow-peso" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#peso" aria-expanded="false" aria-controls="peso">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
-    <div class="collapse" id="peso">
+    <div  id="peso">
+      <h2 class="pb-1 pt-3">Salud</h2>
+      <hr class="pb-1" color="#013220"/>
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> emoji_people </span>
         Tu complexión
@@ -152,21 +115,18 @@
         <%= f.input :peso,
           label: false,
           placeholder: "Peso kg (70)"
+
         %>
         <%= f.input :altura,
           label: false,
-          placeholder: "Estatura m (1.60)",
-          input_html: { 'data-bs-target' => '#arrow-alimentacion-sana', 'data-bs-toggle' => 'collapse' }
+          placeholder: "Estatura m (1.60)"
         %>
       </div>
-      <a id="arrow-alimentacion-sana" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" data-bs-toggle="collapse" href="#alimentacion_sana" aria-expanded="false" aria-controls="alimentacion_sana">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </a>
     </div>
 
-    <div class="collapse" id="alimentacion_sana">
+    <div id="alimentacion_sana">
+      <h2 class="pb-1 pt-3">Alimentación</h2>
+      <hr class="pb-1" color="#013220"/>
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> spa </span>
         ¿Crees que tu alimentación es sana?
@@ -176,17 +136,11 @@
         collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
-        input_html: { 'data-bs-target' => '#arrow-alimentacion-dana-ambiente', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
       %>
-      <button id="arrow-alimentacion-dana-ambiente" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#alimentacion_dana_ambiente" aria-expanded="false" aria-controls="alimentacion_dana_ambiente">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
-    <div class="collapse" id="alimentacion_dana_ambiente">
+    <div  id="alimentacion_dana_ambiente">
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> grass </span>
         ¿Cuánto consideras que tu alimentación daña el medio ambiente?
@@ -196,17 +150,11 @@
         collection: [['Nada', 'Nada'], ['Poco', 'Poco'], ['Mucho', 'Mucho'], ['No se', 'No se']],
         label_method: :second,
         value_method: :first,
-        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2",
-        input_html: { 'data-bs-target' => '#arrow-persona-actividad', 'data-bs-toggle' => 'collapse' }
+        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
       %>
-      <button id="arrow-persona-actividad" class="btn btn-success rounded-circle mt-3 float-right mb-3 collapse" type="button" data-bs-toggle="collapse" data-bs-target="#persona_actividad" aria-expanded="false" aria-controls="persona_actividad">
-        <span class="material-symbols-outlined pt-2">
-          arrow_downward
-        </span>
-      </button>
     </div>
 
-    <div class="collapse" id="persona_actividad">
+    <div  id="persona_actividad">
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> directions_run </span>
         ¿Te consideras una persona?
@@ -227,7 +175,7 @@
       </button>
     </div>
 
-    <div class="collapse" id="actividad_fisica">
+    <div  id="actividad_fisica">
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> directions_bike </span>
         ¿Con qué frecuencia realizas actividad física a la semana?
@@ -247,7 +195,7 @@
       </button>
     </div>
 
-    <div class="collapse" id="padecimientos">
+    <div  id="padecimientos">
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> medical_information </span>
         Padeces...
@@ -315,7 +263,7 @@
       </div>
     </div>
 
-    <div id="diabetes" class="collapse">
+    <div id="diabetes" >
       <div>
         <h5 class="text-center pb-1 pt-3">¿Te han detectado alguna vez niveles altos de glucosa en sangre?</h5>
         <div class="d-flex justify-content-center">
@@ -359,7 +307,7 @@
       </button>
     </div>
 
-    <div class="collapse" id="dieta">
+    <div  id="dieta">
       <%= image_tag "veggies.png", class: "dieta-pic" %>
       <h3 class="pb-1 pt-3">Tus preferencias alimentarias</h3>
       <%= f.input :dieta,
@@ -377,7 +325,7 @@
       </button>
     </div>
 
-    <div class="collapse" id="alimentos">
+    <div  id="alimentos">
       <%= image_tag "packages.png", class: "dieta-pic" %>
       <h3 class="pb-1 pt-3">¿Dónde compras generalmente tus alimentos?</h3>
       <h5 class="text-center pb-1 pt-3">Vegetales</h5>
@@ -397,7 +345,7 @@
         </span>
       </button>
       <!-- compras frutas -->
-      <div id="compras-frutas" class="collapse">
+      <div id="compras-frutas" >
         <h5 class="text-center pb-1 pt-3">Frutas</h5>
         <div class="d-flex justify-content-center">
         <%= f.input :origen_frutas,
@@ -416,7 +364,7 @@
         </button>
       </div>
       <!-- compras carne -->
-      <div id="compras-carne" class="collapse">
+      <div id="compras-carne" >
         <h5 class="text-center pb-1 pt-3">Carne</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :origen_carne,
@@ -435,7 +383,7 @@
         </button>
       </div>
       <!-- compras leche -->
-      <div id="compras-leche" class="collapse">
+      <div id="compras-leche" >
         <h5 class="text-center pb-1 pt-3">Leche</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :origen_leche,
@@ -454,7 +402,7 @@
         </button>
       </div>
       <!-- compras cereales -->
-      <div id="compras-cereales" class="collapse">
+      <div id="compras-cereales" >
         <h5 class="text-center pb-1 pt-3">Cereales (tortilla, arroz, avena)</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :origen_cereales,
@@ -474,7 +422,7 @@
       </div>
     </div>
 
-    <div class="collapse" id="frecuencia-alimentos">
+    <div  id="frecuencia-alimentos">
       <%= image_tag "animal.png", class: "dieta-pic" %>
       <h3 class="pb-1 pt-3">¿Cuántas veces por semana consumes los siguientes alimentos?</h3>
       <!-- res -->
@@ -496,7 +444,7 @@
       </button>
 
       <!-- puerco -->
-      <div id="frecuencia-puerco" class="collapse">
+      <div id="frecuencia-puerco" >
         <h5 class="text-center pb-1 pt-3">Carne de puerco</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :frecuencia_puerco,
@@ -515,7 +463,7 @@
         </button>
       </div>
       <!-- borrego -->
-      <div id="frecuencia-borrego" class="collapse">
+      <div id="frecuencia-borrego" >
         <h5 class="text-center pb-1 pt-3">Carne de borrego</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :frecuencia_borrego,
@@ -534,7 +482,7 @@
         </button>
       </div>
       <!-- pollo -->
-      <div id="frecuencia-pollo" class="collapse">
+      <div id="frecuencia-pollo" >
         <h5 class="text-center pb-1 pt-3">Pollo</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :frecuencia_pollo,
@@ -553,7 +501,7 @@
         </button>
       </div>
       <!-- salmón -->
-      <div id="frecuencia-salmon" class="collapse">
+      <div id="frecuencia-salmon" >
         <h5 class="text-center pb-1 pt-3">Salmón</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :frecuencia_salmon,
@@ -572,7 +520,7 @@
         </button>
       </div>
       <!-- atún -->
-      <div id="frecuencia-atun" class="collapse">
+      <div id="frecuencia-atun" >
         <h5 class="text-center pb-1 pt-3">Atún enlatado</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :frecuencia_atun,
@@ -590,7 +538,7 @@
         </button>
       </div>
       <!-- leche -->
-      <div id="frecuencia-leche" class="collapse">
+      <div id="frecuencia-leche" >
         <h5 class="text-center pb-1 pt-3">Leche de vaca</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :frecuencia_leche,
@@ -609,7 +557,7 @@
         </button>
       </div>
       <!-- queso -->
-      <div id="frecuencia-queso" class="collapse">
+      <div id="frecuencia-queso" >
         <h5 class="text-center pb-1 pt-3">Queso</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :frecuencia_queso,
@@ -628,7 +576,7 @@
         </button>
       </div>
       <!-- yogurt -->
-      <div id="frecuencia-yogurt" class="collapse">
+      <div id="frecuencia-yogurt" >
         <h5 class="text-center pb-1 pt-3">Yogurt</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :frecuencia_yogurt,
@@ -647,7 +595,7 @@
         </button>
       </div>
       <!-- pescado -->
-      <div id="frecuencia-pescados" class="collapse">
+      <div id="frecuencia-pescados" >
         <h5 class="text-center pb-1 pt-3">Pescados y mariscos</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :frecuencia_pescados_mariscos,
@@ -660,7 +608,7 @@
           %>
         </div>
       </div>
-      <div class="collapse" id="grupos-pescados">
+      <div  id="grupos-pescados">
         <h5 class="text-center pb-1 pt-3">Si comes pescados y mariscos, elige la opción que más consumas</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :valores_pescados_mariscos,
@@ -679,7 +627,7 @@
       </div>
 
       <!-- huevo -->
-      <div id="frecuencia-huevo" class="collapse">
+      <div id="frecuencia-huevo" >
         <h5 class="text-center pb-1 pt-3">Huevo</h5>
         <div class="d-flex justify-content-center">
           <%= f.input :frecuencia_huevo,
@@ -692,7 +640,7 @@
           %>
         </div>
       </div>
-      <div id="huevos" class="collapse">
+      <div id="huevos" >
         <h5 class="text-center pb-1 pt-3">¿Cuántos huevos consumes en un día?</h5>
         <%= f.input :cantidad_huevo,
           label: false,
@@ -708,7 +656,7 @@
       </div>
     </div>
 
-    <div class="collapse" id="frutas-verduras">
+    <div  id="frutas-verduras">
       <!-- vegetales -->
       <%= image_tag "veg.png", class: "dieta-pic" %>
       <h5 class="text-center pb-1 pt-3">Vegetales</h5>
@@ -723,7 +671,7 @@
       %>
       </div>
 
-      <div id="verduras" class="collapse">
+      <div id="verduras" >
         <h5 class="text-center pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
         <%= f.input :cantidad_vegetales,
           label: false,
@@ -740,7 +688,7 @@
 
 
       <!-- fruta -->
-      <div id="frecuencia-fruta" class="collapse">
+      <div id="frecuencia-fruta" >
         <h5 class="text-center pb-1 pt-3">Fruta</h5>
         <div class="d-flex justify-content-center">
         <%= f.input :frecuencia_fruta,
@@ -754,7 +702,7 @@
         </div>
       </div>
 
-      <div id="frutas" class="collapse">
+      <div id="frutas" >
         <h5 class="text-center pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
         <%= f.input :cantidad_fruta,
           label: false,
@@ -770,7 +718,7 @@
       </div>
     </div>
 
-    <div class="collapse" id="arroz">
+    <div  id="arroz">
       <!-- arroz -->
       <%= image_tag "leguminosas.png", class: "dieta-pic" %>
       <h5 class="text-center pb-1 pt-3">Arroz</h5>
@@ -792,7 +740,7 @@
     </div>
 
     <!-- leguminosas -->
-    <div id="leguminosas" class="collapse">
+    <div id="leguminosas" >
       <h5 class="text-center pb-1 pt-3">Leguminosas (frijol, lenteja, haba)</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_leguminosas,
@@ -812,7 +760,7 @@
     </div>
 
     <!-- avena -->
-    <div id="avena" class="collapse">
+    <div id="avena" >
       <h5 class="text-center pb-1 pt-3">Avena</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_avena,
@@ -832,7 +780,7 @@
     </div>
 
     <!-- amaranto -->
-    <div id="amaranto" class="collapse">
+    <div id="amaranto" >
       <h5 class="text-center pb-1 pt-3">Amaranto</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_amaranto,
@@ -852,7 +800,7 @@
     </div>
 
     <!-- tortillas -->
-    <div id="tortilla" class="collapse">
+    <div id="tortilla" >
       <h5 class="text-center pb-1 pt-3">Tortillas</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_tortillas,
@@ -866,7 +814,7 @@
       </div>
     </div>
 
-    <div id="tortillas" class="collapse">
+    <div id="tortillas" >
       <h5 class="text-center pb-1 pt-3">¿Cuántas tortillas consumes en un día?</h5>
       <%= f.input :cantidad_tortillas,
         label: false,
@@ -881,7 +829,7 @@
       </button>
     </div>
 
-    <div class="collapse" id="tamales">
+    <div  id="tamales">
       <!-- tamales -->
       <%= image_tag "harinas.png", class: "dieta-pic" %>
       <h5 class="text-center pb-1 pt-3">Tamales</h5>
@@ -903,7 +851,7 @@
     </div>
 
     <!-- atole -->
-    <div id="atole" class="collapse">
+    <div id="atole" >
       <h5 class="text-center pb-1 pt-3">Atole</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_atole, label: "Atole",
@@ -923,7 +871,7 @@
     </div>
 
       <!-- tacos -->
-    <div id="taco" class="collapse">
+    <div id="taco" >
       <h5 class="text-center pb-1 pt-3">Tacos</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_tacos, label: "Tacos",
@@ -937,7 +885,7 @@
       </div>
     </div>
 
-    <div class="collapse" id="tacos">
+    <div  id="tacos">
       <h5 class="text-center pb-1 pt-3">Si consumes tacos, ¿cuáles prefieres?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :al_pastor %>
@@ -953,7 +901,7 @@
     </div>
 
       <!-- torta -->
-    <div id="torta" class="collapse">
+    <div id="torta" >
       <h5 class="text-center pb-1 pt-3">Torta</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_torta, label: "Torta",
@@ -973,7 +921,7 @@
     </div>
 
       <!-- bolillo -->
-    <div id="bolillo" class="collapse">
+    <div id="bolillo" >
       <h5 class="text-center pb-1 pt-3">Bolillo (sin tomar en cuenta el de la torta)</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_bolillo,
@@ -987,7 +935,7 @@
       </div>
     </div>
 
-    <div id="bolillos" class="collapse">
+    <div id="bolillos" >
       <h5 class="text-center pb-1 pt-3">¿Cuántos bolillos consumes en un día?</h5>
       <%= f.input :cantidad_bolillo,
         label: false,
@@ -1003,7 +951,7 @@
     </div>
 
       <!-- sandwich -->
-    <div id="sandwich" class="collapse">
+    <div id="sandwich" >
       <h5 class="text-center pb-1 pt-3">Sandwich</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_sandwich, label: "Sandwich",
@@ -1023,7 +971,7 @@
     </div>
 
       <!-- embutidos -->
-    <div id="embutido" class="collapse">
+    <div id="embutido" >
       <h5 class="text-center pb-1 pt-3">Embutidos (jamón, salchicha)</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_embutidos,
@@ -1037,7 +985,7 @@
       </div>
     </div>
 
-    <div class="collapse" id="embutidos">
+    <div  id="embutidos">
       <h5 class="text-center pb-1 pt-3">¿Qué embutidos sueles consumir?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :jamon_pavo, label: "Jamon de pavo" %>
@@ -1053,7 +1001,7 @@
     </div>
 
       <!-- pan industrial -->
-    <div id="pan-industrial" class="collapse">
+    <div id="pan-industrial" >
       <h5 class="text-center pb-1 pt-3">Pan industrial (pan blanco, integral, donas)</h5>
       <div class="d-flex justify-content-center">
         <%= f.input :frecuencia_pan,
@@ -1067,7 +1015,7 @@
       </div>
     </div>
 
-    <div id="rebanadas" class="collapse">
+    <div id="rebanadas" >
       <h5 class="text-center pb-1 pt-3">¿Cuántas rebanadas comes en un día? (sin contar las del sandwich)</h5>
       <%= f.input :cantidad_pan,
         label: false,
@@ -1077,7 +1025,7 @@
       %>
     </div>
 
-    <div id="panes" class="collapse">
+    <div id="panes" >
       <h5 class="text-center pb-1 pt-3">¿Comes alguno de estos panes?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :pan_blanco %>
@@ -1091,7 +1039,7 @@
       </button>
     </div>
 
-    <div class="collapse" id="sopas">
+    <div  id="sopas">
       <!-- sopas instantáneas -->
       <%= image_tag "refrescos.png", class: "dieta-pic" %>
       <h5 class="text-center pb-1 pt-3">Sopas instantáneas</h5>
@@ -1113,7 +1061,7 @@
     </div>
 
       <!-- jugos embotellados -->
-    <div id="jugos" class="collapse">
+    <div id="jugos" >
       <h5 class="text-center pb-1 pt-3">Jugos embotellados</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_jugos,
@@ -1133,7 +1081,7 @@
     </div>
 
       <!-- refrescos -->
-    <div id="refrescos" class="collapse">
+    <div id="refrescos" >
       <h5 class="text-center pb-1 pt-3">Refrescos</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_refrescos,
@@ -1153,7 +1101,7 @@
     </div>
 
       <!-- bebidas energizantes -->
-    <div id="bebidas" class="collapse">
+    <div id="bebidas" >
       <h5 class="text-center pb-1 pt-3">Bebidas energizantes</h5>
       <div class="d-flex justify-content-center">
         <%= f.input :frecuencia_bebidas_energetizantes,
@@ -1172,7 +1120,7 @@
       </button>
     </div>
 
-    <div class="collapse" id="galleta">
+    <div  id="galleta">
       <!-- galletas -->
       <%= image_tag "chocolates.png", class: "dieta-pic" %>
       <h5 class="text-center pb-1 pt-3">Galletas</h5>
@@ -1188,7 +1136,7 @@
       </div>
     </div>
 
-    <div class="collapse" id="galletas">
+    <div  id="galletas">
       <h5 class="text-center pb-1 pt-3">Si consumes galletas, ¿cuáles comes?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :galletas_saladas %>
@@ -1203,7 +1151,7 @@
     </div>
 
       <!-- frituras -->
-    <div id="fritura" class="collapse">
+    <div id="fritura" >
       <h5 class="text-center pb-1 pt-3">Frituras</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_frituras,
@@ -1217,7 +1165,7 @@
       </div>
     </div>
 
-    <div class="collapse" id="frituras">
+    <div  id="frituras">
       <h5 class="text-center pb-1 pt-3">Si consumes frituras, ¿comes alguna de éstas?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :fritura_papa, label: 'Papas' %>
@@ -1232,7 +1180,7 @@
     </div>
 
       <!-- chocolates -->
-    <div id="chocolate" class="collapse">
+    <div id="chocolate" >
       <h5 class="text-center pb-1 pt-3">Chocolates</h5>
       <div class="d-flex justify-content-center">
       <%= f.input :frecuencia_chocolates,
@@ -1246,7 +1194,7 @@
       </div>
     </div>
 
-    <div id="chocolates" class="collapse">
+    <div id="chocolates" >
       <h5 class="text-center pb-1 pt-3">¿Cuántos chocolates comes en un día?</h5>
       <%= f.input :cantidad_chocolates,
         label: false,
@@ -1261,7 +1209,7 @@
       </button>
     </div>
 
-    <div class="collapse" id="insecto">
+    <div  id="insecto">
       <!-- insectos -->
       <%= image_tag "insectos.png", class: "sm-icon" %>
       <h5 class="text-center pb-1 pt-3">¿Has consumido insectos alguna vez?</h5>
@@ -1277,7 +1225,7 @@
       </div>
     </div>
 
-    <div id="insectos" class="collapse">
+    <div id="insectos" >
       <h5 class="text-center pb-1 pt-3">¿Cuantas veces al mes?</h5>
       <%= f.input :frecuencia_insectos,
         label: false,
