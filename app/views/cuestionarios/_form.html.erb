@@ -125,8 +125,6 @@
     </div>
 
     <div id="alimentacion_sana">
-      <h2 class="pb-1 pt-3">Alimentación</h2>
-      <hr class="pb-1" color="#013220"/>
       <h3 class="pb-1 pt-3">
         <span class="material-symbols-outlined p-1"> spa </span>
         ¿Crees que tu alimentación es sana?
@@ -189,8 +187,8 @@
         <span class="material-symbols-outlined p-1"> medical_information </span>
         Padeces...
       </h3>
-      <h5 class="text-center pb-1 pt-3">Sobrepeso</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Sobrepeso</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :sobrepeso,
           as: :radio_buttons,
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
@@ -199,8 +197,8 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
         %>
       </div>
-      <h5 class="text-center pb-1 pt-3">Obesidad</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Obesidad</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :obesidad,
         as: :radio_buttons,
         collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
@@ -209,8 +207,8 @@
         item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
       %>
       </div>
-      <h5 class="text-center pb-1 pt-3">Hipertensión</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Hipertensión</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :hipertension,
           as: :radio_buttons,
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
@@ -219,8 +217,8 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
         %>
       </div>
-      <h5 class="text-center pb-1 pt-3">Colesterol</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Colesterol</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :colesterol,
           as: :radio_buttons,
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
@@ -229,8 +227,8 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
         %>
       </div>
-      <h5 class="text-center pb-1 pt-3">Trigliceridos</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Trigliceridos</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :trigliceridos,
           as: :radio_buttons,
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
@@ -239,8 +237,8 @@
           item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
         %>
       </div>
-      <h5 class="text-center pb-1 pt-3">Diabetes</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Diabetes</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :diabetes,
           as: :radio_buttons,
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
@@ -253,8 +251,8 @@
 
     <div id="diabetes" >
       <div>
-        <h5 class="text-center pb-1 pt-3">¿Te han detectado alguna vez niveles altos de glucosa en sangre?</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">¿Te han detectado alguna vez niveles altos de glucosa en sangre?</h5>
+        <div class="d-flex justify-content-md-start">
         <%= f.input :glucosa,
           as: :radio_buttons,
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
@@ -265,8 +263,8 @@
         </div>
       </div>
       <div>
-        <h5 class="text-center pb-1 pt-3">¿Ha habido algún diagnóstico de diabetes mellitus en tu familia?</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">¿Ha habido algún diagnóstico de diabetes mellitus en tu familia?</h5>
+        <div class="d-flex justify-content-md-start">
         <%= f.input :diabetes_familia,
           as: :radio_buttons,
           collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
@@ -277,7 +275,7 @@
         </div>
       </div>
       <div>
-        <h5 class="text-center pb-1 pt-3">Marca si has presentado alguno de los siguientes síntomas en el último mes</h5>
+        <h5 class="text-md-start pb-1 pt-3">Marca si has presentado alguno de los siguientes síntomas en el último mes</h5>
         <div class="d-flex flex-column justify-content-start align-items-start">
           <%= f.input :necesidad_orinar, label: "Necesidad de orinar con frecuencia"%>
           <%= f.input :perdida_peso, label: "Perdida de peso inexplicable" %>
@@ -289,6 +287,8 @@
     </div>
 
     <div  id="dieta">
+      <h2 class="pb-1 pt-3">Alimentación</h2>
+      <hr class="pb-1" color="#013220"/>
       <%= image_tag "veggies.png", class: "dieta-pic" %>
       <h3 class="pb-1 pt-3">Tus preferencias alimentarias</h3>
       <%= f.input :dieta,
@@ -304,8 +304,8 @@
     <div  id="alimentos">
       <%= image_tag "packages.png", class: "dieta-pic" %>
       <h3 class="pb-1 pt-3">¿Dónde compras generalmente tus alimentos?</h3>
-      <h5 class="text-center pb-1 pt-3">Vegetales</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Vegetales</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :origen_vegetales,
           as: :radio_buttons,
           collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
@@ -316,8 +316,8 @@
       </div>
       <!-- compras frutas -->
       <div id="compras-frutas" >
-        <h5 class="text-center pb-1 pt-3">Frutas</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Frutas</h5>
+        <div class="d-flex justify-content-md-start">
         <%= f.input :origen_frutas,
           as: :radio_buttons,
           collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
@@ -329,8 +329,8 @@
       </div>
       <!-- compras carne -->
       <div id="compras-carne" >
-        <h5 class="text-center pb-1 pt-3">Carne</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Carne</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :origen_carne,
             as: :radio_buttons,
             collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
@@ -342,8 +342,8 @@
       </div>
       <!-- compras leche -->
       <div id="compras-leche" >
-        <h5 class="text-center pb-1 pt-3">Leche</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Leche</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :origen_leche,
             as: :radio_buttons,
             collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
@@ -355,8 +355,8 @@
       </div>
       <!-- compras cereales -->
       <div id="compras-cereales" >
-        <h5 class="text-center pb-1 pt-3">Cereales (tortilla, arroz, avena)</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Cereales (tortilla, arroz, avena)</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :origen_cereales,
             as: :radio_buttons,
             collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
@@ -372,8 +372,8 @@
       <%= image_tag "animal.png", class: "dieta-pic" %>
       <h3 class="pb-1 pt-3">¿Cuántas veces por semana consumes los siguientes alimentos?</h3>
       <!-- res -->
-      <h5 class="text-center pb-1 pt-3">Carne de res</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Carne de res</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :frecuencia_res,
           as: :radio_buttons,
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -386,8 +386,8 @@
 
       <!-- puerco -->
       <div id="frecuencia-puerco" >
-        <h5 class="text-center pb-1 pt-3">Carne de puerco</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Carne de puerco</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :frecuencia_puerco,
             as: :radio_buttons,
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -399,8 +399,8 @@
       </div>
       <!-- borrego -->
       <div id="frecuencia-borrego" >
-        <h5 class="text-center pb-1 pt-3">Carne de borrego</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Carne de borrego</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :frecuencia_borrego,
             as: :radio_buttons,
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -412,8 +412,8 @@
       </div>
       <!-- pollo -->
       <div id="frecuencia-pollo" >
-        <h5 class="text-center pb-1 pt-3">Pollo</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Pollo</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :frecuencia_pollo,
             as: :radio_buttons,
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -425,8 +425,8 @@
       </div>
       <!-- salmón -->
       <div id="frecuencia-salmon" >
-        <h5 class="text-center pb-1 pt-3">Salmón</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Salmón</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :frecuencia_salmon,
             as: :radio_buttons,
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -438,8 +438,8 @@
       </div>
       <!-- atún -->
       <div id="frecuencia-atun" >
-        <h5 class="text-center pb-1 pt-3">Atún enlatado</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Atún enlatado</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :frecuencia_atun,
             as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
             label_method: :second,
@@ -450,8 +450,8 @@
       </div>
       <!-- leche -->
       <div id="frecuencia-leche" >
-        <h5 class="text-center pb-1 pt-3">Leche de vaca</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Leche de vaca</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :frecuencia_leche,
             as: :radio_buttons,
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -463,8 +463,8 @@
       </div>
       <!-- queso -->
       <div id="frecuencia-queso" >
-        <h5 class="text-center pb-1 pt-3">Queso</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Queso</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :frecuencia_queso,
             as: :radio_buttons,
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -477,8 +477,8 @@
       </div>
       <!-- yogurt -->
       <div id="frecuencia-yogurt" >
-        <h5 class="text-center pb-1 pt-3">Yogurt</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Yogurt</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :frecuencia_yogurt,
             as: :radio_buttons,
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -490,8 +490,8 @@
       </div>
       <!-- pescado -->
       <div id="frecuencia-pescados" >
-        <h5 class="text-center pb-1 pt-3">Pescados y mariscos</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Pescados y mariscos</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :frecuencia_pescados_mariscos,
             as: :radio_buttons,
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -502,8 +502,8 @@
         </div>
       </div>
       <div  id="grupos-pescados">
-        <h5 class="text-center pb-1 pt-3">Si comes pescados y mariscos, elige la opción que más consumas</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Si comes pescados y mariscos, elige la opción que más consumas</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :valores_pescados_mariscos,
             as: :radio_buttons,
             collection: [["uno", 'charales - huauchinango - cazón - sierra - bacalo - trucha'], ["dos", 'camarón - sierra - merluza '], ["tres", 'sardinas - arenques - abadejo - carpa - lubina']],
@@ -516,8 +516,8 @@
 
       <!-- huevo -->
       <div id="frecuencia-huevo" >
-        <h5 class="text-center pb-1 pt-3">Huevo</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Huevo</h5>
+        <div class="d-flex justify-content-md-start">
           <%= f.input :frecuencia_huevo,
             as: :radio_buttons,
             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -528,7 +528,7 @@
         </div>
       </div>
       <div id="huevos" >
-        <h5 class="text-center pb-1 pt-3">¿Cuántos huevos consumes en un día?</h5>
+        <h5 class="text-md-start pb-1 pt-3">¿Cuántos huevos consumes en un día?</h5>
         <%= f.input :cantidad_huevo,
           label: false,
           collection: 0..10,
@@ -540,8 +540,8 @@
     <div  id="frutas-verduras">
       <!-- vegetales -->
       <%= image_tag "veg.png", class: "dieta-pic" %>
-      <h5 class="text-center pb-1 pt-3">Vegetales</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Vegetales</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_vegetales,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
@@ -552,7 +552,7 @@
       </div>
 
       <div id="verduras" >
-        <h5 class="text-center pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
+        <h5 class="text-md-start pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
         <%= f.input :cantidad_vegetales,
           label: false,
           collection: 0..10,
@@ -563,8 +563,8 @@
 
       <!-- fruta -->
       <div id="frecuencia-fruta" >
-        <h5 class="text-center pb-1 pt-3">Fruta</h5>
-        <div class="d-flex justify-content-center">
+        <h5 class="text-md-start pb-1 pt-3">Fruta</h5>
+        <div class="d-flex justify-content-md-start">
         <%= f.input :frecuencia_fruta,
           as: :radio_buttons,
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
@@ -576,7 +576,7 @@
       </div>
 
       <div id="frutas" >
-        <h5 class="text-center pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
+        <h5 class="text-md-start pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
         <%= f.input :cantidad_fruta,
           label: false,
           collection: (1..10),
@@ -588,8 +588,8 @@
     <div  id="arroz">
       <!-- arroz -->
       <%= image_tag "leguminosas.png", class: "dieta-pic" %>
-      <h5 class="text-center pb-1 pt-3">Arroz</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Arroz</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :frecuencia_arroz,
           as: :radio_buttons,
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
@@ -602,8 +602,8 @@
 
     <!-- leguminosas -->
     <div id="leguminosas" >
-      <h5 class="text-center pb-1 pt-3">Leguminosas (frijol, lenteja, haba)</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Leguminosas (frijol, lenteja, haba)</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_leguminosas,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
@@ -616,8 +616,8 @@
 
     <!-- avena -->
     <div id="avena" >
-      <h5 class="text-center pb-1 pt-3">Avena</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Avena</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_avena,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
@@ -630,8 +630,8 @@
 
     <!-- amaranto -->
     <div id="amaranto" >
-      <h5 class="text-center pb-1 pt-3">Amaranto</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Amaranto</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_amaranto,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
@@ -644,8 +644,8 @@
 
     <!-- tortillas -->
     <div id="tortilla" >
-      <h5 class="text-center pb-1 pt-3">Tortillas</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Tortillas</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_tortillas,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
@@ -657,7 +657,7 @@
     </div>
 
     <div id="tortillas" >
-      <h5 class="text-center pb-1 pt-3">¿Cuántas tortillas consumes en un día?</h5>
+      <h5 class="text-md-start pb-1 pt-3">¿Cuántas tortillas consumes en un día?</h5>
       <%= f.input :cantidad_tortillas,
         label: false,
         collection: (0..10),
@@ -668,8 +668,8 @@
     <div  id="tamales">
       <!-- tamales -->
       <%= image_tag "harinas.png", class: "dieta-pic" %>
-      <h5 class="text-center pb-1 pt-3">Tamales</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Tamales</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_tamales, label: "Tamales",
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -682,8 +682,8 @@
 
     <!-- atole -->
     <div id="atole" >
-      <h5 class="text-center pb-1 pt-3">Atole</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Atole</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_atole, label: "Atole",
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -696,8 +696,8 @@
 
       <!-- tacos -->
     <div id="taco" >
-      <h5 class="text-center pb-1 pt-3">Tacos</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Tacos</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_tacos, label: "Tacos",
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -709,7 +709,7 @@
     </div>
 
     <div  id="tacos">
-      <h5 class="text-center pb-1 pt-3">Si consumes tacos, ¿cuáles prefieres?</h5>
+      <h5 class="text-md-start pb-1 pt-3">Si consumes tacos, ¿cuáles prefieres?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :al_pastor %>
         <%= f.input :suadero, label: "Tacos bistec/suadero" %>
@@ -720,8 +720,8 @@
 
       <!-- torta -->
     <div id="torta" >
-      <h5 class="text-center pb-1 pt-3">Torta</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Torta</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_torta, label: "Torta",
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -734,8 +734,8 @@
 
       <!-- bolillo -->
     <div id="bolillo" >
-      <h5 class="text-center pb-1 pt-3">Bolillo (sin tomar en cuenta el de la torta)</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Bolillo (sin tomar en cuenta el de la torta)</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_bolillo,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -747,7 +747,7 @@
     </div>
 
     <div id="bolillos" >
-      <h5 class="text-center pb-1 pt-3">¿Cuántos bolillos consumes en un día?</h5>
+      <h5 class="text-md-start pb-1 pt-3">¿Cuántos bolillos consumes en un día?</h5>
       <%= f.input :cantidad_bolillo,
         label: false,
         collection: (0..10),
@@ -757,8 +757,8 @@
 
       <!-- sandwich -->
     <div id="sandwich" >
-      <h5 class="text-center pb-1 pt-3">Sandwich</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Sandwich</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_sandwich, label: "Sandwich",
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -771,8 +771,8 @@
 
       <!-- embutidos -->
     <div id="embutido" >
-      <h5 class="text-center pb-1 pt-3">Embutidos (jamón, salchicha)</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Embutidos (jamón, salchicha)</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_embutidos,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -784,7 +784,7 @@
     </div>
 
     <div  id="embutidos">
-      <h5 class="text-center pb-1 pt-3">¿Qué embutidos sueles consumir?</h5>
+      <h5 class="text-md-start pb-1 pt-3">¿Qué embutidos sueles consumir?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :jamon_pavo, label: "Jamon de pavo" %>
         <%= f.input :jamon_puerco, label: "Jamon de puerco" %>
@@ -796,8 +796,8 @@
 
       <!-- pan industrial -->
     <div id="pan-industrial" >
-      <h5 class="text-center pb-1 pt-3">Pan industrial (pan blanco, integral, donas)</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Pan industrial (pan blanco, integral, donas)</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :frecuencia_pan,
           as: :radio_buttons,
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -809,7 +809,7 @@
     </div>
 
     <div id="rebanadas" >
-      <h5 class="text-center pb-1 pt-3">¿Cuántas rebanadas comes en un día? (sin contar las del sandwich)</h5>
+      <h5 class="text-md-start pb-1 pt-3">¿Cuántas rebanadas comes en un día? (sin contar las del sandwich)</h5>
       <%= f.input :cantidad_pan,
         label: false,
         collection: (0..10),
@@ -818,7 +818,7 @@
     </div>
 
     <div id="panes" >
-      <h5 class="text-center pb-1 pt-3">¿Comes alguno de estos panes?</h5>
+      <h5 class="text-md-start pb-1 pt-3">¿Comes alguno de estos panes?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :pan_blanco %>
         <%= f.input :mantecadas, label: "Pastelitos empaquetados / donas / mantecadas" %>
@@ -829,8 +829,8 @@
     <div  id="sopas">
       <!-- sopas instantáneas -->
       <%= image_tag "refrescos.png", class: "dieta-pic" %>
-      <h5 class="text-center pb-1 pt-3">Sopas instantáneas</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Sopas instantáneas</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_sopas,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -843,8 +843,8 @@
 
       <!-- jugos embotellados -->
     <div id="jugos" >
-      <h5 class="text-center pb-1 pt-3">Jugos embotellados</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Jugos embotellados</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_jugos,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -857,8 +857,8 @@
 
       <!-- refrescos -->
     <div id="refrescos" >
-      <h5 class="text-center pb-1 pt-3">Refrescos</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Refrescos</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_refrescos,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -871,8 +871,8 @@
 
       <!-- bebidas energizantes -->
     <div id="bebidas" >
-      <h5 class="text-center pb-1 pt-3">Bebidas energizantes</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Bebidas energizantes</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :frecuencia_bebidas_energetizantes,
           as: :radio_buttons,
           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -886,8 +886,8 @@
     <div  id="galleta">
       <!-- galletas -->
       <%= image_tag "chocolates.png", class: "dieta-pic" %>
-      <h5 class="text-center pb-1 pt-3">Galletas</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Galletas</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_galletas,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -899,7 +899,7 @@
     </div>
 
     <div  id="galletas">
-      <h5 class="text-center pb-1 pt-3">Si consumes galletas, ¿cuáles comes?</h5>
+      <h5 class="text-md-start pb-1 pt-3">Si consumes galletas, ¿cuáles comes?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :galletas_saladas %>
         <%= f.input :galletas_dulces %>
@@ -909,8 +909,8 @@
 
       <!-- frituras -->
     <div id="fritura" >
-      <h5 class="text-center pb-1 pt-3">Frituras</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Frituras</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_frituras,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -922,7 +922,7 @@
     </div>
 
     <div  id="frituras">
-      <h5 class="text-center pb-1 pt-3">Si consumes frituras, ¿comes alguna de éstas?</h5>
+      <h5 class="text-md-start pb-1 pt-3">Si consumes frituras, ¿comes alguna de éstas?</h5>
       <div class="d-flex flex-column justify-content-start align-items-start">
         <%= f.input :fritura_papa, label: 'Papas' %>
         <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
@@ -932,8 +932,8 @@
 
       <!-- chocolates -->
     <div id="chocolate" >
-      <h5 class="text-center pb-1 pt-3">Chocolates</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">Chocolates</h5>
+      <div class="d-flex justify-content-md-start">
       <%= f.input :frecuencia_chocolates,
         as: :radio_buttons,
         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
@@ -945,7 +945,7 @@
     </div>
 
     <div id="chocolates" >
-      <h5 class="text-center pb-1 pt-3">¿Cuántos chocolates comes en un día?</h5>
+      <h5 class="text-md-start pb-1 pt-3">¿Cuántos chocolates comes en un día?</h5>
       <%= f.input :cantidad_chocolates,
         label: false,
         collection: (0..10),
@@ -956,8 +956,8 @@
     <div  id="insecto">
       <!-- insectos -->
       <%= image_tag "insectos.png", class: "sm-icon" %>
-      <h5 class="text-center pb-1 pt-3">¿Has consumido insectos alguna vez?</h5>
-      <div class="d-flex justify-content-center">
+      <h5 class="text-md-start pb-1 pt-3">¿Has consumido insectos alguna vez?</h5>
+      <div class="d-flex justify-content-md-start">
         <%= f.input :insectos,
           as: :radio_buttons,
           collection: [['si', 'si'], ['no', 'no']],
@@ -969,13 +969,13 @@
     </div>
 
     <div id="insectos" >
-      <h5 class="text-center pb-1 pt-3">¿Cuantas veces al mes?</h5>
+      <h5 class="text-md-start pb-1 pt-3">¿Cuantas veces al mes?</h5>
       <%= f.input :frecuencia_insectos,
         label: false,
         collection: (0..10),
         selected: [1]
       %>
-      <div id="listo" class="d-flex justify-content-center mt-4">
+      <div id="listo" class="d-flex justify-content-md-start mt-4">
         <%= f.button :submit, "¡Listo!", class: "btn btn-success btn-lg" %>
       </div>
     </div>
