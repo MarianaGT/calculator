@@ -31,4 +31,5 @@
 
 en:
   errors:
-    format: "--Esta respuesta no puede estar vacía--"
+    format: "Email invalido, ej: javier@gmail.com"
+    presence: "Este campo es obligatorio"
