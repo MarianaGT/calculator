@@ -31,5 +31,4 @@
 
 en:
   errors:
-    format: "Email invalido, ej: javier@gmail.com"
-    presence: "Este campo es obligatorio"
+    format: "Este campo es obligatorio"
