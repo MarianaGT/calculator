@@ -13,6 +13,7 @@ export default class extends Controller {
   static targets = [ "output" ]
 
   connect() {
+    console.log("perro")
     this.outputTarget.textContent = 'Hello, Stimulus!'
   }
 }
