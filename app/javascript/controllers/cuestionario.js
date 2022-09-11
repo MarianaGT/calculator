@@ -14,7 +14,6 @@ export default class extends Controller {
         }
     }
     validateForm(event) {
-        console.log("conchini")
         let isValid = true;
 
         let requiredFieldSelectors = 'textarea:required, input:required';
