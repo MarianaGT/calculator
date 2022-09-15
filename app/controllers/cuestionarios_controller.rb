@@ -26,7 +26,7 @@ class CuestionariosController < ApplicationController
     @cuestionario = Cuestionario.new(cuestionario_params)
 
     if @cuestionario.save
-      redirect_to @cuestionario, notice: 'Cuestionario was successfully created.'
+      redirect_to @cuestionario, notice: 'Hemos recibido tu cuestionario, gracias.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class CuestionariosController < ApplicationController
 
   def update
     if @cuestionario.update(cuestionario_params)
-      redirect_to @cuestionario, notice: 'Cuestionario was successfully updated.'
+      redirect_to @cuestionario, notice: 'Tu cuestionario ha sido actualizado exitosamente.'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class CuestionariosController < ApplicationController
 
   def destroy
     @cuestionario.destroy
-    redirect_to cuestionarios_url, notice: 'Cuestionario was successfully destroyed.'
+    redirect_to cuestionarios_url, notice: 'Cuestionario borrado exitosamente'
   end
 
   private
