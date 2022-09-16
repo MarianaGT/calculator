@@ -490,7 +490,7 @@
           </div>
         </div>
         <!-- pescado -->
-        <div id="frecuencia-pescados"  data-controller="dynamicviews" data-dynamicviews-hidefish-value="0.0">
+        <div data-controller="dynamicviews" data-dynamicviews-hideelement-value="0.0">
           <h5 class="text-md-start pb-1 pt-3">Pescados y mariscos</h5>
           <div class="d-flex justify-content-md-start">
             <%= f.input :frecuencia_pescados_mariscos,required: true,
@@ -516,81 +516,82 @@
               %>
             </div>
           </div>
-
-        </div>
-
-
-        <!-- huevo -->
-        <div id="frecuencia-huevo" >
           <h5 class="text-md-start pb-1 pt-3">Huevo</h5>
           <div class="d-flex justify-content-md-start">
-            <%= f.input :frecuencia_huevo,required: true,
+            <%= f.input :frecuencia_huevo, required: true,
                         as: :radio_buttons,
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
                         value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2"
+                        item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
+                        input_html: { data:{dynamicviews_target:"eggfrequency",  action:"change->dynamicviews#showEggAmountControl"}}
             %>
           </div>
-        </div>
-        <div id="huevos" >
-          <h5 class="text-md-start pb-1 pt-3">¿Cuántos huevos consumes en un día?</h5>
-          <%= f.input :cantidad_huevo,required: true,
-                      label: false,
-                      collection: 0..10,
-                      placeholder: "|..."
-          %>
-        </div>
-      </div>
+          <div data-dynamicviews-target="eggoutput">
+            <div>
+              <h5 class="text-md-start pb-1 pt-3">¿Cuántos huevos consumes en un día?</h5>
+              <%= f.input :cantidad_huevo,required: true,
+                          label: false,
+                          collection: 0..10,
+                          selected:[0],
+                          input_html:{data:{dynamicviews_target: "eggamount"}}
+              %>
+            </div>
+          </div>
+          <!-- huevo  termina-->
+          <!-- veggies -->
+          <div  id="frutas-verduras">
+            <%= image_tag "veg.png", class: "dieta-pic" %>
+            <h5 class="text-md-start pb-1 pt-3">Vegetales</h5>
+            <div class="d-flex justify-content-md-start">
+              <%= f.input :frecuencia_vegetales,required: true,
+                          as: :radio_buttons,
+                          collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+                          label_method: :second,
+                          value_method: :first,
+                          item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
+                          input_html: { data:{dynamicviews_target:"vegfrequency",  action:"change->dynamicviews#showVeggies"}}
+              %>
+            </div>
 
-      <div  id="frutas-verduras">
-        <!-- vegetales -->
-        <%= image_tag "veg.png", class: "dieta-pic" %>
-        <h5 class="text-md-start pb-1 pt-3">Vegetales</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_vegetales,required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2"
-          %>
-        </div>
+            <div id="verduras" data-dynamicviews-target="vegoutput" >
+              <h5 class="text-md-start pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
+              <%= f.input :cantidad_vegetales, required: true,
+                          label: false,
+                          collection: 0..10,
+                          selected: [0],
+                          input_html:{data:{dynamicviews_target:"vegamount"}}
+              %>
+            </div>
+            <!-- veggies termina -->
 
-        <div id="verduras" >
-          <h5 class="text-md-start pb-1 pt-3">¿Cuántos vegetales consumes en un día?</h5>
-          <%= f.input :cantidad_vegetales, required: true,
-                      label: false,
-                      collection: 0..10,
-                      selected: [0]
-          %>
-        </div>
+            <!-- fruta -->
+            <div id="frecuencia-fruta" >
+              <h5 class="text-md-start pb-1 pt-3">Fruta</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_fruta, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2"
+                %>
+              </div>
+            </div>
 
-
-        <!-- fruta -->
-        <div id="frecuencia-fruta" >
-          <h5 class="text-md-start pb-1 pt-3">Fruta</h5>
-          <div class="d-flex justify-content-md-start">
-            <%= f.input :frecuencia_fruta, required: true,
-                        as: :radio_buttons,
-                        collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
-                        label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2"
-            %>
+            <div id="frutas" >
+              <h5 class="text-md-start pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
+              <%= f.input :cantidad_fruta, required: true,
+                          label: false,
+                          collection: (1..10),
+                          selected:[0]
+              %>
+            </div>
+            <!-- fruta termina-->
           </div>
         </div>
 
-        <div id="frutas" >
-          <h5 class="text-md-start pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
-          <%= f.input :cantidad_fruta, required: true,
-                      label: false,
-                      collection: (1..10),
-                      selected:[0]
-          %>
-        </div>
       </div>
-
       <div  id="arroz">
         <!-- arroz -->
         <%= image_tag "leguminosas.png", class: "dieta-pic" %>
