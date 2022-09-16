@@ -490,7 +490,7 @@
           </div>
         </div>
         <!-- pescado -->
-        <div id="frecuencia-pescados" >
+        <div id="frecuencia-pescados"  data-controller="dynamicviews" data-dynamicviews-hidefish-value="0.0">
           <h5 class="text-md-start pb-1 pt-3">Pescados y mariscos</h5>
           <div class="d-flex justify-content-md-start">
             <%= f.input :frecuencia_pescados_mariscos,required: true,
@@ -498,22 +498,27 @@
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
                         value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+                        input_html:{data:{dynamicviews_target:"fishfrequency", action:"change->dynamicviews#toggle"}}
+
             %>
           </div>
-        </div>
-        <div  id="grupos-pescados">
-          <h5 class="text-md-start pb-1 pt-3">Si comes pescados y mariscos, elige la opción que más consumas</h5>
-          <div class="d-flex justify-content-md-start">
-            <%= f.input :valores_pescados_mariscos,
-                        as: :radio_buttons,
-                        collection: [["uno", 'charales - huauchinango - cazón - sierra - bacalo - trucha'], ["dos", 'camarón - sierra - merluza '], ["tres", 'sardinas - arenques - abadejo - carpa - lubina']],
-                        label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-            %>
+          <div data-dynamicviews-target="fishgroup">
+            <h5 class="text-md-start pb-1 pt-3">Si comes pescados y mariscos, elige la opción que más consumas</h5>
+            <div class="d-flex justify-content-md-start">
+              <%= f.input :valores_pescados_mariscos,
+                          as: :radio_buttons,
+                          collection: [["uno", 'charales - huauchinango - cazón - sierra - bacalo - trucha'], ["dos", 'camarón - sierra - merluza '], ["tres", 'sardinas - arenques - abadejo - carpa - lubina']],
+                          label_method: :second,
+                          value_method: :first,
+                          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+                          :checked=>["uno",'charales - huauchinango - cazón - sierra - bacalo - trucha']
+              %>
+            </div>
           </div>
+
         </div>
+
 
         <!-- huevo -->
         <div id="frecuencia-huevo" >

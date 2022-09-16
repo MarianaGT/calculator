@@ -6,5 +6,7 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 import Cuestionario from "./cuestionario";
+import dynamicviews_controller from "./dynamicviews_controller";
 application.register("hello", HelloController)
 application.register("cuestionario", Cuestionario)
+application.register("dynamicviews",dynamicviews_controller)
