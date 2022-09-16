@@ -26,7 +26,18 @@ export default class extends Controller {
     "panoutput",
     "panamount",
     "embutidosfrequency",
-    "embutidosoutput"
+    "embutidosoutput",
+    "galletasfrequency",
+    "galletasoutput",
+    "friturasfrequency",
+    "friturasoutput",
+    "chocofrequency",
+    "chocooutput",
+    "chocoamount",
+    "insectosfrequency",
+    "insectosoutput",
+    "insectosamount"
+
   ]
   static values = {hideelement: Number}
   connect() {
@@ -39,6 +50,10 @@ export default class extends Controller {
     this.showPan()
     this.showEmbutidos(),
     this.showTaco()
+    this.showGalleta()
+    this.showFrituras()
+    this.showChoco()
+    this.showInsectos()
   }
   toggle(e) {
       if(e!==undefined) {
@@ -160,5 +175,58 @@ export default class extends Controller {
       this.tacooutputTarget.hidden = true
     }
 
+  }
+
+  showGalleta(e) {
+    if(e !== undefined) {
+      if(this.checkForHidingElement(e.target.value, this.hideelementValue)) {
+        this.galletasoutputTarget.hidden = true
+      } else {
+        this.galletasoutputTarget.hidden = false
+      }
+    } else {
+      this.galletasoutputTarget.hidden = true
+    }
+  }
+
+  showFrituras(e) {
+    if(e !== undefined) {
+      if(this.checkForHidingElement(e.target.value, this.hideelementValue)) {
+        this.friturasoutputTarget.hidden = true
+      } else {
+        this.friturasoutputTarget.hidden = false
+      }
+    } else {
+      this.friturasoutputTarget.hidden = true
+    }
+
+  }
+
+  showChoco(e) {
+    if(e !== undefined) {
+      if(this.checkForHidingElement(e.target.value, this.hideelementValue)) {
+        this.chocooutputTarget.hidden = true
+        this.chocoamountTarget.value = 0
+      } else {
+        this.chocooutputTarget.hidden = false
+      }
+    } else {
+      this.chocooutputTarget.hidden = true
+      this.chocoamountTarget.value = 0
+    }
+  }
+
+  showInsectos(e) {
+    if(e !== undefined) {
+      if(this.checkForHidingElement(e.target.value, "no")) {
+        this.insectosoutputTarget.hidden = true
+        this.insectosamountTarget.value = 0
+      } else {
+        this.insectosoutputTarget.hidden = false
+      }
+    } else {
+      this.insectosoutputTarget.hidden = true
+      this.insectosamountTarget.value = 0
+    }
   }
 }

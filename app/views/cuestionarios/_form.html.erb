@@ -798,7 +798,7 @@
             <div  id="embutidos" data-dynamicviews-target="embutidosoutput">
               <h5 class="text-md-start pb-1 pt-3">¿Qué embutidos sueles consumir?</h5>
               <div class="d-flex flex-column justify-content-start align-items-start">
-                <%= f.input :jamon_pavo, label: "Jamon de pavo"  %>
+                <%= f.input :jamon_pavo, label: "Jamon de pavo", checked: true  %>
                 <%= f.input :jamon_puerco, label: "Jamon de puerco" %>
                 <%= f.input :salchicha_pavo, label: "Salchicha de pavo" %>
                 <%#= f.input :valores_embutidos, label: "¿Qué embutidos sueles consumir?", as: :check_boxes, collection: [['Jamon de pavo', 36.0], ['Jamon de puerco', 20.0], ['Salchicha de pavo', 21.2]], checked:['Jamon de pavo', 36.0] %>
@@ -907,12 +907,13 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+                            input_html:{ data:{dynamicviews_target:"galletasfrequency",  action:"change->dynamicviews#showGalleta"}}
                 %>
               </div>
             </div>
 
-            <div  id="galletas">
+            <div  id="galletas" data-dynamicviews-target="galletasoutput">
               <h5 class="text-md-start pb-1 pt-3">Si consumes galletas, ¿cuáles comes?</h5>
               <div class="d-flex flex-column justify-content-start align-items-start">
                 <%= f.input :galletas_saladas %>
@@ -930,12 +931,13 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+                            input_html:{ data:{dynamicviews_target:"friturasfrequency",  action:"change->dynamicviews#showFrituras"}}
                 %>
               </div>
             </div>
 
-            <div  id="frituras">
+            <div  id="frituras" data-dynamicviews-target="friturasoutput">
               <h5 class="text-md-start pb-1 pt-3">Si consumes frituras, ¿comes alguna de éstas?</h5>
               <div class="d-flex flex-column justify-content-start align-items-start">
                 <%= f.input :fritura_papa, label: 'Papas' %>
@@ -953,17 +955,19 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+                            input_html:{ data:{dynamicviews_target:"chocofrequency",  action:"change->dynamicviews#showChoco"}}
                 %>
               </div>
             </div>
 
-            <div id="chocolates" >
+            <div id="chocolates" data-dynamicviews-target="chocooutput">
               <h5 class="text-md-start pb-1 pt-3">¿Cuántos chocolates comes en un día?</h5>
               <%= f.input :cantidad_chocolates, required: true,
                           label: false,
-                          collection: (0..10),
-                          selected:[1]
+                          collection: 0..10,
+                          selected:[0],
+                          input_html:{data:{dynamicviews_target:"chocoamount"}}
               %>
             </div>
 
@@ -977,23 +981,26 @@
                             collection: [['si', 'si'], ['no', 'no']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+                            input_html:{ data:{dynamicviews_target:"insectosfrequency",  action:"change->dynamicviews#showInsectos"}}
                 %>
               </div>
             </div>
 
-            <div id="insectos" >
+            <div id="insectos" data-dynamicviews-target="insectosoutput" >
               <h5 class="text-md-start pb-1 pt-3">¿Cuantas veces al mes?</h5>
               <%= f.input :frecuencia_insectos, required: true,
                           label: false,
-                          collection: (0..10),
-                          selected: [1]
+                          collection: 0..10,
+                          selected: [0],
+                          input_html:{data:{dynamicviews_target:"insectosamount"}}
               %>
-              <div id="listo" class="d-flex justify-content-md-start mt-4">
-                <%= f.button :submit, "¡Listo!", class: "btn btn-success btn-lg",
-                             input_html:{"data-cuestionario-target":"submitbutton"}
-                %>
-              </div>
+            </div>
+
+            <div id="listo" class="d-flex justify-content-md-start mt-4">
+              <%= f.button :submit, "¡Listo!", class: "btn btn-success btn-lg",
+                           input_html:{"data-cuestionario-target":"submitbutton"}
+              %>
             </div>
           </div>
           </div>
