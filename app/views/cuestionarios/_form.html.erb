@@ -574,421 +574,433 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2"
+                            item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
+                            input_html: { data:{dynamicviews_target:"fruitfrequency",  action:"change->dynamicviews#showFruit"}}
                 %>
               </div>
             </div>
 
-            <div id="frutas" >
+            <div id="frutas" data-dynamicviews-target="fruitoutput">
               <h5 class="text-md-start pb-1 pt-3">¿Cuántas frutas consumes en un día?</h5>
               <%= f.input :cantidad_fruta, required: true,
                           label: false,
-                          collection: (1..10),
-                          selected:[0]
+                          collection: 0..10,
+                          selected:[0],
+                          input_html:{data:{dynamicviews_target:"fruitamount"}}
               %>
             </div>
             <!-- fruta termina-->
+            <div  id="arroz">
+              <!-- arroz -->
+              <%= image_tag "leguminosas.png", class: "dieta-pic" %>
+              <h5 class="text-md-start pb-1 pt-3">Arroz</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_arroz, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- leguminosas -->
+            <div id="leguminosas" >
+              <h5 class="text-md-start pb-1 pt-3">Leguminosas (frijol, lenteja, haba)</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_leguminosas, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- avena -->
+            <div id="avena" >
+              <h5 class="text-md-start pb-1 pt-3">Avena</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_avena, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- amaranto -->
+            <div id="amaranto" >
+              <h5 class="text-md-start pb-1 pt-3">Amaranto</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_amaranto, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- tortillas -->
+            <div id="tortilla" >
+              <h5 class="text-md-start pb-1 pt-3">Tortillas</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_tortillas, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
+                            input_html: { data:{dynamicviews_target:"tortillafrequency",  action:"change->dynamicviews#showTortillas"}}
+                %>
+              </div>
+            </div>
+
+            <div id="tortillas" data-dynamicviews-target="tortillaoutput" >
+              <h5 class="text-md-start pb-1 pt-3">¿Cuántas tortillas consumes en un día?</h5>
+              <%= f.input :cantidad_tortillas, required: true,
+                          label: false,
+                          collection: 0..10,
+                          selected:[0],
+                          input_html:{data:{dynamicviews_target:"tortillaamount"}}
+
+              %>
+            </div>
+
+            <div  id="tamales">
+              <!-- tamales -->
+              <%= image_tag "harinas.png", class: "dieta-pic" %>
+              <h5 class="text-md-start pb-1 pt-3">Tamales</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_tamales, required: true, label: "Tamales",
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- atole -->
+            <div id="atole" >
+              <h5 class="text-md-start pb-1 pt-3">Atole</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_atole, required: true,label: "Atole",
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- tacos -->
+            <div id="taco" >
+              <h5 class="text-md-start pb-1 pt-3">Tacos</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_tacos, required: true, label: "Tacos",
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+                            input_html:{ data:{dynamicviews_target:"tacofrequency",  action:"change->dynamicviews#showTaco"}}
+                %>
+              </div>
+            </div>
+
+            <div  id="tacos" data-dynamicviews-target="tacooutput">
+              <h5 class="text-md-start pb-1 pt-3">Si consumes tacos, ¿cuáles prefieres?</h5>
+              <div class="d-flex flex-column justify-content-start align-items-start">
+                <%= f.input :al_pastor %>
+                <%= f.input :suadero, label: "Tacos bistec/suadero" %>
+                <%= f.input :guisados, label: "De guisados" %>
+                <%#= f.input :valores_tacos, label: "Si consumes tacos, ¿cuáles prefieres?", as: :check_boxes, collection: [['Al pastor', 4.85], ['Tacos bistec/suadero', 16.3], ['De guisados', 2.33]], checked:['Al pastor', 4.85] %>
+              </div>
+            </div>
+
+            <!-- torta -->
+            <div id="torta" >
+              <h5 class="text-md-start pb-1 pt-3">Torta</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_torta, required: true,label: "Torta",
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- bolillo -->
+            <div id="bolillo" >
+              <h5 class="text-md-start pb-1 pt-3">Bolillo (sin tomar en cuenta el de la torta)</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_bolillo, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+                            input_html: { data:{dynamicviews_target:"bolillofrequency",  action:"change->dynamicviews#showBolillos"}}
+                %>
+              </div>
+            </div>
+
+            <div id="bolillos" data-dynamicviews-target="bolillooutput">
+              <h5 class="text-md-start pb-1 pt-3">¿Cuántos bolillos consumes en un día?</h5>
+              <%= f.input :cantidad_bolillo, required: true,
+                          label: false,
+                          collection: 0..10,
+                          selected:[0],
+                          input_html:{data:{dynamicviews_target:"bolilloamount"}}
+              %>
+            </div>
+
+            <!-- sandwich -->
+            <div id="sandwich" >
+              <h5 class="text-md-start pb-1 pt-3">Sandwich</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_sandwich, required: true, label: "Sandwich",
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- embutidos -->
+            <div id="embutido" >
+              <h5 class="text-md-start pb-1 pt-3">Embutidos (jamón, salchicha)</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_embutidos, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+                            input_html:{ data:{dynamicviews_target:"embutidosfrequency",  action:"change->dynamicviews#showEmbutidos"}}
+                %>
+              </div>
+            </div>
+
+            <div  id="embutidos" data-dynamicviews-target="embutidosoutput">
+              <h5 class="text-md-start pb-1 pt-3">¿Qué embutidos sueles consumir?</h5>
+              <div class="d-flex flex-column justify-content-start align-items-start">
+                <%= f.input :jamon_pavo, label: "Jamon de pavo"  %>
+                <%= f.input :jamon_puerco, label: "Jamon de puerco" %>
+                <%= f.input :salchicha_pavo, label: "Salchicha de pavo" %>
+                <%#= f.input :valores_embutidos, label: "¿Qué embutidos sueles consumir?", as: :check_boxes, collection: [['Jamon de pavo', 36.0], ['Jamon de puerco', 20.0], ['Salchicha de pavo', 21.2]], checked:['Jamon de pavo', 36.0] %>
+              </div>
+
+            </div>
+
+            <!-- pan industrial -->
+            <div id="pan-industrial" >
+              <h5 class="text-md-start pb-1 pt-3">Pan industrial (pan blanco, integral, donas)</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_pan, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
+                            input_html: { data:{dynamicviews_target:"panfrequency",  action:"change->dynamicviews#showPan"}}
+                %>
+              </div>
+            </div>
+
+            <div id="rebanadas" data-dynamicviews-target="panoutput" >
+              <h5 class="text-md-start pb-1 pt-3">¿Cuántas rebanadas comes en un día? (sin contar las del sandwich)</h5>
+              <%= f.input :cantidad_pan, required: true,
+                          label: false,
+                          collection: 0..10,
+                          selected:[0],
+                          input_html:{data:{dynamicviews_target:"panamount"}}
+              %>
+            </div>
+
+            <div id="panes" >
+              <h5 class="text-md-start pb-1 pt-3">¿Comes alguno de estos panes?</h5>
+              <div class="d-flex flex-column justify-content-start align-items-start">
+                <%= f.input :pan_blanco %>
+                <%= f.input :mantecadas, label: "Pastelitos empaquetados / donas / mantecadas" %>
+                <%#= f.input :valores_pan, label: "Si consumes panes industrializados ¿consumes alguno de estos?", as: :check_boxes, collection: [['Pan blanco', 0.15], ['Pan integral', 20.0], ['Pastelitos empaquetados/ donas/mantecadas', 4.37]] %>
+              </div>
+            </div>
+
+            <div  id="sopas">
+              <!-- sopas instantáneas -->
+              <%= image_tag "refrescos.png", class: "dieta-pic" %>
+              <h5 class="text-md-start pb-1 pt-3">Sopas instantáneas</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_sopas, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- jugos embotellados -->
+            <div id="jugos" >
+              <h5 class="text-md-start pb-1 pt-3">Jugos embotellados</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_jugos, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- refrescos -->
+            <div id="refrescos" >
+              <h5 class="text-md-start pb-1 pt-3">Refrescos</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_refrescos, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <!-- bebidas energizantes -->
+            <div id="bebidas" >
+              <h5 class="text-md-start pb-1 pt-3">Bebidas energizantes</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_bebidas_energetizantes, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <div  id="galleta">
+              <!-- galletas -->
+              <%= image_tag "chocolates.png", class: "dieta-pic" %>
+              <h5 class="text-md-start pb-1 pt-3">Galletas</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_galletas, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <div  id="galletas">
+              <h5 class="text-md-start pb-1 pt-3">Si consumes galletas, ¿cuáles comes?</h5>
+              <div class="d-flex flex-column justify-content-start align-items-start">
+                <%= f.input :galletas_saladas %>
+                <%= f.input :galletas_dulces %>
+                <%#= f.input :valores_galletas, label: "En caso de consumir galletas, ¿cuáles consumes?", as: :check_boxes, collection: [['Galletas saladas', 2.88], ['Dulces', 4.37]] %>
+              </div>
+            </div>
+
+            <!-- frituras -->
+            <div id="fritura" >
+              <h5 class="text-md-start pb-1 pt-3">Frituras</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_frituras, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <div  id="frituras">
+              <h5 class="text-md-start pb-1 pt-3">Si consumes frituras, ¿comes alguna de éstas?</h5>
+              <div class="d-flex flex-column justify-content-start align-items-start">
+                <%= f.input :fritura_papa, label: 'Papas' %>
+                <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
+                <%#= f.input :valores_frituras, label: "Si consumes frituras ¿consumes alguna de estas?", as: :check_boxes, collection: [['Papas', 6.4], ['Chicharrones', 23.71]] %>
+              </div>
+            </div>
+
+            <!-- chocolates -->
+            <div id="chocolate" >
+              <h5 class="text-md-start pb-1 pt-3">Chocolates</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :frecuencia_chocolates, required: true,
+                            as: :radio_buttons,
+                            collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <div id="chocolates" >
+              <h5 class="text-md-start pb-1 pt-3">¿Cuántos chocolates comes en un día?</h5>
+              <%= f.input :cantidad_chocolates, required: true,
+                          label: false,
+                          collection: (0..10),
+                          selected:[1]
+              %>
+            </div>
+
+            <div  id="insecto">
+              <!-- insectos -->
+              <%= image_tag "insectos.png", class: "sm-icon" %>
+              <h5 class="text-md-start pb-1 pt-3">¿Has consumido insectos alguna vez?</h5>
+              <div class="d-flex justify-content-md-start">
+                <%= f.input :insectos, required: true,
+                            as: :radio_buttons,
+                            collection: [['si', 'si'], ['no', 'no']],
+                            label_method: :second,
+                            value_method: :first,
+                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                %>
+              </div>
+            </div>
+
+            <div id="insectos" >
+              <h5 class="text-md-start pb-1 pt-3">¿Cuantas veces al mes?</h5>
+              <%= f.input :frecuencia_insectos, required: true,
+                          label: false,
+                          collection: (0..10),
+                          selected: [1]
+              %>
+              <div id="listo" class="d-flex justify-content-md-start mt-4">
+                <%= f.button :submit, "¡Listo!", class: "btn btn-success btn-lg",
+                             input_html:{"data-cuestionario-target":"submitbutton"}
+                %>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
 
       </div>
-      <div  id="arroz">
-        <!-- arroz -->
-        <%= image_tag "leguminosas.png", class: "dieta-pic" %>
-        <h5 class="text-md-start pb-1 pt-3">Arroz</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_arroz, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
 
-      <!-- leguminosas -->
-      <div id="leguminosas" >
-        <h5 class="text-md-start pb-1 pt-3">Leguminosas (frijol, lenteja, haba)</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_leguminosas, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <!-- avena -->
-      <div id="avena" >
-        <h5 class="text-md-start pb-1 pt-3">Avena</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_avena, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <!-- amaranto -->
-      <div id="amaranto" >
-        <h5 class="text-md-start pb-1 pt-3">Amaranto</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_amaranto, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <!-- tortillas -->
-      <div id="tortilla" >
-        <h5 class="text-md-start pb-1 pt-3">Tortillas</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_tortillas, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <div id="tortillas" >
-        <h5 class="text-md-start pb-1 pt-3">¿Cuántas tortillas consumes en un día?</h5>
-        <%= f.input :cantidad_tortillas, required: true,
-                    label: false,
-                    collection: (0..10),
-                    selected:[1]
-        %>
-      </div>
-
-      <div  id="tamales">
-        <!-- tamales -->
-        <%= image_tag "harinas.png", class: "dieta-pic" %>
-        <h5 class="text-md-start pb-1 pt-3">Tamales</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_tamales, required: true, label: "Tamales",
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <!-- atole -->
-      <div id="atole" >
-        <h5 class="text-md-start pb-1 pt-3">Atole</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_atole, required: true,label: "Atole",
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <!-- tacos -->
-      <div id="taco" >
-        <h5 class="text-md-start pb-1 pt-3">Tacos</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_tacos, required: true, label: "Tacos",
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <div  id="tacos">
-        <h5 class="text-md-start pb-1 pt-3">Si consumes tacos, ¿cuáles prefieres?</h5>
-        <div class="d-flex flex-column justify-content-start align-items-start">
-          <%= f.input :al_pastor %>
-          <%= f.input :suadero, label: "Tacos bistec/suadero" %>
-          <%= f.input :guisados, label: "De guisados" %>
-          <%#= f.input :valores_tacos, label: "Si consumes tacos, ¿cuáles prefieres?", as: :check_boxes, collection: [['Al pastor', 4.85], ['Tacos bistec/suadero', 16.3], ['De guisados', 2.33]] %>
-        </div>
-      </div>
-
-      <!-- torta -->
-      <div id="torta" >
-        <h5 class="text-md-start pb-1 pt-3">Torta</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_torta, required: true,label: "Torta",
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <!-- bolillo -->
-      <div id="bolillo" >
-        <h5 class="text-md-start pb-1 pt-3">Bolillo (sin tomar en cuenta el de la torta)</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_bolillo, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <div id="bolillos" >
-        <h5 class="text-md-start pb-1 pt-3">¿Cuántos bolillos consumes en un día?</h5>
-        <%= f.input :cantidad_bolillo, required: true,
-                    label: false,
-                    collection: (0..10),
-                    selected:[0]
-        %>
-      </div>
-
-      <!-- sandwich -->
-      <div id="sandwich" >
-        <h5 class="text-md-start pb-1 pt-3">Sandwich</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_sandwich, required: true, label: "Sandwich",
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <!-- embutidos -->
-      <div id="embutido" >
-        <h5 class="text-md-start pb-1 pt-3">Embutidos (jamón, salchicha)</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_embutidos, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <div  id="embutidos">
-        <h5 class="text-md-start pb-1 pt-3">¿Qué embutidos sueles consumir?</h5>
-        <div class="d-flex flex-column justify-content-start align-items-start">
-          <%= f.input :jamon_pavo, label: "Jamon de pavo" %>
-          <%= f.input :jamon_puerco, label: "Jamon de puerco" %>
-          <%= f.input :salchicha_pavo, label: "Salchicha de pavo" %>
-          <%#= f.input :valores_embutidos, label: "¿Qué embutidos sueles consumir?", as: :check_boxes, collection: [['Jamon de pavo', 36.0], ['Jamon de puerco', 20.0], ['Salchicha de pavo', 21.2]] %>
-        </div>
-
-      </div>
-
-      <!-- pan industrial -->
-      <div id="pan-industrial" >
-        <h5 class="text-md-start pb-1 pt-3">Pan industrial (pan blanco, integral, donas)</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_pan, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <div id="rebanadas" >
-        <h5 class="text-md-start pb-1 pt-3">¿Cuántas rebanadas comes en un día? (sin contar las del sandwich)</h5>
-        <%= f.input :cantidad_pan, required: true,
-                    label: false,
-                    collection: (0..10),
-                    selected:[1]
-        %>
-      </div>
-
-      <div id="panes" >
-        <h5 class="text-md-start pb-1 pt-3">¿Comes alguno de estos panes?</h5>
-        <div class="d-flex flex-column justify-content-start align-items-start">
-          <%= f.input :pan_blanco %>
-          <%= f.input :mantecadas, label: "Pastelitos empaquetados / donas / mantecadas" %>
-          <%#= f.input :valores_pan, label: "Si consumes panes industrializados ¿consumes alguno de estos?", as: :check_boxes, collection: [['Pan blanco', 0.15], ['Pan integral', 20.0], ['Pastelitos empaquetados/ donas/mantecadas', 4.37]] %>
-        </div>
-      </div>
-
-      <div  id="sopas">
-        <!-- sopas instantáneas -->
-        <%= image_tag "refrescos.png", class: "dieta-pic" %>
-        <h5 class="text-md-start pb-1 pt-3">Sopas instantáneas</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_sopas, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <!-- jugos embotellados -->
-      <div id="jugos" >
-        <h5 class="text-md-start pb-1 pt-3">Jugos embotellados</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_jugos, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <!-- refrescos -->
-      <div id="refrescos" >
-        <h5 class="text-md-start pb-1 pt-3">Refrescos</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_refrescos, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <!-- bebidas energizantes -->
-      <div id="bebidas" >
-        <h5 class="text-md-start pb-1 pt-3">Bebidas energizantes</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_bebidas_energetizantes, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <div  id="galleta">
-        <!-- galletas -->
-        <%= image_tag "chocolates.png", class: "dieta-pic" %>
-        <h5 class="text-md-start pb-1 pt-3">Galletas</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_galletas, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <div  id="galletas">
-        <h5 class="text-md-start pb-1 pt-3">Si consumes galletas, ¿cuáles comes?</h5>
-        <div class="d-flex flex-column justify-content-start align-items-start">
-          <%= f.input :galletas_saladas %>
-          <%= f.input :galletas_dulces %>
-          <%#= f.input :valores_galletas, label: "En caso de consumir galletas, ¿cuáles consumes?", as: :check_boxes, collection: [['Galletas saladas', 2.88], ['Dulces', 4.37]] %>
-        </div>
-      </div>
-
-      <!-- frituras -->
-      <div id="fritura" >
-        <h5 class="text-md-start pb-1 pt-3">Frituras</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_frituras, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <div  id="frituras">
-        <h5 class="text-md-start pb-1 pt-3">Si consumes frituras, ¿comes alguna de éstas?</h5>
-        <div class="d-flex flex-column justify-content-start align-items-start">
-          <%= f.input :fritura_papa, label: 'Papas' %>
-          <%= f.input :fritura_chicharron, label: 'Chicharrones' %>
-          <%#= f.input :valores_frituras, label: "Si consumes frituras ¿consumes alguna de estas?", as: :check_boxes, collection: [['Papas', 6.4], ['Chicharrones', 23.71]] %>
-        </div>
-      </div>
-
-      <!-- chocolates -->
-      <div id="chocolate" >
-        <h5 class="text-md-start pb-1 pt-3">Chocolates</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :frecuencia_chocolates, required: true,
-                      as: :radio_buttons,
-                      collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <div id="chocolates" >
-        <h5 class="text-md-start pb-1 pt-3">¿Cuántos chocolates comes en un día?</h5>
-        <%= f.input :cantidad_chocolates, required: true,
-                    label: false,
-                    collection: (0..10),
-                    selected:[1]
-        %>
-      </div>
-
-      <div  id="insecto">
-        <!-- insectos -->
-        <%= image_tag "insectos.png", class: "sm-icon" %>
-        <h5 class="text-md-start pb-1 pt-3">¿Has consumido insectos alguna vez?</h5>
-        <div class="d-flex justify-content-md-start">
-          <%= f.input :insectos, required: true,
-                      as: :radio_buttons,
-                      collection: [['si', 'si'], ['no', 'no']],
-                      label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
-          %>
-        </div>
-      </div>
-
-      <div id="insectos" >
-        <h5 class="text-md-start pb-1 pt-3">¿Cuantas veces al mes?</h5>
-        <%= f.input :frecuencia_insectos, required: true,
-                    label: false,
-                    collection: (0..10),
-                    selected: [1]
-        %>
-        <div id="listo" class="d-flex justify-content-md-start mt-4">
-          <%= f.button :submit, "¡Listo!", class: "btn btn-success btn-lg",
-                       input_html:{"data-cuestionario-target":"submitbutton"}
-          %>
-        </div>
-      </div>
-    </div>
 
   <% end %>
 
