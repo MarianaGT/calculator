@@ -50,8 +50,7 @@
                     as: :radio_buttons,
                     collection: [['femenino', 'Femenino'],['masculino', 'Masculino']],
                     label_method: :second,
-                    value_method: :first,
-                    item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                    value_method: :first
         %>
       </div>
 
@@ -65,8 +64,7 @@
                       as: :radio_buttons,
                       collection: [['Primaria', 'Primaria'], ['Secundaria', 'Secundaria'], ['Preparatoria', 'Preparatoria'], ['Universidad', 'Universidad'], ['Postgrado', 'Postgrado']],
                       label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-1"
+                      value_method: :first
           %>
         </div>
       </div>
@@ -100,8 +98,7 @@
                     collection: [['Rural', 'Rural'], ['Urbana', 'Urbana']],
                     label_method: :second,
                     value_method: :first,
-                    label: false,
-                    item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                    label: false
         %>
       </div>
 
@@ -134,8 +131,7 @@
                     as: :radio_buttons,
                     collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
                     label_method: :second,
-                    value_method: :first,
-                    item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                    value_method: :first
         %>
       </div>
 
@@ -148,8 +144,7 @@
                     as: :radio_buttons, required: true,
                     collection: [['Nada', 'Nada'], ['Poco', 'Poco'], ['Mucho', 'Mucho'], ['No se', 'No se']],
                     label_method: :second,
-                    value_method: :first,
-                    item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                    value_method: :first
         %>
       </div>
 
@@ -163,8 +158,7 @@
                     as: :radio_buttons,
                     collection: [['Sedentaria', 'Sedentaria'], ['Fisicamente activa', 'Fisicamente activa'], ['Deportista', 'Deportista']],
                     label_method: :second,
-                    value_method: :first,
-                    item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                    value_method: :first
         %>
 
       </div>
@@ -178,8 +172,7 @@
                     as: :radio_buttons,
                     collection: [[0, 'Ninguna'], [1, 'Una vez'], [2, '2-3 veces'], [3, '4-5 veces'], [4, 'Diario']],
                     label_method: :second,
-                    value_method: :first,
-                    item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                    value_method: :first
         %>
       </div>
 
@@ -194,18 +187,18 @@
                       as: :radio_buttons,
                       collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
                       label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                      value_method: :first
+                      
           %>
         </div>
         <h5 class="text-md-start pb-1 pt-3">Obesidad</h5>
         <div class="d-flex justify-content-md-start">
           <%= f.input :obesidad, required: true,
                       as: :radio_buttons,
-                      collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
+                      collection: [['Si', ' Si '], ['No', ' No '], ['No se', 'No se']],
                       label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                      value_method: :first
+
           %>
         </div>
         <h5 class="text-md-start pb-1 pt-3">Hipertensión</h5>
@@ -214,8 +207,7 @@
                       as: :radio_buttons,
                       collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
                       label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                      value_method: :first
           %>
         </div>
         <h5 class="text-md-start pb-1 pt-3">Colesterol</h5>
@@ -224,8 +216,8 @@
                       as: :radio_buttons,
                       collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
                       label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                      value_method: :first
+                      
           %>
         </div>
         <h5 class="text-md-start pb-1 pt-3">Trigliceridos</h5>
@@ -234,8 +226,7 @@
                       as: :radio_buttons,
                       collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
                       label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                      value_method: :first
           %>
         </div>
         <h5 class="text-md-start pb-1 pt-3">Diabetes</h5>
@@ -244,8 +235,8 @@
                       as: :radio_buttons,
                       collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
                       label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                      value_method: :first
+                      
           %>
         </div>
       </div>
@@ -258,8 +249,8 @@
                         as: :radio_buttons,
                         collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -270,8 +261,8 @@
                         as: :radio_buttons,
                         collection: [['Si', 'Si'], ['No', 'No'], ['No se', 'No se']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 mx-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -296,8 +287,8 @@
                     as: :radio_buttons,
                     collection: [['Vegetariana estricta', 'Vegetariana estricta'], ['Lactovegetarianas', 'Lactovegetarianas'], ['Lactoovovegetarianas', 'Lactoovovegetarianas'], ['Omnívoras (me alimento de plantas y animales)', 'Omnívoras (me alimento de plantas y animales)']],
                     label_method: :second,
-                    value_method: :first,
-                    item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                    value_method: :first
+                    
         %>
 
       </div>
@@ -311,8 +302,8 @@
                       as: :radio_buttons,
                       collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
                       label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                      value_method: :first
+                      
           %>
         </div>
         <!-- compras frutas -->
@@ -323,8 +314,8 @@
                         as: :radio_buttons,
                         collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -336,8 +327,8 @@
                         as: :radio_buttons,
                         collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -349,8 +340,8 @@
                         as: :radio_buttons,
                         collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -362,8 +353,8 @@
                         as: :radio_buttons,
                         collection: [['no consumo', 'No consumo'], ['organico', 'Mercado / tianguis'], ['intensivo', 'Supermercados']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -379,8 +370,8 @@
                       as: :radio_buttons,
                       collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                       label_method: :second,
-                      value_method: :first,
-                      item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                      value_method: :first
+                      
           %>
         </div>
 
@@ -393,8 +384,8 @@
                         as: :radio_buttons,
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -406,8 +397,8 @@
                         as: :radio_buttons,
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -419,8 +410,8 @@
                         as: :radio_buttons,
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -432,8 +423,8 @@
                         as: :radio_buttons,
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -444,8 +435,8 @@
             <%= f.input :frecuencia_atun, required: true,
                         as: :radio_buttons, collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -457,8 +448,8 @@
                         as: :radio_buttons,
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -470,8 +461,8 @@
                         as: :radio_buttons,
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
 
@@ -484,8 +475,8 @@
                         as: :radio_buttons,
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
-                        value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                        value_method: :first
+                        
             %>
           </div>
         </div>
@@ -498,7 +489,6 @@
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
                         value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
                         input_html:{data:{dynamicviews_target:"fishfrequency", action:"change->dynamicviews#toggle"}}
 
             %>
@@ -511,7 +501,6 @@
                           collection: [["uno", 'charales - huauchinango - cazón - sierra - bacalo - trucha'], ["dos", 'camarón - sierra - merluza '], ["tres", 'sardinas - arenques - abadejo - carpa - lubina']],
                           label_method: :second,
                           value_method: :first,
-                          item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
                           :checked=>["uno",'charales - huauchinango - cazón - sierra - bacalo - trucha']
               %>
             </div>
@@ -523,7 +512,7 @@
                         collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                         label_method: :second,
                         value_method: :first,
-                        item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
+                        
                         input_html: { data:{dynamicviews_target:"eggfrequency",  action:"change->dynamicviews#showEggAmountControl"}}
             %>
           </div>
@@ -549,7 +538,7 @@
                           collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
                           label_method: :second,
                           value_method: :first,
-                          item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
+                          
                           input_html: { data:{dynamicviews_target:"vegfrequency",  action:"change->dynamicviews#showVeggies"}}
               %>
             </div>
@@ -574,7 +563,7 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
+                            
                             input_html: { data:{dynamicviews_target:"fruitfrequency",  action:"change->dynamicviews#showFruit"}}
                 %>
               </div>
@@ -599,8 +588,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -613,8 +602,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -627,8 +616,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -641,8 +630,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -656,7 +645,7 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group p-2 m-2",
+                            
                             input_html: { data:{dynamicviews_target:"tortillafrequency",  action:"change->dynamicviews#showTortillas"}}
                 %>
               </div>
@@ -682,8 +671,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -696,8 +685,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -711,7 +700,6 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
                             input_html:{ data:{dynamicviews_target:"tacofrequency",  action:"change->dynamicviews#showTaco"}}
                 %>
               </div>
@@ -735,8 +723,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -750,7 +738,6 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
                             input_html: { data:{dynamicviews_target:"bolillofrequency",  action:"change->dynamicviews#showBolillos"}}
                 %>
               </div>
@@ -774,8 +761,7 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
                 %>
               </div>
             </div>
@@ -789,7 +775,6 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
                             input_html:{ data:{dynamicviews_target:"embutidosfrequency",  action:"change->dynamicviews#showEmbutidos"}}
                 %>
               </div>
@@ -815,7 +800,6 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
                             input_html: { data:{dynamicviews_target:"panfrequency",  action:"change->dynamicviews#showPan"}}
                 %>
               </div>
@@ -849,8 +833,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -863,8 +847,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -877,8 +861,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -891,8 +875,8 @@
                             as: :radio_buttons,
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
-                            value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2"
+                            value_method: :first
+                            
                 %>
               </div>
             </div>
@@ -907,7 +891,6 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
                             input_html:{ data:{dynamicviews_target:"galletasfrequency",  action:"change->dynamicviews#showGalleta"}}
                 %>
               </div>
@@ -931,7 +914,6 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
                             input_html:{ data:{dynamicviews_target:"friturasfrequency",  action:"change->dynamicviews#showFrituras"}}
                 %>
               </div>
@@ -955,7 +937,6 @@
                             collection: [[0.0, '0'], [1.0, '1'], [2.5, '2-3'], [4.5, '4-5'], [7.0, '7'], [0.25, '1 vez al mes']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
                             input_html:{ data:{dynamicviews_target:"chocofrequency",  action:"change->dynamicviews#showChoco"}}
                 %>
               </div>
@@ -981,7 +962,6 @@
                             collection: [['si', 'si'], ['no', 'no']],
                             label_method: :second,
                             value_method: :first,
-                            item_wrapper_class: "btn btn-outline-dark btn-group px-2 m-2",
                             input_html:{ data:{dynamicviews_target:"insectosfrequency",  action:"change->dynamicviews#showInsectos"}}
                 %>
               </div>
