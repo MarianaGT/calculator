@@ -18,10 +18,7 @@ legend {
 }
 
 input[type="radio"] {
-  display: none;
-  font-size: 1.2em;
-  background-color: $success;
-  transform: scale(0.2);
+
   &:checked {
     display: block;
     border-color: #65d84a;
