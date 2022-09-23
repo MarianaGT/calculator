@@ -2,11 +2,20 @@
   <h1 class="display-1 big-text text-center m-2"><em>STHEVIE</em></h1>
   <h2 class="text-center pb-2">(Station of health and environmental: a vie?)</h2>
 </div>
-<%= image_tag "portada.png", class: "dieta-pic" %>
-<h4 class="text-center pt-5">Toda actividad que hagamos tiene un impacto en el ambiente y en nuestra salud. La forma en la que nos alimentamos es una de las más importantes: que tanta carne comemos, que tantos alimentos y bebidas altamente procesados ingerimos; cuales son nuestras raciones diarias; donde los compramos entre otros, son claves para cuidar al planeta y también a nuestra salud.</h4 class="text-center">
-<h4 class="text-center pt-5">¿Quieres medir tu huella de carbono y de salud?</h4 class="text-center">
-<div class="d-flex justify-content-center m-4">
-  <%= link_to "Empezar", new_cuestionario_path, class: 'btn btn-success btn-lg' %>
+
+<div class="row">
+  <div class="col-sm-1 col-md-2 col-lg-2"></div>
+  <div class="col-sm-10 col-md-8 col-lg-8">
+    <%= image_tag "portada.png", class: "dieta-pic" %>
+    <p class="text-justify">Toda actividad que hagamos tiene un impacto en el ambiente y en nuestra salud. La forma en la que nos alimentamos es una de las más importantes: que tanta carne comemos, que tantos alimentos y bebidas altamente procesados ingerimos; cuales son nuestras raciones diarias; donde los compramos entre otros, son claves para cuidar al planeta y también a nuestra salud.</p>
+    <h4>¿Quieres medir tu huella de carbono y de salud?</h4>
+    <%= link_to "Empezar", new_cuestionario_path, class: 'btn btn-success btn-lg' %>
+    <div class="d-flex justify-content-center m-4">
+
+    </div>
+  </div>
+  <div class="col-sm-10 col-md-2 col-lg-2"></div>
 </div>
+
 
 
