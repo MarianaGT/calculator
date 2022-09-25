@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <!-- Esta seccion se oculto usando d-none, anteriormente aqui estaban reflejados los valores de la encuesta -->
 <div class="container my-3 d-none">
@@ -52,182 +52,198 @@
   <%#= link_to 'Back', cuestionarios_path %>
 </div>
 
+<div class="row">
+  <div class="col-sm-1 col-md-2 col-lg-2"></div>
+  <div class="col-sm-10 col-md-8 col-lg-8">
+    <div class="bg-results p-2">
+      <div class="container text-center">
+        <%= image_tag "bubble.png", class: 'bubble' %>
+      </div>
 
-<!--   Resultados que van en el show -->
-<div class="bg-results p-2">
-  <div class="d-flex flex-column justify-content-around align-items-center p-5">
-    <%= image_tag "bubble.png", class: 'bubble' %>
-    <h4 class="letter-spacing-1 opacity-80">TU IMPACTO</h4>
-    <h1>Calorias <strong class="text-success"><%= @calorias %> kcal</strong> por día</h1>
-    <h1>Emisiones <strong class="text-success"><%= @carbono %> kg/CO2</strong> por día</h1>
+      <table class="table table-borderless">
+        <tbody>
+        <tr>
+          <th class="text-center" scope="row" colspan="3"><strong>TU IMPACTO</strong></th>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td><strong>Calorias diarias</strong></td>
+          <td><strong class="text-success"><%= @calorias %> kcal</strong></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td><strong>Emisiones diarias</strong></td>
+          <td><strong class="text-success"><%= @carbono %> kg/CO2</strong></td>
+
+        </tr>
+        <tr>
+          <th scope="row" class="text-center" colspan="3"><strong>Resultados</strong></th>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td><strong>IMC</strong></td>
+          <td><strong class="text-success"><%= imc = (@cuestionario.peso / (@cuestionario.altura)**2).round(2) %>
+            <% if (0..18.4).include? imc %>
+              bajo peso
+            <% elsif (18.5..24.9).include? imc %>
+              normal
+            <% elsif (25..29.9).include? imc %>
+              sobrepeso
+            <% else (30..40).include? imc %>
+              obesidad
+            <% end %>
+          </strong><p>IMC es la relación entre tu peso y tu talla que se usa para identificar sobrepeso y obesidad en adultos</p></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td><strong>Deberías consumir</strong></td>
+          <td><strong class="text-success"><%= @hs1 %> kcal</strong><p>De acuerdo a tu estatura, edad, sexo y peso actual</p></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td><strong>Peso ideal</strong></td>
+          <td><strong class="text-success"><%= @hs2 %> kcal</strong><p>Lo recomendable para estar en tu peso ideal</p></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td><strong>Actualmente consumes</strong></td>
+          <td><strong class="text-success"><%= @calorias %> kcal</strong><p>De acuerdo a los resultados de tu encuesta</p></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="bg-results p-2">
+      <div class="container mt-5 mb-5 justify-content-evenly">
+        <p class="text-justify pb-4">Las personas de países desarrollados como Estados Unidos emiten en promedio las más altas cantidades de gases de efecto invernadero, es decir contaminan más que otros países. También por su alimentación tienen una alta incidencia de enfermedades no transmisibles, como la diabetes. Ve en la gráfica donde está Estados Unidos. Todo lo contrario sucede por ejemplo, con Bangladesh o casi todos los países de África, o América Latina, que aunque no contaminan tanto, su alimentación es carente de proteínas de alta calidad lo que propicia que exista aún en nuestros días alta incidencia de desnutrición. (ve en la gráfica donde esta Bangladesh) ¿Crees que podamos comer de una manera sana pero sin afectar tanto al ambiente? Nosotros creemos que sí. Muchos países como México, India, China, Japón, los países nórdicos o del mediterráneo tienen dietas ancestrales con una alta cantidad de especies de plantas con propiedades nutritivas únicas. Mientras más diversa sea nuestra alimentación, consumamos especies locales, hacer actividad física regularmente y reducir las bebidas altamente azucaradas y los alimentos ultra procesados son clave para ello. Inténtalo.</p>
+        <p class="text-justify pb-4">Así se ve la relación entre consumo de calorías y emisiones por país hoy en día.</p>
+        <div class="row">
+          <div class="col-2  d-flex flex-column justify-content-around align-items-center">
+            <p><small>4,000</small></p>
+            <p><small>3,500</small></p>
+            <p><small>3,000</small></p>
+          </div>
+          <div class="col-3 border border-dark bg-light" id="grupo2">
+            <h4 class="text-center m-2">
+              <% if @grupo_pais.eql?("II") %>
+                <div class="location-dot bg-primary"></div>
+                <span class="text-primary">tu país</span><br><br>
+              <% end %>
+              <% if @calorias > 2750 && @carbono < 3.2 %>
+                <div class="location-dot bg-danger"></div>
+                <span class="text-danger">tú</span>
+              <% end %>
+            </h4>
+            <p><small>🇲🇽 México está aquí</small></p>
+          </div>
+          <div class="col-3 border border-dark bg-light" id="grupo4">
+            <h4 class="text-center m-2">
+              <% if @grupo_pais.eql?("IV") %>
+                <div class="location-dot bg-primary"></div>
+                <span class="text-primary">tu país</span><br><br>
+              <% end %>
+              <% if @calorias > 2750 && @carbono > 3.2 && @carbono < 6.4 %>
+                <div class="location-dot bg-danger"></div>
+                <span class="text-danger">tú</span>
+              <% end %>
+            </h4>
+            <p><small>🇨🇳 China está aquí</small></p>
+          </div>
+          <div class="col-3 border border-dark bg-light" id="grupo6">
+            <h4 class="text-center m-2">
+              <% if @grupo_pais.eql?("VI") %>
+                <div class="location-dot bg-primary"></div>
+                <span class="text-primary">tu país</span><br><br>
+              <% end %>
+              <% if @calorias > 2750 && @carbono > 6.4 %>
+                <div class="location-dot bg-danger"></div>
+                <span class="text-danger">tú</span>
+              <% end %>
+            </h4>
+            <p><small>🇺🇸 EUA está aquí</small></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2  d-flex flex-column justify-content-around align-items-center">
+            <p><small>2,500</small></p>
+            <p><small>2,000</small></p>
+            <p><small>1,500</small></p>
+            <h4>Kcal</h4>
+          </div>
+          <div class="col-3 border border-dark bg-light" id="grupo1">
+            <h4 class="text-center m-2">
+              <% if @grupo_pais.eql?("I") %>
+                <div class="location-dot bg-primary"></div>
+                <span class="text-primary">tu país</span><br><br>
+              <% end %>
+              <% if @calorias < 2750 && @carbono < 3.2 %>
+                <div class="location-dot bg-danger"></div>
+                <span class="text-danger">tú</span>
+              <% end %>
+            </h4>
+            <p><small>🇧🇩 Bangladesh está aquí</small></p>
+          </div>
+          <div class="col-3 border border-dark bg-light" id="grupo3">
+            <h4 class="text-center m-2">
+              <% if @grupo_pais.eql?("III") %>
+                <div class="location-dot bg-primary"></div>
+                <span class="text-primary">tu país</span><br><br>
+              <% end %>
+              <% if @calorias < 2750 && @carbono < 6.4 && @carbono > 3.2 %>
+                <div class="location-dot bg-danger"></div>
+                <span class="text-danger">tú</span>
+              <% end %>
+            </h4>
+            <p><small>🇹🇭 Tailandia está aquí</small></p>
+          </div>
+          <div class="col-3 border border-dark bg-light" id="grupo5">
+            <h4 class="text-center m-2">
+              <% if @grupo_pais.eql?("V") %>
+                <div class="location-dot bg-primary"></div>
+                <span class="text-primary">tu país</span><br><br>
+              <% end %>
+              <% if @calorias < 2750 && @carbono > 6.4 %>
+                <div class="location-dot bg-danger"></div>
+                <span class="text-danger">tú</span>
+              <% end %>
+            </h4>
+            <p><small>🇲🇳 Mongolia está aquí</small></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-9  d-flex justify-content-between mb-2">
+            <span><small>0</small></span>
+            <span><small>1.3</small></span>
+            <span><small>2.7</small></span>
+            <span><small>4.1</small></span>
+            <span><small>5.4</small></span>
+            <span><small>6.8</small></span>
+            <span><small>8.2</small></span>
+            <span><small>9.5</small></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-9">
+            <h4 class="text-center ">CO<small>2</small> por día</h4>
+          </div>
+        </div>
+      </div>
+      <strong class="text-justify">En relación a la gente de <%= @cuestionario.pais %>, tu nivel de contaminación es <u><%= @nivel_contaminacion %></u> y tu consumo de calorías es <u><%= @nivel_consumo_calorias %>.</u></strong>
   </div>
-
-  <table class="table table-borderless">
-    <tbody>
-      <tr>
-        <th scope="row"></th>
-        <td><h3>IMC</h3></td>
-        <td><h3 class="text-success"><%= imc = (@cuestionario.peso / (@cuestionario.altura)**2).round(2) %>
-          <% if (0..18.4).include? imc %>
-            bajo peso
-          <% elsif (18.5..24.9).include? imc %>
-            normal
-          <% elsif (25..29.9).include? imc %>
-            sobrepeso
-          <% else (30..40).include? imc %>
-            obesidad
-          <% end %>
-          </h3><p>IMC es la relación entre tu peso y tu talla que se usa para identificar sobrepeso y obesidad en adultos</p></td>
-      </tr>
-      <tr>
-        <th scope="row"></th>
-        <td><h3>Deberías consumir</h3></td>
-        <td><h3 class="text-success"><%= @hs1 %> kcal</h3><p>De acuerdo a tu estatura, edad, sexo y peso actual</p></td>
-      </tr>
-      <tr>
-        <th scope="row"></th>
-        <td><h3>Peso ideal</h3></td>
-        <td><h3 class="text-success"><%= @hs2 %> kcal</h3><p>Lo recomendable para estar en tu peso ideal</p></td>
-      </tr>
-      <tr>
-        <th scope="row"></th>
-        <td><h3>Actualmente consumes</h3></td>
-        <td><h3 class="text-success"><%= @calorias %> kcal</h3><p>De acuerdo a los resultados de tu encuesta</p></td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="col-sm-1 col-md-2 col-lg-2"></div>
 </div>
-<div class="bg-results bg-dark p-2">
-  <div class="container mt-5 mb-5">
-    <h4 class="text-center text-white pb-4">Las personas de países desarrollados como Estados Unidos emiten en promedio las más altas cantidades de gases de efecto invernadero, es decir contaminan más que otros países. También por su alimentación tienen una alta incidencia de enfermedades no transmisibles, como la diabetes. Ve en la gráfica donde está Estados Unidos. Todo lo contrario sucede por ejemplo, con Bangladesh o casi todos los países de África, o América Latina, que aunque no contaminan tanto, su alimentación es carente de proteínas de alta calidad lo que propicia que exista aún en nuestros días alta incidencia de desnutrición. (ve en la gráfica donde esta Bangladesh) ¿Crees que podamos comer de una manera sana pero sin afectar tanto al ambiente? Nosotros creemos que sí. Muchos países como México, India, China, Japón, los países nórdicos o del mediterráneo tienen dietas ancestrales con una alta cantidad de especies de plantas con propiedades nutritivas únicas. Mientras más diversa sea nuestra alimentación, consumamos especies locales, hacer actividad física regularmente y reducir las bebidas altamente azucaradas y los alimentos ultra procesados son clave para ello. Inténtalo.</h4>  
-    <h4 class="text-center text-white pb-4">Así se ve la relación entre consumo de calorías y emisiones por país hoy en día.</h4>
-    <div class="row">
-      <div class="col-2 text-white d-flex flex-column justify-content-around align-items-center">
-        <p><small>4,000</small></p>
-        <p><small>3,500</small></p>
-        <p><small>3,000</small></p>
-      </div>
-      <div class="col-3 border border-dark bg-light" id="grupo2">
-        <h4 class="text-center m-2">
-          <% if @grupo_pais.eql?("II") %>
-            <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br><br>
-          <% end %>
-          <% if @calorias > 2750 && @carbono < 3.2 %>
-            <div class="location-dot bg-danger"></div>
-            <span class="text-danger">tú</span>
-          <% end %>
-        </h4>
-        <p><small>🇲🇽 México está aquí</small></p>
-      </div>
-      <div class="col-3 border border-dark bg-light" id="grupo4">
-        <h4 class="text-center m-2">
-          <% if @grupo_pais.eql?("IV") %>
-            <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br><br>
-          <% end %>
-          <% if @calorias > 2750 && @carbono > 3.2 && @carbono < 6.4 %>
-            <div class="location-dot bg-danger"></div>
-            <span class="text-danger">tú</span>
-          <% end %>
-        </h4>
-        <p><small>🇨🇳 China está aquí</small></p>
-      </div>
-      <div class="col-3 border border-dark bg-light" id="grupo6">
-        <h4 class="text-center m-2">
-          <% if @grupo_pais.eql?("VI") %>
-            <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br><br>
-          <% end %>
-          <% if @calorias > 2750 && @carbono > 6.4 %>
-            <div class="location-dot bg-danger"></div>
-            <span class="text-danger">tú</span>
-          <% end %>
-        </h4>
-        <p><small>🇺🇸 EUA está aquí</small></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2 text-white d-flex flex-column justify-content-around align-items-center">
-        <p><small>2,500</small></p>
-        <p><small>2,000</small></p>
-        <p><small>1,500</small></p>
-        <h4>Kcal</h4>
-      </div>
-      <div class="col-3 border border-dark bg-light" id="grupo1">
-        <h4 class="text-center m-2">
-          <% if @grupo_pais.eql?("I") %>
-            <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br><br>
-          <% end %>
-          <% if @calorias < 2750 && @carbono < 3.2 %>
-            <div class="location-dot bg-danger"></div>
-            <span class="text-danger">tú</span>
-          <% end %>
-        </h4>
-        <p><small>🇧🇩 Bangladesh está aquí</small></p>
-      </div>
-      <div class="col-3 border border-dark bg-light" id="grupo3">
-        <h4 class="text-center m-2">
-          <% if @grupo_pais.eql?("III") %>
-            <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br><br>
-          <% end %>
-          <% if @calorias < 2750 && @carbono < 6.4 && @carbono > 3.2 %>
-            <div class="location-dot bg-danger"></div>
-            <span class="text-danger">tú</span>
-          <% end %>
-        </h4>
-        <p><small>🇹🇭 Tailandia está aquí</small></p>
-      </div>
-      <div class="col-3 border border-dark bg-light" id="grupo5">
-        <h4 class="text-center m-2">
-          <% if @grupo_pais.eql?("V") %>
-            <div class="location-dot bg-primary"></div>
-            <span class="text-primary">tu país</span><br><br>
-          <% end %>
-          <% if @calorias < 2750 && @carbono > 6.4 %>
-            <div class="location-dot bg-danger"></div>
-            <span class="text-danger">tú</span>
-          <% end %>
-        </h4>
-        <p><small>🇲🇳 Mongolia está aquí</small></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2"></div>
-      <div class="col-9 text-white d-flex justify-content-between mb-2">
-        <span><small>0</small></span>
-        <span><small>1.3</small></span>
-        <span><small>2.7</small></span>
-        <span><small>4.1</small></span>
-        <span><small>5.4</small></span>
-        <span><small>6.8</small></span>
-        <span><small>8.2</small></span>
-        <span><small>9.5</small></span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-2"></div>
-      <div class="col-9">
-        <h4 class="text-center text-white">CO<small>2</small> por día</h4>
-      </div>
-    </div>
-  </div>
-  <h3 class="text-white text-center">En relación a la gente de <%= @cuestionario.pais %>, tu nivel de contaminación es <u><%= @nivel_contaminacion %></u> y tu consumo de calorías es <u><%= @nivel_consumo_calorias %>.</u></h3>
+<!--   Resultados que van en el show -->
+
+
   <div class="text-center mt-5 mb-3">
     <p class="display-6 pt-5 text-success">¿Y luego?</p><br>
-    <button class="btn btn-success rounded-circle mt-3 float-right mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#saber-mas" aria-expanded="false" aria-controls="saber-mas">
-      <span class="material-symbols-outlined pt-2">
-        arrow_downward
-      </span>
-    </button>
   </div>
 </div>
-<div class="collapse bg-results bg-light" id="saber-mas">
+<div class="bg-results" id="saber-mas">
   <div class="container p-2">
     <div class="row mt-5 mb-3">
-      <div class="col-9">
+      <div class="col-sm-7 col-md-7 col-lg-7">
         <h3>
           <% if (0..0.75).include? @calorias / @hs1 %>
             <p>Tu consumo actual de kcal es deficiente. ¡Está en riesgo tu salud!</p>
@@ -279,15 +295,15 @@
         <p>Abre tu mente al consumo de fuentes alternativas de proteínas como <strong>leguminosas e insectos</strong>.</p><br>
         <p>Busca <strong>asesoría</strong> de un profesional de la salud si no sabes qué hacer. Estamos para ayudarte e informarte.</p>
       </div>
-      <div class="col-3 d-flex flex-column justify-content-around">
+      <div class="col-sm-4 col-md-4 col-lg-4 d-flex flex-column">
         <%= image_tag "corazon.png", class: "dieta-pic" %>
         <%= image_tag "rinon.png", class: "dieta-pic" %>
         <%= image_tag "co2.png", class: "dieta-pic" %>
       </div>
     </div>
   </div>
-  <div class="bg-results bg-success text-white p-2">
+  <div class="bg-results bg-success  p-2">
     <p class="text-justify"><small>* Los resultados de este cuestionario pueden variar en casos específicos. Contáctanos para saber más sobre el marco y el alcance de este proyecto científico. ¡Muchas gracias!</small></p>
-    <p class="text-center"><small><strong>huelladecarbonoysalud@gmail.com</strong></small></p>
+    <p class="text-center text-white"><small><strong>huelladecarbonoysalud@gmail.com</strong></small></p>
   </div>
 </div>
