@@ -61,7 +61,12 @@ class CuestionariosController < ApplicationController
     # Mujeres: TMB = 655 + (9,6 x peso en kg) + (1.8 x altura en cm) - (4,7 x edad en años).
     # Hombres: Tasa Metabólica basal = 66 + (13,7 x peso en kg) + (5 x altura en cm) - (6,75 x edad en años).
     gender = @cuestionario.sexo
-    height = (@cuestionario.altura * 100).to_i
+    heightMultiplier = 1
+    if @cuestionario.altura.to_i <= 2
+      heightMultiplier = 100
+    end
+
+    height = (@cuestionario.altura * heightMultiplier).to_i
     age = @cuestionario.edad
     total = nil
     if gender.eql?('femenino')
@@ -103,7 +108,11 @@ class CuestionariosController < ApplicationController
     # Peso ideal mujer = (altura cm – 100) – ([altura cm – 150) / 2.5].
     # Peso ideal hombre = (altura cm – 100) – [( altura cm – 150) / 4].
     gender = @cuestionario.sexo
-    height = (@cuestionario.altura * 100).to_i
+    heightMultiplier = 1
+    if @cuestionario.altura.to_i <= 2
+      heightMultiplier = 100
+    end
+    height = (@cuestionario.altura * heightMultiplier).to_i
     @lorentz = nil
 
     if gender.eql?('femenino')
